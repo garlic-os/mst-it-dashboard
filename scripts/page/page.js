@@ -179,8 +179,8 @@ function setApp(app) {
             loadJsApp("./scripts/page/help.js");
             break;
         default: // Nothing
-            // Error 0
-            window.location.replace(`./${rootFile}?app=error&code=0`);
+            // Go to root
+            window.location.replace(`./${rootFile}`);
             break;
     }
 }
