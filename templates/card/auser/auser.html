@@ -1,0 +1,20 @@
+<div class="uk-card uk-card-primary">
+    <div class="uk-card-header">
+        <h4 class="uk-card-title" uk-icon="icon: user">
+            <a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl">User</a>
+        </h4>
+    </div>
+    <div class="uk-card-body">
+        <input id="analyzeUser" name="analyzeUser" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="User Info" />
+        <br /><br />
+        <button id="analyzeUserButton" onclick="handleAnalyzeUser(0)" class="uk-button uk-button-default uk-button-small">
+            SSO/ID
+        </button>
+        <button onclick="handleAnalyzeUser(1)" class="uk-button uk-button-default uk-button-small">
+            Name
+        </button>
+        <button onclick="handleAnalyzeUser(2)" class="uk-button uk-button-default uk-button-small">
+            Email
+        </button>
+    </div>
+</div>
