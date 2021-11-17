@@ -24,6 +24,11 @@
 	top: 0;
 	width: 100%;
 }
+
+#statusCard {
+	display: none;
+}
+
 .iframe-hide {
     visibility: hidden;
 }
@@ -93,6 +98,11 @@
 .systemStatus button.systemStatus-expand.active, button.systemStatus-expand:hover {
 	background-color: #eeeeee;
 }
+
+.open {
+	display: block !important;
+}
+
 @media only screen and (max-device-width: 480px) {
 	.systemStatus {
 		position: static;

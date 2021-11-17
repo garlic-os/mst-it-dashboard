@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 		
 		// Update status button color
-		if(inProgress) {
+		if (inProgress) {
 			var buttons = document.getElementsByClassName("systemStatus-button");
 			for (var k = 0; k < buttons.length; k++)
 				buttons[k].style.color = "#f48b8b";
@@ -109,11 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-function switchView(){
-	var currentView = window.getComputedStyle(document.querySelector('#statusCard')).display;
-	if(currentView == "none"){
-		document.getElementById("statusCard").style.display = "inherit";
-	}else{
-		document.getElementById("statusCard").style.display = "none";
-	}
+function toggleNotificationsMenu() {
+	document.querySelector("#statusCard").classList.toggle("open");
 }
