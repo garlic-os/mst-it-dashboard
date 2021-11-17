@@ -1,0 +1,8 @@
+Hello[custName],
+
+To have one of our IT Technicians move your office phone and computer equipment, there is a minimum fee of $35 per hour.  Please provide a MOCODE and we will assign your ticket to the technicians. 
+
+[resolving]For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] updating this ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk

@@ -1,0 +1,46 @@
+<div class="uk-card uk-card-primary">
+    <div class="uk-card-header">
+        <h4 class="uk-card-title" uk-icon="icon: server">
+            <a target="_blank" href="https://itweb.mst.edu/~netdb">NetDB</a>
+        </h4>
+    </div>
+    <div class="uk-card-body">
+        <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+            <li><a href="#">View</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <input id="netdb" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Computer Info" />
+                <br /><br />
+                <button id="ndbViewButton" class="uk-button uk-button-default uk-button-small" onclick="handleNetDB(0)">
+                    Host/MAC
+                </button>
+                <button class="uk-button uk-button-default uk-button-small" onclick="handleNetDB(1)">
+                    Loc
+                </button>
+                <button class="uk-button uk-button-default uk-button-small" onclick="handleNetDB(2)">
+                    Owner
+                </button>
+                <button class="uk-button uk-button-default uk-button-small" onclick="handleNetDB(5)">
+                    Desc
+                </button>
+                <button class="uk-button uk-button-default uk-button-small" onclick="handleNetDB(6)">
+                    IP
+                </button>
+            </li>
+            <li>
+                <input id="netdbOwner" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Owner UserID" />
+                <input id="netdbMac" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="MAC Address" />
+                <br /><br />
+                <button id="ndbRegButton" class="uk-button uk-button-default uk-button-small" onclick="handleNetDB(3)">
+                    Standard
+                </button>
+                <button class="uk-button uk-button-default uk-button-small" onclick="handleNetDB(4)">
+                    Traveling
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>

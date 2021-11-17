@@ -1,0 +1,32 @@
+#iframeCard{
+  background: #000;
+}
+
+.systemStatus .systemStatus-content {
+  color: white;
+  background-color: black;
+}
+
+.systemStatus .systemStatus-desc {
+  background-color: black;
+}
+
+.systemStatus button.systemStatus-expand {
+  border: 1px solid rgba(255,255,255,.12) !important;
+  background-color: #000000;
+  color: #888;
+}
+
+.systemStatus button.systemStatus-expand.active, button.systemStatus-expand:hover {
+  background-color: #222222;
+}
+
+
+.uk-navbar-dropdown {
+  background: rgb(70, 70, 70);
+  border: 1px solid rgb(114, 114, 114);
+}
+
+.uk-navbar-dropdown li {
+	color: #fff;
+}

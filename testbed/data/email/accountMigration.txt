@@ -1,0 +1,13 @@
+Hello[custName],
+
+Your account has been successfully migrated to Missouri S&T's domain. You may now set up your student GMail account. To do this, please follow the steps below:
+
+1.  Visit http://googlesync.mst.edu/.
+2.  In the fields provided, enter your email address(username@mst.edu) and your password. These will be the same as your Joe'SS username and password. If you do not know your Joe'SS username or password, please call the Help Desk directly.
+3.  Once you've entered your information, click "Activate Account". This will synchronize your student account with Google's services, and grant you access to your student email inbox.
+4.  Visit http://gmail.mst.edu/, sign in with your @mst.edu email address and your campus password, and confirm that you are able to log in and view your email inbox.
+
+[resolving]For assistance, or if you experience difficulty during any part of this process, you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk

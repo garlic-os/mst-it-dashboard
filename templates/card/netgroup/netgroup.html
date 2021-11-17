@@ -1,0 +1,37 @@
+<div class="uk-card uk-card-primary">
+    <div class="uk-card-header">
+        <h4 class="uk-card-title" uk-icon="icon: users">
+            <a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl">Netgroups</a>
+        </h4>
+    </div>
+    <div class="uk-card-body">
+        <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+            <li><a href="#">Add</a></li>
+            <li><a href="#">View</a></li>
+        </ul>
+        <!-- Netgroup list will be filled by JS -->
+        <datalist id="netgroupList">
+            <option value="JS Disabled">
+        </datalist>
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <form action="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl" method="post" target="iframe" autocomplete="off">
+                    <input name="add_mem" class="uk-input uk-form-width-medium uk-form-small" type="text" id="netgroupUserInput" placeholder="UserID(s)">
+                    <input name="groups" class="uk-input uk-form-width-medium uk-form-small" type="text" id="netgroupNetGroupInput" list="netgroupList" placeholder="Netgroup">
+                    <input type="text" name="mode" value="add_member" readonly style="display:none" />
+                    <br /><br />
+                    <input type="submit" class="uk-button uk-button-default uk-button-small" onclick="handleForm()" />
+                </form>
+            </li>
+            <li>
+                <form action="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl" method="post" target="iframe" autocomplete="off">
+                    <input name="groups" class="uk-input uk-form-width-medium uk-form-small" type="text" id="netgroupViewInput" list="netgroupList" placeholder="Netgroup">
+                    <input type="text" name="mode" value="query" readonly style="display:none" />
+                    <input type="text" name="option" value="show" readonly style="display:none" />
+                    <br /><br />
+                    <input type="submit" class="uk-button uk-button-default uk-button-small" onclick="handleForm()" />
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>

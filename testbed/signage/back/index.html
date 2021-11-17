@@ -1,0 +1,36 @@
+<style>
+html, body {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+</style>
+<body onload="setShow()">
+<iframe id="show" style="background: black" src="http://web.mst.edu/~ithelp/signage/" frameborder="0" width="100%" height="1080px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">Loading...</iframe>
+</body>
+<script>
+var today = new Date().getDay();
+console.log(today);
+function setShow(){
+	switch(today){
+	 case 1: // Monday
+		document.getElementById('show').src = "https://docs.google.com/spreadsheets/d/1Q09e9FfwaKZEhBnHu2bok4CrSEf_RyheK1CNABOk-8o/preview#gid=1673642557";
+		break;
+	 case 2: // Tuesday
+		document.getElementById('show').src = "https://docs.google.com/spreadsheets/d/1Q09e9FfwaKZEhBnHu2bok4CrSEf_RyheK1CNABOk-8o/preview#gid=2078272377";
+		break;
+	 case 3: // Wednesday
+		document.getElementById('show').src = "https://docs.google.com/spreadsheets/d/1Q09e9FfwaKZEhBnHu2bok4CrSEf_RyheK1CNABOk-8o/preview#gid=2088030683";
+		break;
+	 case 4: // Thursday
+		document.getElementById('show').src = "https://docs.google.com/spreadsheets/d/1Q09e9FfwaKZEhBnHu2bok4CrSEf_RyheK1CNABOk-8o/preview#gid=170726327";
+		break;
+	 case 5: // Friday
+		document.getElementById('show').src = "https://docs.google.com/spreadsheets/d/1Q09e9FfwaKZEhBnHu2bok4CrSEf_RyheK1CNABOk-8o/preview#gid=2041588932";
+		break;
+	 default: // Weekends
+		// Put it in reverse Terry!
+		break;
+	}
+}
+</script>

@@ -1,0 +1,6 @@
+Hello[custName],  
+
+We have not heard back from you in a while, we will resolve this incident, but feel free to reopen it if you are still having issues.
+
+Thank you, 
+S&T IT Help Desk 

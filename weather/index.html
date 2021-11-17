@@ -1,0 +1,129 @@
+<link href="https://fonts.googleapis.com/css?family=Hanalei+Fill|Roboto+Slab" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/radar.css">
+<style>
+html, body {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	background-color: 007a33;
+	background-image: url("img/logo.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 15%;
+}
+section {
+        background: black;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+		font-family: 'Roboto Slab', serif;
+		font-size: 56px}
+table{
+	color: white;
+	font-size: 36px;
+	font-family: 'Roboto Slab', serif;
+}
+.current-temperature{
+	font-size: 125px;
+}
+</style>
+<body onload="fetchCurrentWeather()">
+<section>
+<table>
+	<tr>
+		<td>
+			<table>
+				<tr>
+					<th>Current Conditions in </th>
+					<th align="left" id="loc">Rolla</th>
+				</tr>
+				<tr>
+					<td id="ico">--</td>
+					<td id="current">Text description...</td>
+				</tr>
+				<tr>
+					<td class="current-temperature" id="tmp">--</td>
+					<td id="tmp-more">--</td>
+				</tr>
+				<tr>
+					<img src="http://icons.wunderground.com/webcamramdisk/r/i/RidgeRoad/1/current.jpg" />
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<img src="https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?station=LSX&brand=wui&num=10&delay=15&type=N0R&frame=0&scale=0.29347826086956524&noclutter=0&showstorms=0&mapx=400&mapy=240&centerx=735.6296296296296&centery=-75.1851851851851&transx=335.62962962962956&transy=-315.1851851851851&showlabels=1&severe=0&rainsnow=0&lightning=0&smooth=1&rand=25592610&lat=37.95000076&lon=-91.76999664&label=Rolla"/>
+				</tr>
+				<tr>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</section>
+</body>
+<script>
+var currentCondition;
+var windSpeed;
+var gusts;
+var visibility;
+var humidity;
+var dewPoint;
+var pressure;
+var pressureTrend;
+var currentIcon;
+var currentTemperature;
+function fetchCurrentWeather(){
+  fetch('https://api.weather.gov/stations/KVIH/observations/current', {
+	  headers:{
+		  'user-agent': 'apples@mst.edu - Automated Weather Display (Webkit)',
+		  'accept': 'application/geo+json'
+		  }
+  })
+  .then(function(response) {
+    if (response.status !== 200) {
+      console.log("conditions request error");
+      return;
+    }
+    response.json().then(function(data) {
+      //try{cityName = data.current_observation.display_location.city.toUpperCase();}
+      //catch(err){alert("Enter valid ZIP code"); getZipCodeFromUser(); return;}
+	  if (data.properties.temperature.value == null){
+		  currentTemperature = '404';
+	  } else {
+		 currentTemperature = Math.round(data.properties.temperature.value*1.8+32); 
+	  }
+      currentCondition = data.properties.textDescription;
+	  console.log(currentCondition);
+      windSpeed = Math.round(data.properties.windSpeed.value*2.23694) + "mph";
+      gusts = data.properties.windGust.value;
+      if(gusts == "null"){gusts = "NONE";}
+      // feelsLike = data.current_observation.feelslike_f;
+      visibility = Math.round((data.properties.visibility.value / 1000)/1.609344);
+      humidity = Math.round(data.properties.relativeHumidity.value);
+      dewPoint = Math.round(data.properties.dewpoint.value*1.8+32);
+      pressure = Math.round(data.properties.barometricPressure.value*0.00029530)*(-1);
+      //if(data.current_observation.pressure_trend == "+"){
+      //  pressureTrend = "?"
+      //}else{
+      //  pressureTrend = "?"
+      //}
+	  pressureTrend = "-"
+      currentIcon = data.properties.icon;
+	  document.getElementById('ico').innerHTML = '<img width="50%" src="' + currentIcon + '"/>';
+	  document.getElementById('tmp').innerHTML = currentTemperature + '&deg';
+	  document.getElementById('current').innerHTML = currentCondition + '<br/>' + 'Wind: ' + windSpeed + '<br/>Humidity: ' + humidity + '%';
+	  document.getElementById('tmp-more').innerHTML = 'Visibility: ' + visibility + ' miles<br/>Dew: ' + dewPoint + '&deg' + '<br/>Pressure: ' + pressure;
+    });
+  })
+  
+}
+</script>

@@ -1,0 +1,17 @@
+Hello[custName],
+
+You've requested instructions on how to map your S: drive on your machine. Please perform the following steps to do so for a Windows computer:
+
+1. Ensure that you are connected to the MST campus network or are using campus VPN.
+2. Click the Start Button, then open "File Explorer". From there, you will need to open "My Computer". If you are Windows 7 this is called "Computer"; if you are on Windows 10, it is called "This PC".
+3. From the menu on the top, select "Map Network Drive".
+4. Change the Drive letter to "S:". If this label is already in use, choosing a different letter will also work just fine.
+5. In the folder box, enter the following: \\minerfiles.mst.edu\dfs\users\{your username}
+6. Mark the box "Connect using different credentials"
+7. A dialog box should now appear asking you for a username and password. Your username will be MST-USERS\{your username}. Your password will be your university password.
+8. Your S: drive should now be mapped. You can access your files through the Network Locations section under "Computer" in the start menu.
+
+[resolving]For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+
+Thank You,
+S&T IT Help Desk

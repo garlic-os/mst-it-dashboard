@@ -1,0 +1,8 @@
+Hello[custName],
+
+This is the IT Help Desk. We have finished replacing the [dellWarranty_part] on your Dell laptop. There will be no fee for this service as it was covered under your Dell warranty. You may pick it up at the IT Help Desk during our hours 8:30am - 4:30pm Monday - Friday.
+
+[resolving]For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk

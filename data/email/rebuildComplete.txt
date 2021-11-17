@@ -1,0 +1,8 @@
+Hello[custName],
+
+This is the IT Help Desk. We have completed a rebuild of your computer [rebuild_comp]. Your computer now contains the campus standard edition of Windows [rebuild_winVersion] with the following software installed: [rebuild_software]Microsoft Office, Adobe Acrobat Pro, and standard internet browsers. You may pick it up at the IT Help Desk during our normal hours, weekdays 8:30am - 4:30pm.
+
+For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk

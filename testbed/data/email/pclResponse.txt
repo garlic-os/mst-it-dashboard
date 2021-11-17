@@ -1,0 +1,8 @@
+Hello[custName], 
+
+We are currently experiencing issues with printers campus-wide.  Our IT Technicians are working to resolve the PCL XL errors.  Your issue has been added to the master ticket.; this ticket will be resolved, and you will be notified when the problem is resolved. 
+
+For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+                
+Thank You,
+S&T IT Help Desk

@@ -1,0 +1,20 @@
+<div id="iframeCard" class="uk-animation-fade iframe-hide uk-position-center">
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light bottom: #transparent-sticky-navbar">
+        <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
+            <div class="uk-navbar-left">
+                <h3 id="iframeTitle" class="uk-margin-left uk-text-muted">Resources</h3>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a onclick="expandPopup()" uk-icon="icon: sign-out"></a>
+                    </li>
+                    <li>
+                        <a onclick="closePopup()" uk-icon="icon: close"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <iframe id="iframeURL" name="iframe" src=""></iframe>
+    </div>
+</div>

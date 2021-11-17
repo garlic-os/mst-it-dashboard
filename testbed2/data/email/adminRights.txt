@@ -1,0 +1,8 @@
+Hello[custName],
+
+Administrative privileges on [adminRights_comp] have been granted to [adminRights_userID] and will take effect the next time the user logs in. Please note that this user will now have access to the C:\ drive, as well as software installation privileges. Please maintain the campus guidelines for appropriate computer use and software installation. 
+
+[resolving]For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk

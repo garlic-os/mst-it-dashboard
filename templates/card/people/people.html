@@ -1,0 +1,30 @@
+<div class="uk-card uk-card-primary">
+    <div class="uk-card-header">
+        <h4 class="uk-card-title" uk-icon="icon: search">
+            <a target="_blank" href="https://people.mst.edu">People Search</a>
+        </h4>
+    </div>
+    <div class="uk-card-body">
+        <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+            <li><a href="#">Normal</a></li>
+            <li><a href="#">Turbo</a></li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <form action="https://itweb.mst.edu/cgi-bin/cgiwrap/campdir/directory.pl" target="iframeURL" method="post" name="directory">
+                    <input class="uk-input uk-form-width-medium uk-form-small" type="text" id="peopleInput" name="name" placeholder="Name">
+                    <br /><br />
+                    <input type="submit" class="uk-button uk-button-default uk-button-small" onclick="handlePeople(0)" />
+                </form>
+            </li>
+            <li>
+                <input class="uk-input uk-form-width-medium uk-form-small" type="text" id="googleInput" placeholder="Enter Any Info" />
+                <br /><br />
+                <button id="turboButton" class="uk-button uk-button-default uk-button-small" onclick="handlePeople(1)">
+                    Search
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>

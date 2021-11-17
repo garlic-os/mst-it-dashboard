@@ -1,0 +1,10 @@
+Hello[custName],
+
+Your account has been granted access to a free student copy of Solidworks. You may now download the software from our network drive. For more information on how to access this network drive and download SolidWorks visit the link below. Please note that this license is only to be used for educational purposes on personal computers. You may not install this license on university computers or use it as part of faculty-funded research.
+ 
+http://it.mst.edu/services/software/personal/solidworks/download/ 
+
+For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank you,
+S&T IT Help Desk

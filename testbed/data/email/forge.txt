@@ -1,0 +1,8 @@
+Hello[custName],
+
+Your account has been enabled for access to The Forge, MST's high-performance computing cluster. Shortly, you should receive an email to your student email account containing documentation and helpful links, as well as requesting you to fill out a survey from our Research team.
+
+[resolving]For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk

@@ -1,0 +1,116 @@
+.broken-radar-text{
+  background-color: rgba(0, 0, 0, .75);
+  position: absolute;
+  width: 100%;
+  height: 75px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.key{
+  display: inline-block;
+  float: right;
+  height: 100%;
+}
+
+.key-item{
+  margin-left: 10px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.key-item-rain{
+  width: 100%;
+}
+
+.key-item-tornado{
+	width: 115px;
+}
+
+.key-item-mix{
+  width: 50px;
+}
+
+.key-item-snow{
+  width: 50px;
+}
+
+.key-color-group{
+  width: 100%;
+  height: 30%;
+  display: table;
+}
+
+.key-color{
+  display: table-cell;
+}
+
+.key-label{
+  width: 100%;
+  height: 70%;
+  font-size: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  margin-left: 2px;
+}
+
+.topo{
+    position:absolute;
+	top: 0px;
+	left: 0px;
+    height: 100%;
+    z-index: 1;
+    object-fit:contain;
+}
+.warnings{
+    position:absolute;
+	top: 0px;
+	left: 0px;
+    height: 100%;
+    z-index: 999;
+    object-fit:contain;
+}
+
+.radarimg{
+    position:absolute;
+	top: 0px;
+	left: 0px;
+    height: 100%;
+    z-index: 3;
+    object-fit:contain;
+}
+
+.county{
+    position:absolute;
+	top: 0px;
+	left: 0px;
+    height: 100%;
+    z-index: 4;
+    object-fit:contain;
+}
+
+.highways{
+    position:absolute;
+	top: 0px;
+	left: 0px;
+    height: 100%;
+    z-index: 5;
+    object-fit:contain;
+}
+
+.cities{
+    position:absolute;
+	top: 0px;
+	left: 0px;
+    height: 100%;
+    z-index: 6;
+    object-fit:contain;
+}
+
+.legend{
+    position:relative;
+    height: 100%;
+    z-index: 7;
+    object-fit:contain;
+}

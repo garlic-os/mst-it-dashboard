@@ -1,0 +1,85 @@
+<link href="https://fonts.googleapis.com/css?family=Hanalei+Fill|Roboto+Slab" rel="stylesheet">
+<style>
+html, body {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	background-color: 007a33;
+	background-image: url("img/logo.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 15%;
+}
+section {
+        background: black;
+        color: white;
+        border-radius: 1em;
+        padding: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+		font-family: 'Roboto Slab', serif;
+		font-size: 56px}
+</style>
+<body onload="fetchCurrentWeather()">
+<section>
+<h1 id="text">It's...</h1>
+</section>
+</body>
+<script>
+var currentCondition;
+var windSpeed;
+var gusts;
+var visibility;
+var humidity;
+var dewPoint;
+var pressure;
+var pressureTrend;
+var currentIcon;
+var currentTemperature;
+function fetchCurrentWeather(){
+  fetch('https://api.weather.gov/stations/KVIH/observations/current', {
+	  headers:{
+		  'user-agent': 'apples@mst.edu - Automated Weather Display (Webkit)',
+		  'accept': 'application/geo+json'
+		  }
+  })
+  .then(function(response) {
+    if (response.status !== 200) {
+      console.log("conditions request error");
+      return;
+    }
+    response.json().then(function(data) {
+      //try{cityName = data.current_observation.display_location.city.toUpperCase();}
+      //catch(err){alert("Enter valid ZIP code"); getZipCodeFromUser(); return;}
+	  if (data.properties.temperature.value == null){
+		  currentTemperature = '404';
+	  } else {
+		 currentTemperature = Math.round(data.properties.temperature.value*1.8+32); 
+	  }
+      currentCondition = data.properties.textDescription;
+	  console.log(currentCondition);
+      windSpeed = Math.round(data.properties.windSpeed.value*2.23694) + "mph";
+      gusts = data.properties.windGust.value;
+      if(gusts == "null"){gusts = "NONE";}
+      // feelsLike = data.current_observation.feelslike_f;
+      visibility = Math.round((data.properties.visibility.value / 1000)/1.609344);
+      humidity = Math.round(data.properties.relativeHumidity.value);
+      dewPoint = Math.round(data.properties.dewpoint.value);
+      pressure = Math.round(data.properties.barometricPressure.value*0.00029530)*(-1);
+      //if(data.current_observation.pressure_trend == "+"){
+      //  pressureTrend = "▲"
+      //}else{
+      //  pressureTrend = "▼"
+      //}
+	  pressureTrend = "-"
+      currentIcon = data.properties.icon;
+	  document.getElementById('text').innerHTML = "It's " + Math.round(data.properties.temperature.value*1.8+32) + " and " + data.properties.textDescription + "<br/>At Rolla Nat'l Airport";
+    });
+  })
+  
+}
+</script>

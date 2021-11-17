@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="css/text.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/page.css">
+  <link rel="stylesheet" type="text/css" href="css/alert.css">
+  <link rel="stylesheet" type="text/css" href="css/background.css">
+  <link rel="stylesheet" type="text/css" href="css/crawl.css">
+  <link rel="stylesheet" type="text/css" href="css/currentconditions.css">
+  <link rel="stylesheet" type="text/css" href="css/forecast.css">
+  <link rel="stylesheet" type="text/css" href="css/greeting.css">
+  <link rel="stylesheet" type="text/css" href="css/infobar.css">
+  <link rel="stylesheet" type="text/css" href="css/outlook.css">
+  <link rel="stylesheet" type="text/css" href="css/radar.css">
+  <link rel="stylesheet" type="text/css" href="css/settings.css">
+  <link rel="stylesheet" type="text/css" href="css/timeline.css">
+  <link rel="stylesheet" type="text/css" href="css/amazing.css">
+  <link rel="stylesheet" type="text/css" href="css/updated.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <title>NOAA Dopplar Radar</title>
+</head>
+
+<body>
+  <div id="render-frame">
+    <!--Main Container-->
+    <div id="content-frame" style="height: 700px;">
+      <!-- Radar Page -->
+      <div id="radar-page" class="page-container">
+        <div class="page-title-bar regular-text">
+          <div style="display: inline-block">NOAA Weather Radar</div>
+		  <div class="key">
+            <div class="key-item key-item-tornado">
+              <div class="key-color-group">
+                <div class="key-color" style="background-color: #228B22;"></div>
+              </div>
+              <div class="key-label">Flood</div>
+            </div>
+          </div>
+		  <div class="key">
+            <div class="key-item key-item-tornado">
+              <div class="key-color-group">
+                <div class="key-color" style="background-color: #FFFF00;"></div>
+              </div>
+              <div class="key-label">Severe</div>
+            </div>
+          </div>
+		  <div class="key">
+            <div class="key-item key-item-tornado">
+              <div class="key-color-group">
+                <div class="key-color" style="background-color: #FD0000;"></div>
+              </div>
+              <div class="key-label">Tornado</div>
+            </div>
+          </div>
+          <div class="key">
+            <div class="key-item key-item-rain">
+              <div class="key-color-group">
+                <div class="key-color" style="background-color: #ccffff;"></div>
+                <div class="key-color" style="background-color: #cc99cc;"></div>
+                <div class="key-color" style="background-color: #996699;"></div>
+                <div class="key-color" style="background-color: #663366;"></div>
+				<div class="key-color" style="background-color: #cccc99;"></div>
+				<div class="key-color" style="background-color: #999966;"></div>
+				<div class="key-color" style="background-color: #646464;"></div>
+				<div class="key-color" style="background-color: #04E9E7;"></div>
+				<div class="key-color" style="background-color: #019FF4;"></div>
+				<div class="key-color" style="background-color: #0300F4;"></div>
+				<div class="key-color" style="background-color: #02FD02;"></div>
+				<div class="key-color" style="background-color: #01C501;"></div>
+				<div class="key-color" style="background-color: #008E00;"></div>
+				<div class="key-color" style="background-color: #FDF802;"></div>
+				<div class="key-color" style="background-color: #E5BC00;"></div>
+				<div class="key-color" style="background-color: #FD9500;"></div>
+				<div class="key-color" style="background-color: #FD0000;"></div>
+				<div class="key-color" style="background-color: #D40000;"></div>
+				<div class="key-color" style="background-color: #BC0000;"></div>
+				<div class="key-color" style="background-color: #F800FD;"></div>
+				<div class="key-color" style="background-color: #9854C6;"></div>
+				<div class="key-color" style="background-color: #FDFDFD;"></div>
+              </div>
+              <div class="key-label">Reflectivity (-30 to 75 DBZ)</div>
+            </div>
+          </div>
+        </div>
+        <div class="page-content-container">
+		<div id="radar-container" style="position: absolute; height: 700px">
+            <img src="https://radar.weather.gov/ridge/Overlays/Topo/Short/LSX_Topo_Short.jpg" class="topo" />
+            <img src="https://radar.weather.gov/ridge/Warnings/Short/LSX_Warnings_0.gif" class="warnings" />
+            <img src="https://radar.weather.gov/ridge/RadarImg/N0R/LSX_N0R_0.gif" class="radarimg" />
+            <img src="https://radar.weather.gov/ridge/Overlays/County/Short/LSX_County_Short.gif" class="county" />
+            <img src="https://radar.weather.gov/ridge/Overlays/Highways/Short/LSX_Highways_Short.gif" class="highways" />
+            <img src="https://radar.weather.gov/ridge/Overlays/Cities/Short/LSX_City_Short.gif" class="cities" />
+        </div>
+		
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+Hello[custName],
+
+It looks like you're currently set up as a [dualEnroll_school] student right now. Missouri S&T and [dualEnroll_school] are both University of Missouri system schools and as such, share an account database. This can be either due to taking dual credit classes there in high school, or by applying for admission there. If you no longer have any affiliation with [dualEnroll_school] (i.e. no longer are enrolled in any dual credit classes through there), then we can move your account to Missouri S&T. However, if you are still affiliated we must leave your account as is. Currently your Missouri S&T email address is set up for automatically forward mail to your [dualEnroll_school] email address. In order to gain access to your [dualEnroll_school] email inbox to view your emails, you will need to contact [dualEnroll_school]'s Help Desk. Their contact information can be found here [dualEnroll_contactInfo].
+
+Please do let us know if you have any questions about this process.
+
+Regards,
+S&T IT Help Desk

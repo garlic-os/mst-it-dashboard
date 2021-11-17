@@ -1,0 +1,19 @@
+Hello[custName],
+
+This is the IT Help Desk. We have received your request for a redeploy computer. In order for us to move forward with your request, we need for you to answer a few questions, please. 
+
+1.  Do you prefer a Windows or Mac computer?
+2.  Who will the primary user(s) be?
+3.  Who is the faculty advisor, or staff supervisor of the primary user(s)?
+4.  What is the campus computer’s name and/or model number that is currently in use?
+5.  In what building and room number would the redeploy computer be located?
+6.  Who, if anyone, needs administrative rights on the redeploy computer?
+7.  What software needs to be installed on the redeploy computer?
+8.  If the software requires purchasing a license, please provide a mocode can we charge for the license.
+9.  Do you need a redeploy monitor?
+10. Are there enough active network jacks in the room to support additional computers?
+
+For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk

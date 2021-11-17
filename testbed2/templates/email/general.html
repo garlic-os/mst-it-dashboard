@@ -1,0 +1,49 @@
+<!-- Persistent  Notice -->
+<div class="uk-alert-danger uk-position-bottom-center" uk-alert>
+        <p id="alert-message">If you notice discontinued or out-of-date templates, email <a href="mailto:t-skyxr5@mst.edu">Sean</a></p>
+</div>
+<div class="uk-position-center uk-width-expand">
+    <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid" uk-grid="masonry: true">
+         <!--Email Editor-->
+        <div class="uk-card uk-card-primary">
+            <div class="uk-card-header">
+                <h3 id="tmpl_title" class="uk-title-header">Email Generator</h3>
+                <select name="emails" class="uk-select uk-form-width-medium" type="text" id="emailTemplateSearch" placeholder="Default"></select>
+                <button id="select" class="uk-button uk-button-default" onclick="emailSelect()">Select</button>
+                <button id="copy" class="uk-button uk-button-default" onclick="copyEmail()">Copy to Clipboard</button>
+                <button id="copy" class="uk-button uk-button-default" onclick="listSelect(currTempId)">Reset Text</button>
+            </div>
+            <div class="uk-card-body">
+                <div class="uk-margin">
+                    <textarea id="msg" class="uk-textarea uk-height-large" rows="5" placeholder="Javascript is Disabled. (Or there is no programming yet.)"></textarea>
+                </div>
+                <div class="uk-margin">
+                    
+                </div>
+            </div>
+        </div>
+         <!--Generic Options-->
+        <div class="uk-card uk-card-primary">
+            <div class="uk-card-body">
+                <h3 class="uk-title-header">Email Options</h3>
+                <div class="uk-margin">
+                    <input id="custNameInput" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Customer Name" oninput="updateMessage()">
+                </div>
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                    <label><input id="tickOpen_true" class="uk-radio" type="radio" name="tickOpen" onchange="updateMessage()" checked> Still Open</label>
+                    <label><input id="tickOpen_false" class="uk-radio" type="radio" name="tickOpen" onchange="updateMessage()"> Being Resolved</label>
+                </div>
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                    <label><input id="tickUpdateInfo" class="uk-checkbox" type="checkbox" onchange="updateMessage()"> Add Info on Updating Ticket?</label>
+                </div>
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-title-header">Template Specific</h3>
+                <!--Filled Dynamically -->
+                <div id="template_options"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

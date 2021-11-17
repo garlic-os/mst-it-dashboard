@@ -1,0 +1,30 @@
+html {
+  background: #000;
+}
+
+:not(pre) > code,
+:not(pre) > kbd,
+:not(pre) > samp {
+  color: #000;
+}
+
+.uk-card-primary.uk-card-hover:hover {
+  background-color: #222;
+}
+
+.uk-alert-primary {
+  background: #333;
+}
+.uk-alert-success {
+  background: #333;
+}
+.uk-alert-warning {
+  background: #333;
+}
+.uk-alert-danger {
+  background: #333;
+}
+
+.uk-navbar-container:not(.uk-navbar-transparent) {
+  background: #222;
+}

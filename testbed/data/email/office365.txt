@@ -1,0 +1,35 @@
+Hello[custName],
+
+You recently requested assistance in downloading your student copy of Microsoft Office 365. This software is available as a licensed version for all enrolled S&T students. This license entitled you to install Microsoft Office on up to four computers and works on both Macintosh and Windows operating systems. Please also note that because this is a licensed version, it is only valid for as long as you are an enrolled student at S&T.
+
+Please follow the steps below to get started.
+
+1) Visit the following website: https://accounts.umsystem.edu/
+
+2) You will be presented with a University of Missouri System website. Login by entering your S&T student username and password.
+
+3) You will be presented with a number of different account action. Under the box for "Office 365 Account", select "Reset Office 365 Pasword". If you do not see this option, please contact the Help Desk.
+
+4) Set a password for you Microsoft Office 365 account. Note that this password is NOT kept in sync with your student password, and will not affect any of your other logins.
+
+5) After your password has been set, select "Click here to log in to your O365 account."
+
+6) Login with the following information. Note that this email address is different from your student GMail address. This is okay.
+      
+	  Email: [your username]@mail.mst.edu
+	  Password: [the password you just set]
+	  
+   If you still get "We don't recognize this user ID or password", please contact the Help Desk.
+	  
+7) Click on the Office 365 logo in the top left corner of the screen. This will take you to your Office online home page.
+
+8) From here, you will be able to manage your office installations. To download the installer for Microsoft Office, click the "Install Office 2016" button in the top right corner.
+
+9) Once the download completes, run the downloaded installer. The installation process generally takes about 20-30 minutes on most computers.
+
+10) After the installation completes, run one of the programs (for example, Microsoft Word). You may be prompted to activate your account. If so, choose, "Activate with a school of work account" and then follow the steps to input your email and password from Step 6.
+
+[resolving]For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk

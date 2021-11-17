@@ -1,0 +1,99 @@
+<!-- Navigation -->
+<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light bottom: #transparent-sticky-navbar">
+    <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-toggle" uk-icon="home" href="./"></a>
+            <span id="page-title" class="uk-navbar-item uk-logo">Dashboard</span>
+            <div onclick="switchView()" class="systemStatus">
+                <span class="systemStatus-button" uk-icon="warning"></span>
+                <div id="statusCard" style="display: none;" class="systemStatus-content uk-card uk-card-body">
+                    <div class="uk-spinner is-active"></div>
+                </div> 
+            </div>
+        </div>
+        <div id="linknav" class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li dept="all">
+                    <a target="_blank" href="https://cherwell.umsystem.edu/CherwellClient">Cherwell</a>
+                </li>
+                <li dept="hd">
+                    <a target="_blank" href="https://sso.8x8.com/signout/vcc-na7">8x8</a>
+                </li>
+                <li dept="all">
+                    <a target="_blank" href="https://myhr.umsystem.edu/">myHR</a>
+                </li>
+                <li dept="all">
+                    <a target="_blank" href="https://portal.azure.com">Azure</a>
+                </li>
+            </ul>
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="./?app=12">Apps</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li dept="all"><a href="./?app=4">Canned Emails</a></li>
+                            <li dept="all"><a href="./?app=3">Forms & Waivers</a></li>
+                            <li dept="all"><a href="./?app=13">Remote Desktop</a></li>
+                            <li dept="all"><a href="./?app=8&type=wu">Local Weather</a></li>
+                            <li dept="all"><a href="./?app=8&type=nws">NWS Weather Radar</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>Tools</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li dept="all"><a target="_blank" href="https://password.umsystem.edu/MSTSupport">Azure</a></li>
+                            <li dept="all"><a target="_blank" href="https://131.151.249.181/manage/#/login">SafeConnect</a></li>
+                            <li dept="all"><a target="_blank" href="https://papercut.mst.edu/admin?">PaperCut</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/listmgr/list_tools_menu.pl">ListServ</a></li>
+                            <li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/wcat/win-object-admin.pl">Object Admin Tool</a></li>
+                            <li dept="all" class="uk-nav-divider"></li>
+                            <li dept="all"><a target="_blank" href="https://itweb.mst.edu/cgi-bin/cgiwrap/clcreq/software_list.pl">CLC Software</a></li>
+                            <li dept="all"><a target="_blank" href="https://it.mst.edu/services/clc/map/">CLC Map</a></li>
+							<li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/msts2info/provisions.pl">Apps Anywhere Info</a></li>
+                            <li dept="all" class="uk-nav-divider"></li>
+                            <li dept="all"><a target="_blank" href="https://designconstruction.mst.edu/floorplan/">Floorplans</a></li>
+                            <li dept="all" class="uk-nav-divider"></li>
+                            <li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/staffdir/directory.pl">IT Staff Directory</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li dept="all">
+                    <a>Licensing</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a target="_blank" href="https://wiki.mst.edu/license/change/applications/licensing/start">License Servers</a></li>
+                                <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSA3V5TV-0m-XnPbelHbVA1mNMrmQhZfVMk4nG5cOkoPVA9nyYpSh2J5SeQSK8_W3mYzQ8fZoMyGQrE/pubhtml?gid=27566338&single=true">License Information</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li dept="hd">
+                        <a href="#">CET</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/instevals/helpdesk/report.pl?whichsurvey=1983::4727&mode=courses">Campus Evaluations Wave 1</a></li>
+                                <li><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/instevals/helpdesk/report.pl?whichsurvey=1963::4727&mode=courses">Campus Evaluations Wave 2</a></li>
+                                <li><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/instevals/helpdesk/report.pl?whichsurvey=2003::4727&mode=courses">Distance Evaluations</a></li>
+                                <li><a target="_blank" href="https://itweb.mst.edu/cgi-bin/cgiwrap/instevals/eval_calendar.pl">CET Evaluation Dates</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                <li dept="all">
+                    <a href="#" uk-icon="icon: cog"></a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li><a onclick="showPopup()">Show Popup</a></li>
+                            <li><a href="./?app=2">Personalize</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="./old">Old Site</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="./?app=10" uk-icon="icon: question"></a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!-- End Navigation -->

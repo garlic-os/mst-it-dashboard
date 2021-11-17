@@ -1,0 +1,75 @@
+<head>
+<script src="Hours.js"></script>
+</head>
+<!-- content="xx" where...
+xx = seconds between content refresh.. 
+3600 = 1 hour refresh 
+900 = 15 minute refresh 
+note, the refresh command will be used if you're displaying the slideshow link on a webpage -->
+<meta http-equiv="refresh" content="900">
+<!-- PARAMETERS for <iframe>, below -->
+<!-- id=  <-- the presentation id of your Google Slide file -->
+<!-- &amp;start=true    <-- autostart the slideshow -->
+<!-- &amp;loop=true     <-- automatically loop the slideshow -->
+<!-- &amp;delayms=15000  <-- slide delay in milliseconds 15000 = 15 seconds per slide -->
+<style>
+html, body {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+</style>
+<body onload="setShow()">
+<iframe id="show" style="background: black" src="http://web.mst.edu/~ithelp/signage/" frameborder="0" width="100%" height="720" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">Digging Deeper...</iframe>
+</body>
+<script>
+var todayhr = new Date().getHours();
+var todaymin = new Date().getMinutes();
+var runtime = true;
+
+function setShow(){
+	console.log(todayhr + ":" + todaymin);
+
+	switch(MODE){
+	 case "summer":
+		OPENHR = 10;
+		OPENMN = 00;
+		CLOSEDHR = 16;
+		CLOSEDMN = 00;
+		break;
+	 case "normal":
+		OPENHR = 8;
+		OPENMN = 30;
+		CLOSEDHR = 16;
+		CLOSEDMN = 30;
+		break;
+	 case "open":
+		runtime = false;
+		document.getElementById('show').src = "https://docs.google.com/presentation/d/e/2PACX-1vQOX9M2uiu1d_zWO451OK5BNeBqebjPYIttOQ1Wtz9OpUfpWWaLjAaz2GxQo4wPqkahwYzTqwnJ9a2J/embed?start=true&loop=true&delayms=15000&fullscreen=true&rm=minimal";
+		break;
+	 case "closed":
+		runtime = false;
+		document.getElementById('show').src = "https://docs.google.com/presentation/d/e/2PACX-1vQ8AIo7EO5lnsN_0ntXyG-aAbk9FaESWEm_dnZgRFdbHItz8R7eQWRf3FiTOEZpQpy97i5HGOg7YTcp/embed?start=true&loop=true&delayms=15000&fullscreen=true&rm=minimal";
+		break;
+	 case "custom":
+		// Actually do nothing use their input.
+		break;
+	 case "default":
+		OPENHR = 8;
+		OPENMN = 30;
+		CLOSEDHR = 16;
+		CLOSEDMN = 30;
+		break;
+	}
+
+	if(runtime){
+		if((todayhr >= OPENHR && todaymin >= OPENMN || todayhr >= OPENHR + 1) && (todayhr <= CLOSEDHR && todaymin <= CLOSEDMN || todayhr < CLOSEDHR)){
+			console.log('Open');
+			document.getElementById('show').src = "https://docs.google.com/presentation/d/e/2PACX-1vQOX9M2uiu1d_zWO451OK5BNeBqebjPYIttOQ1Wtz9OpUfpWWaLjAaz2GxQo4wPqkahwYzTqwnJ9a2J/embed?start=true&loop=true&delayms=15000&fullscreen=true&rm=minimal";
+		}else{
+			document.getElementById('show').src = "https://docs.google.com/presentation/d/e/2PACX-1vQ8AIo7EO5lnsN_0ntXyG-aAbk9FaESWEm_dnZgRFdbHItz8R7eQWRf3FiTOEZpQpy97i5HGOg7YTcp/embed?start=true&loop=true&delayms=15000&fullscreen=true&rm=minimal";
+			console.log('Closed');
+		}
+	}
+}
+</script>

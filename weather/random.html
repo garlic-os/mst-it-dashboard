@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    /* background-image: url("assets/backgrounds/random/0.jpg"); */
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+</head>
+<body>
+
+<div id="replace" class="bg" onload="setMainBackground"></div>
+
+</body>
+<script>
+function setMainBackground(){
+  document.getElementById('replace').style.backgroundImage = 'url("assets/backgrounds/random/' + Math.floor(Math.random() * 947) + '.jpg")';
+}
+setMainBackground();
+</script>
+</html>

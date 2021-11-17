@@ -1,0 +1,8 @@
+Hello[custName],  
+
+You are currently FERPA (Family Educational Rights and Privacy Act) enabled. This limits your personal information from being displayed in the directory. You can change your FERPA settings in Joe'SS > Self Service > Privacy Settings.  
+
+It might take a few days to update. If you do not notice your personal information being displayed, you will need to contact the registrar's office at (573)341-4181. 
+
+Thank you, 
+IT Help Desk 

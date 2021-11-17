@@ -1,0 +1,8 @@
+Hello[custName],
+
+This is the IT Help Desk, we have finished with the backup of your data and it is available for you to pick up. The cost for our services will be $25, payable by credit/debit, cash, or check. Please stop by the IT Help Desk in the Library at your convenience to pick up your part(s). We are open from 8:30 am to 4:30 pm Monday through Friday.
+
+[resolving]For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu.  [tickUpdateInfo]               
+
+Thank You,
+S&T IT Help Desk
