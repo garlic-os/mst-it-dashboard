@@ -145,8 +145,9 @@ function setApp(app) {
                     replaceGrid("./templates/dash/deploy.html");
                     break;
                 default:
-                    // Error 1
-                    window.location.replace('./'+rootFile+'?app=9&code=100');
+                    // Go to root
+                    window.location.replace(`./${rootFile}`);
+                    Cookies.set("mode", "helpdesk");
                     break;
             }
             // Add JS Files
