@@ -6,7 +6,7 @@ Contains functions related to page generation */
 
 /* Constant URL Parameters */
 const rootFile = '';
-const versionNumber = '?65';
+const versionNumber = '?66';
 const urlParams = new URLSearchParams(window.location.search);
 const appParam = parseInt(urlParams.get('app'), 10);
 const modeParam = parseInt(urlParams.get('mode'), 10);
