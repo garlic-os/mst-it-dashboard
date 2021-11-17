@@ -1,4 +1,4 @@
-function loadApp(){
+function loadApp() {
     // Set Navigation Title
     setTimeout(function () {
         setPageName("Dashboard Error");
@@ -6,8 +6,8 @@ function loadApp(){
     }, 500);
 }
 
-function loadError(){
-    switch(errorParam){
+function loadError() {
+    switch(errorParam) {
         case '0':
             setCode("000");
             setTitle("Invalid Application Requested");
@@ -31,12 +31,12 @@ function loadError(){
     }
 }
 
-function setTitle(titleTXT){
+function setTitle(titleTXT) {
     document.getElementById("errorTitle").innerHTML = titleTXT;
 }
-function setCode(codeTXT){
+function setCode(codeTXT) {
     document.getElementById("errorCode").innerHTML = codeTXT;
 }
-function setDesc(descTXT){
+function setDesc(descTXT) {
     document.getElementById("errorDescription").innerHTML = descTXT;
 }

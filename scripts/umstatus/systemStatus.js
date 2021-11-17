@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
 				
 				// Add an event handler that finds the siblings content element
 				// and then toggles its "display: none" style
-				el.onclick = function(){
+				el.onclick = function() {
 					var siblings = this.parentNode.children;
 					for (var k = 0; k < siblings.length; k++) {
-						if(siblings[k].classList.contains("systemStatus-content")){
-							if(siblings[k].style.display != "inherit")
+						if (siblings[k].classList.contains("systemStatus-content")) {
+							if (siblings[k].style.display != "inherit")
 								siblings[k].style.display = "inherit";
 							else
 								siblings[k].style.display = "none";
@@ -33,13 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Create and send a request to get feed data
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
-		if(this.readyState == 4 && this.status == 200) {
+		if (this.readyState == 4 && this.status == 200) {
 		   var parser = new DOMParser();
 		   xml = parser.parseFromString(this.responseText, "text/xml");
 		   /* console.log(xml); */
 		   
 			// When data is ready, fill content element(s)
-			fillElements()
+			fillElements();
 		}
 	};
 	xhttp.open("GET", url, true);
@@ -57,18 +57,18 @@ document.addEventListener('DOMContentLoaded', function() {
 			var items = xml.getElementsByTagName("item");
 			for (var k = 0; k < items.length; k++) {
 				
-				// Get each tage that we care about
+				// Get each tag that we care about
 				var title = items[k].getElementsByTagName("title")[0].innerHTML;
 				var date = items[k].getElementsByTagName("pubDate")[0].innerHTML;
 				var desc = items[k].getElementsByTagName("description")[0].textContent;
 				
 				/* // Test "in progress" option
-				if(k == 0)
+				if (k == 0)
 					desc = desc.replace("Resolved", "~~~~~~~"); */
 				
 				// Build up a string of html
 				var html = "<div><button class='systemStatus-expand'>";
-				if((desc.search("Resolved") == -1) && (desc.search("Complete") == -1) && (desc.search("Monitoring") == -1)) {
+				if ((desc.search("Resolved") == -1) && (desc.search("Complete") == -1) && (desc.search("Monitoring") == -1)) {
 					html += "<span class='systemStatus-status' style='color: #f48b8b;'>&#x2717;</span>";
 					inProgress = true;
 				} else {

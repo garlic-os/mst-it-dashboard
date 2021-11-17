@@ -12,7 +12,7 @@ function loadApp() {
         document.getElementById('netgroupList').innerHTML = '';
 
         // Go through entire Netgroup list and add option for each.
-        for(var i=0; i<netgroups.length; i++){
+        for (var i=0; i<netgroups.length; i++) {
             var node = document.createElement("option");
             var val = document.createTextNode(netgroups[i]);
             node.appendChild(val);
@@ -26,7 +26,7 @@ function loadApp() {
         document.getElementById('buildingList').innerHTML = '';
         // Go through entire building list and add option for each put code in data-value and name in value
         var options = '';
-        for(var i=0; i<building.length; i++){
+        for (var i=0; i<building.length; i++) {
             // Create options
             options+= '<option data-value="'+building[i][0]+'" value="'+building[i][1]+'" />';   
         }
@@ -38,7 +38,7 @@ function loadApp() {
     });
 }
 
-function setEnter(){
+function setEnter() {
     var auser = document.getElementById("analyzeUser");
     var sccm = document.getElementById("sccm");
     var phone = document.getElementById("analyzePhone");
@@ -51,31 +51,31 @@ function setEnter(){
     var turbo = document.getElementById("googleInput");
 
     // Create AUSER if exist
-    if(cardExists(auser)){createEnter(auser, "analyzeUserButton");}
+    if (cardExists(auser)) {createEnter(auser, "analyzeUserButton");}
     // Create SCCM if exist
-    if(cardExists(sccm)){createEnter(sccm, "sccmButton");}
+    if (cardExists(sccm)) {createEnter(sccm, "sccmButton");}
     // Create Phone if exist
-    if(cardExists(phone)){createEnter(phone, "phoneButton");}
+    if (cardExists(phone)) {createEnter(phone, "phoneButton");}
     // Create laps if exist
-    if(cardExists(laps)){createEnter(laps, "lapsButton");}
+    if (cardExists(laps)) {createEnter(laps, "lapsButton");}
     // Create Dell if exist
-    if(cardExists(dell)){createEnter(dell, "dellButton");}
+    if (cardExists(dell)) {createEnter(dell, "dellButton");}
     // Create ndbView if exist
-    if(cardExists(ndbView)){createEnter(ndbView, "ndbViewButton");}
+    if (cardExists(ndbView)) {createEnter(ndbView, "ndbViewButton");}
     // Create ndbReg if exist
-    if(cardExists(ndbReg)){createEnter(ndbReg, "ndbRegButton");}
+    if (cardExists(ndbReg)) {createEnter(ndbReg, "ndbRegButton");}
     // Create portB if exist
-    if(cardExists(portB)){createEnter(portB, "portButton");}
+    if (cardExists(portB)) {createEnter(portB, "portButton");}
     // Create portN if exist
-    if(cardExists(portN)){createEnter(portN, "portButton");}
+    if (cardExists(portN)) {createEnter(portN, "portButton");}
     // Create TURBO if exist
-    if(cardExists(turbo)){createEnter(turbo, "turboButton");}
+    if (cardExists(turbo)) {createEnter(turbo, "turboButton");}
 }
 
-function createEnter(elementName, buttonName){
-    elementName.addEventListener("keyup", function(event){
+function createEnter(elementName, buttonName) {
+    elementName.addEventListener("keyup", function(event) {
         // Number 13 is the 'enter' key on the keyboard
-        if (event.keyCode === 13){
+        if (event.keyCode === 13) {
             // Cancel default action, if needed
             event.preventDefault();
             // Trigger button
@@ -84,26 +84,26 @@ function createEnter(elementName, buttonName){
     })
 }
 
-function cardExists(elementName){
+function cardExists(elementName) {
     var check = document.body.contains(elementName);
     return check;
 }
 
-function showPopup(){
+function showPopup() {
     document.getElementById("iframeCard").className = "uk-animation-fade iframe-show";
 }
 
-function closePopup(){
+function closePopup() {
     document.getElementById("iframeCard").className = "uk-animation-fade iframe-hide";
 }
 
-function expandPopup(){
+function expandPopup() {
 	window.open(document.getElementById("iframeURL").src);
 }
 
-function navigate(title, URL){
+function navigate(title, URL) {
     var self = this;
-    setTimeout(function(){
+    setTimeout(function() {
         document.getElementById("iframeTitle").innerHTML = title;
         document.getElementById("iframeURL").method = 'get';
         document.getElementById("iframeURL").src = URL;
@@ -111,13 +111,13 @@ function navigate(title, URL){
     }, 300);   
 }
 
-function clearInput(element){
+function clearInput(element) {
     document.getElementById(element).value = '';
 }
 
-function handleAnalyzeUser(mode){
+function handleAnalyzeUser(mode) {
     var value = document.getElementById("analyzeUser").value;
-    switch(mode){
+    switch(mode) {
         case 0: // SSO or ID number
             var url = /^\d+$/.test(value) ? "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=search_emplid&emplid="+value+"&which=all" :
 										    "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=view&userid="+value+"&which=all";
@@ -142,9 +142,9 @@ function handleAnalyzeUser(mode){
     }
 }
 
-function handleSccm(mode){
+function handleSccm(mode) {
     var value = document.getElementById("sccm").value;
-    switch(mode){
+    switch(mode) {
         case 0: // SSO or ID number
 			navigate("Web Template Generator - OS Install","https://itweb.mst.edu/auth-cgi-bin/cgiwrap/deskwtg/generate.pl?mode=search&platform=win10-x64-sccm2012&host=" + value);
 			clearInput("sccm");
@@ -163,31 +163,31 @@ function handleSccm(mode){
     }
 }
 
-function handleAnalyzePhone(){
+function handleAnalyzePhone() {
 	var value = document.getElementById("analyzePhone").value;
 	navigate("Analyze Phone", "https://telcom.mst.edu/auth-cgi-bin/cgiwrap/mysofttools/analyze-number.pl?phone=" + value);
 	clearInput("analyzePhone");
 }
 
-function handleLaps(){
+function handleLaps() {
 	var value = document.getElementById("lapsPassword").value;
 	navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
 	clearInput("lapsPassword");
 }
 
-function handleDell(){
+function handleDell() {
 	var value = document.getElementById("serviceTag").value;
 	// Dell sets X-Frame-Options to deny, so we cannot display this in an iframe
 	window.open("http://www.dell.com/support/home/us/en/19/product-support/servicetag/" + value);
 	clearInput("serviceTag");
 }
 
-function handleNetDB(mode){
+function handleNetDB(mode) {
     var value = document.getElementById("netdb").value;
     var regUser = document.getElementById("netdbOwner").value;
     var regMac = document.getElementById("netdbMac").value;
 
-	switch(mode){
+	switch(mode) {
 		case 0: // Host/MAC
 			value = value.replace(/\:/g, '');
 			var url = /^[0-9A-Fa-f]{6}[0-9A-Fa-f]*$/.test(value) ? "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byether&search=" + value :
@@ -229,7 +229,7 @@ function handleNetDB(mode){
 function handleForm() {
     var self = this;
     this.showPopup();
-    // We have to wait a split second or the model is updated before the form can be opened
+    // We have to wait a split second or the modal is updated before the form can be opened
     setTimeout(function () {
         clearInput("netgroupUserInput");
         clearInput("netgroupNetGroupInput");
@@ -253,7 +253,6 @@ function handlePorts() {
 function handlePeople(mode) {
     switch (mode) {
         case 0: // Normal
-            var self = this;
             // We have to wait a split second or the model is updated before the form can be opened
             setTimeout(function () {
                 clearInput("peopleInput");

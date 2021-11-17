@@ -12,7 +12,7 @@ var tickOpen = true;
 var tickUpdateInfo = "";
 var tickUpdateInstText = "";
 
-function loadApp(){
+function loadApp() {
   // Set Navigation Title
   setTimeout(function () {
   setPageName("Email Generator");
@@ -20,11 +20,11 @@ function loadApp(){
   }, 500);       
 }
 
-function loadEmail(){
+function loadEmail() {
   // Load Template Configuration File into 
 }
 
-function startEmail(){
+function startEmail() {
   // Load Template Configuration File
   templates = JSON.parse(getFile("./data/email/templates.json"));
 
@@ -35,10 +35,10 @@ function startEmail(){
 
   // Look for specific template
   currTempId = 0;
-  if(results !== null){
+  if (results !== null) {
     template = results[0].substring(9) + ".txt";
-    for(var i=0; i<templates.length;i++) {
-      if(templates[i].fileName == template) {
+    for (var i=0; i<templates.length;i++) {
+      if (templates[i].fileName == template) {
         currTempId = i;
       }
     }
@@ -101,7 +101,7 @@ function updateOptions() {
 		}
 	}
 	// Update ticket open/resolved default
-	if(typeof(templates[currTempId].tickOpen) == "undefined" || templates[currTempId].tickOpen)
+	if (typeof(templates[currTempId].tickOpen) == "undefined" || templates[currTempId].tickOpen)
 		document.getElementById("tickOpen_true").click();
 	else
 		document.getElementById("tickOpen_false").click();
@@ -114,7 +114,7 @@ while (toRemove.length > 0) {
       toRemove[0].parentNode.removeChild(toRemove[0]);
   }
   // Sanity check if undefined
-  if(typeof str == "undefined") {
+  if (typeof str == "undefined") {
       str = "";
   }
   // Make a matching list from our JSON data
@@ -122,7 +122,7 @@ while (toRemove.length > 0) {
   var tmplList = templates.map(function (x) {
   i++;
       var skip;
-  if(x.displayName == "Default")
+  if (x.displayName == "Default")
     skip = true;
   else
     skip = x.displayName.toLowerCase().indexOf(str.toLowerCase()) == -1
@@ -136,7 +136,7 @@ tmplList.sort(function (a, b) {
 document.getElementById('emailTemplateSearch').innerHTML = '';
 var options = '';
 for (i = 0; i < tmplList.length; i++) {
-      if(tmplList[i].skip)
+      if (tmplList[i].skip)
           continue;
   
   options += '<option value="'+tmplList[i].idx+'">'+tmplList[i].name+'</option>';
@@ -176,12 +176,12 @@ function listSelect(x) {
 	updateMessage();
 }
 
-function emailSelect(){
+function emailSelect() {
   var x = document.getElementById("emailTemplateSearch").value;
   listSelect(x);
 }
 
-function copyEmail(){
+function copyEmail() {
   var copyText = document.getElementById("msg");
   copyText.select();
   document.execCommand("copy");

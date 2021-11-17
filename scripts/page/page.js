@@ -37,7 +37,7 @@ function generatePage(){
             setApp(appParam);
             // Replace CSS for darkmode, if needed
             var darkSwitch = Cookies.get('dark');
-            if(darkSwitch == 'enabled'){enableDarkmode(); isDark = true;}
+            if (darkSwitch == 'enabled') {enableDarkmode(); isDark = true;}
             // Load Background Image
             var bURL = Cookies.get('backgroundURL');
             if(bURL == 'none') {
@@ -77,47 +77,43 @@ function generatePage(){
     }, 500);
 }
 
-function checkVersion(){
-    try{
-        //See if the cookie exists
+function checkVersion() {
+    try {
+        // See if the cookie exists
         var version = Cookies.get('version');
-        if (version !== versionNumber){
+        if (version !== versionNumber) {
             addAlert();
             Cookies.set('version', versionNumber, { expires: Infinity });
-        }
-        else{
+        } else {
             // Do nothing.
         }
     }
-    catch{
+    catch {
         //If cookie does not exist, do the same
         //addAlert();
     }
 }
 
-function setAlert(message){
+function setAlert(message) {
     document.body.getElementById("alert-message").innerHTML = message;
 }
 
-function constructURL(Cookiemode){
+function constructURL(cookieMode) {
     var constructURL = './' + rootFile + '?app=' + appParam;
 
     if (isNaN(modeParam)){
         constructURL += '&mode=' + Cookiemode;
     }
-    if (typeParam !== null){
+    if (typeParam !== null) {
         constructURL += '&type=' + typeParam;
     }
-    if (radarParam !== null){
-        constructURL += '&radar=' + radarParam;
-    }
-    if (errorParam !== null){
+    if (errorParam !== null) {
         constructURL += '&code=' + errorParam;
     }
     return constructURL;
 }
 
-function updateNav(){ // This also controls RDP and Apps page elements
+function updateNav() { // This also controls RDP and Apps page elements
     // Remove HD items if not HD modes
     if(modeParam > 1){
         var toDelete = getAllElementsWithAttribute('dept');
@@ -138,13 +134,13 @@ function updateNav(){ // This also controls RDP and Apps page elements
     }
 }
 
-function setApp(app){
-    switch(app){
+function setApp(app) {
+    switch(app) {
         // We do not add 0: Welcome because page.js will auto detect if needed.
         case 1: // Dashboard
             // Set Display Mode
-            switch(modeParam){
                 case 0:
+            switch(modeParam) {
                     replaceGrid("./templates/dash/helpdesk.html");
                     break;
                 case 1:
@@ -230,11 +226,11 @@ function setApp(app){
     }
 }
 
-function loadJsApp(filepath){
-    var fileref=document.createElement('script');
+function loadJsApp(filepath) {
+    var fileref = document.createElement('script');
     fileref.setAttribute("type", "text/javascript");
     fileref.setAttribute("src", filepath + versionNumber);
-    if (typeof fileref!="undefined"){
+    if (typeof fileref != "undefined") {
         document.head.appendChild(fileref);
     }
 }
@@ -258,22 +254,22 @@ Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
 }
 NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-    for(var i = this.length - 1; i >= 0; i--) {
-        if(this[i] && this[i].parentElement) {
+    for (var i = this.length - 1; i >= 0; i--) {
+        if (this[i] && this[i].parentElement) {
             this[i].parentElement.removeChild(this[i]);
         }
     }
 }
 
-function replaceGrid(newgrid){
+function replaceGrid(newgrid) {
     document.getElementById("grid-holder").setAttribute("it-include-html", newgrid);
 }
 
-function addAlert(){
+function addAlert() {
     document.getElementById("alert-holder").setAttribute("it-include-html", "./templates/page/alert.html");
 }
 
-function setPageName(name){
+function setPageName(name) {
     document.getElementById('page-title').innerHTML = name;
 }
 
@@ -314,12 +310,12 @@ function setDarkmode(lightswitch){
     UIkit.notification({message: 'Dark mode ' + cookieValue + ' successfully!', status: 'success'});
 }
   
-function setMode(mode){
+function setMode(mode) {
     // Set cookie.
     Cookies.set('mode', mode, { expires: Infinity });
     // Based on mode, display corresponding success message.
-    switch(mode){
         case 0:
+    switch(mode) {
           UIkit.notification({message: 'Operation Mode set to IT Help Desk.', status: 'success'})
           break;
         case 1:

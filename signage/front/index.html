@@ -27,10 +27,10 @@ var todayhr = new Date().getHours();
 var todaymin = new Date().getMinutes();
 var runtime = true;
 
-function setShow(){
+function setShow() {
 	console.log(todayhr + ":" + todaymin);
 
-	switch(MODE){
+	switch(MODE) {
 	 case "summer":
 		OPENHR = 10;
 		OPENMN = 00;
@@ -62,11 +62,11 @@ function setShow(){
 		break;
 	}
 
-	if(runtime){
-		if((todayhr >= OPENHR && todaymin >= OPENMN || todayhr >= OPENHR + 1) && (todayhr <= CLOSEDHR && todaymin <= CLOSEDMN || todayhr < CLOSEDHR)){
+	if (runtime) {
+		if ((todayhr >= OPENHR && todaymin >= OPENMN || todayhr >= OPENHR + 1) && (todayhr <= CLOSEDHR && todaymin <= CLOSEDMN || todayhr < CLOSEDHR)) {
 			console.log('Open');
 			document.getElementById('show').src = "https://docs.google.com/presentation/d/e/2PACX-1vQOX9M2uiu1d_zWO451OK5BNeBqebjPYIttOQ1Wtz9OpUfpWWaLjAaz2GxQo4wPqkahwYzTqwnJ9a2J/embed?start=true&loop=true&delayms=15000&fullscreen=true&rm=minimal";
-		}else{
+		} else {
 			document.getElementById('show').src = "https://docs.google.com/presentation/d/e/2PACX-1vQ8AIo7EO5lnsN_0ntXyG-aAbk9FaESWEm_dnZgRFdbHItz8R7eQWRf3FiTOEZpQpy97i5HGOg7YTcp/embed?start=true&loop=true&delayms=15000&fullscreen=true&rm=minimal";
 			console.log('Closed');
 		}

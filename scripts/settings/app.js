@@ -1,6 +1,6 @@
 
 
-function loadApp(){
+function loadApp() {
     // Set Navigation Title
     setTimeout(function () {
         setPageName("Dashboard");
@@ -20,7 +20,7 @@ function loadApp(){
     
 }
 
-function loadSetup(){
+function loadSetup() {
     // Set Navigation Title
     setTimeout(function () {
         setPageName("Dashboard");
@@ -29,7 +29,7 @@ function loadSetup(){
     }, 500);
 }
 
-function saveSettings(){
+function saveSettings() {
     // Clear setup hold
     Cookies.set('setup', 'yes', { expires: Infinity });
     // Get runMode Index and send to setMode
@@ -51,7 +51,7 @@ function saveSettings(){
     
   }
 
-function checkDarkmode(){
+function checkDarkmode() {
   if (document.getElementById('darkmode').checked) {
     enableDarkmode();
   } else {
@@ -68,7 +68,7 @@ function getYouTubeID(url) {
       : null;
 }
 
-function updateBackground(url){
+function updateBackground(url) {
   if (url === "") {
     document.body.style.backgroundImage = "none";
     document.getElementById("backVideo").src = "";
@@ -88,7 +88,7 @@ function updateOpacity() {
   root.style.setProperty("--CARD-OPACITY", opacity);
 }
 
-function exportSettings(){
+function exportSettings() {
   var userSettings = {
     mode: document.getElementById("runMode").selectedIndex,
     cardOpacity: document.getElementById("cardOpat").value,
@@ -114,7 +114,7 @@ function exportSettings(){
 function processFile(evt) {
   try {
     let files = evt.target.files;
-    if(!files.length) {
+    if (!files.length) {
       UIkit.notification('No file selected!', 'danger');
       return;
     }
@@ -150,7 +150,7 @@ function processFile(evt) {
   }, 500);
 }
 
-function toggleImport(){
+function toggleImport() {
 	var currentView = window.getComputedStyle(document.querySelector('#importCard')).display;
 	if(currentView == "none"){
 		document.getElementById("importCard").style.display = "inherit";
