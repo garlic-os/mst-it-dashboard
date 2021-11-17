@@ -108,7 +108,7 @@ function constructURL(cookieMode) {
     return constructURL;
 }
 
-function updateNav() { // This also controls RDP and Apps page elements
+function updateNav() {
     // Remove HD items if not HD modes
     if (modeParam !== "helpdesk") {
         var toDelete = getAllElementsWithAttribute('dept');
