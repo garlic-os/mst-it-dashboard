@@ -1,0 +1,357 @@
+[
+	{
+	"displayName" : "Default",
+	"fileName" : "default.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName" : "Dual Enrolled",
+	"fileName" : "dualEnrolled.txt",
+	"options" : [
+		{
+		"id" : "dualEnroll_school",
+		"placeholder" : "Dual Enrolled School",
+        "mandatory" : true
+		},
+		{
+		"id" : "dualEnroll_contactInfo",
+		"placeholder" : "Contact Info",
+        "mandatory" : true
+		}
+		]
+	},
+	{
+	"displayName" : "Completed Rename",
+	"fileName" : "renameComplete.txt",
+	"options" : [
+		{
+		"id" : "rename_newHostName",
+		"placeholder" : "New Host Name",
+        "mandatory" : true
+		}
+		]
+	},
+	{
+	"displayName" : "PRO / Transfer Day",
+	"fileName" : "proDay.txt",
+	"tickOpen" : false,
+	"options" : []
+	},
+	{
+	"displayName" : "Password Reset (Resource Account)",
+	"fileName" : "passwordResetResource.txt",
+	"tickOpen" : false,
+	"options" : []
+	},
+	{
+	"displayName" : "Dell Part Recieved",
+	"fileName" : "dellPart.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName" : "Outlook Folder Sharing",
+	"fileName" : "outlookFolderShare.txt",
+	"options" : []
+	},
+	{
+	"displayName" : "Outlook Delegate",
+	"fileName" : "outlookDelegate.txt",
+	"options" : []
+	},
+	{
+	"displayName" : "Map S: Drive",
+	"fileName" : "mapSDrive.txt",
+	"tickOpen" : false,
+	"options" : []
+	},
+	{
+	"displayName" : "Completed Rebuild",
+	"fileName" : "rebuildComplete.txt",
+	"options" : [
+		{
+		"id" : "rebuild_comp",
+		"placeholder" : "Computer Name",
+        "mandatory" : true
+		},
+		{
+		"id" : "rebuild_software",
+		"placeholder" : "Any Special Software?",
+        "mandatory" : false
+		},
+		{
+		"id" : "rebuild_winVersion",
+		"placeholder" : "Windows Version",
+		"mandatory" : true
+		}
+		]
+	},
+	{
+	"displayName" : "Ticket Reminder",
+	"fileName" : "tickRemind.txt",
+	"options" : [
+		{
+		"id" : "tickRemind_issue",
+		"placeholder" : "Issue",
+        "mandatory" : true
+		}
+		]
+	},
+	{
+	"displayName" : "Completed OS Install",
+	"fileName" : "osInstall.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName" : "Need Printer Information",
+	"fileName" : "printInfo.txt",
+	"tickOpen" : true,
+	"options" : [
+		{
+		"id" : "printInfo_comp",
+		"placeholder" : "Computer",
+        "mandatory" : true
+		}
+		]
+	},
+	{
+	"displayName" : "Hard Reset on Phone",
+	"fileName" : "phoneReset.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName" : "Solidworks Download",
+	"fileName" : "solidworks.txt",
+	"tickOpen" : false,
+	"options" : []
+	},
+	{
+	"displayName" : "Redeploy Questions",
+	"fileName" : "redeployQuestions.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName" : "Printer Install Completed",
+	"fileName" : "printerInstalled.txt",
+	"tickOpen" : true,
+	"options" : [
+		{
+		"id" : "prnInst_prn",
+		"placeholder" : "Printer Name",
+        "mandatory" : true
+		},
+		{
+		"id" : "prnInst_comp",
+		"placeholder" : "Computer Name",
+        "mandatory" : true
+		}]
+	},
+	{
+	"displayName" : "Schedule Time for Install",
+	"fileName" : "scheduleInstall.txt",
+	"tickOpen" : true,
+	"options" : [
+		{
+		"id" : "scheduleInst_software",
+		"placeholder" : "Software",
+        "mandatory" : true
+		},
+		{
+		"id" : "scheduleInst_comp",
+		"placeholder" : "Computer Name",
+        "mandatory" : true
+		}]
+	},
+	{
+	"displayName" : "Dell Warranty Pickup",
+	"fileName" : "dellWarranty.txt",
+	"tickOpen" : true,
+	"options" : [
+		{
+		"id" : "dellWarranty_part",
+		"placeholder" : "Part Replaced",
+        "mandatory" : true
+		}
+		]
+	},
+	{
+	"displayName" : "Forge Access Granted",
+	"fileName" : "forge.txt",
+	"tickOpen" : false,
+	"options" : []
+	},
+	{
+	"displayName" : "Office 365 Instructions",
+	"fileName" : "office365.txt",
+	"tickOpen" : false,
+	"options" : []
+	},
+	{
+	"displayName" : "Domain Move Completed",
+	"fileName" : "accountMigration.txt",
+	"tickOpen" : false,
+	"options" : []
+	},
+	{
+	"displayName" : "Password Reset",
+	"fileName" : "passwordReset.txt",
+	"tickOpen" : false,
+	"options" : []
+	},
+	{
+	"displayName": "Password Reset (Old)",
+	"fileName": "passwordResetOld.txt",
+	"tickOpen" : false,
+	"options" : [
+		{
+		"id" : "passwordReset_name",
+		"placeholder" : "Full Name",
+        "mandatory" : true
+		},
+		{
+		"id" : "passwordReset_userId",
+		"placeholder" : "UserID",
+        "mandatory" : true
+		},
+		{
+		"id" : "passwordReset_hint",
+		"placeholder" : "Hint Answer",
+        "mandatory" : true
+		}
+		]
+	},
+	{
+	"displayName": "Software Request From Non-Owner",
+	"fileName": "softwareNonOwner.txt",
+	"tickOpen" : false,
+	"options" : [
+		{
+		"id" : "softwareNO_software",
+		"placeholder" : "Software",
+        "mandatory" : true
+		},
+		{
+		"id" : "softwareNO_comp",
+		"placeholder" : "Computer",
+        "mandatory" : true
+		},
+		{
+		"id" : "softwareNO_owner",
+		"placeholder" : "Owner UserID",
+        "mandatory" : true
+		}
+		]
+	},
+	{
+	"displayName": "3D Print Complete",
+	"fileName": "3dprint.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName": "Added to Y: Drive",
+	"fileName": "deptDrive.txt",
+	"tickOpen" : false,
+	"options" : [
+		{
+		"id" : "deptDrive_userId",
+		"placeholder" : "UserID",
+		"mandatory" : true
+		},
+		{
+		"id" : "deptDrive_dept",
+		"placeholder" : "Department",
+        "mandatory" : true
+		},
+		{
+		"id" : "deptDrive_path",
+		"placeholder" : "Drive Path",
+        "mandatory" : true
+		}
+		]
+	},
+	{
+	"displayName": "Software Install Completed",
+	"fileName": "softInstall.txt",
+	"tickOpen" : false,
+	"options" : [
+		{
+		"id" : "softInstall_name",
+		"placeholder" : "Software"
+		},
+		{
+		"id" : "softInstall_comp",
+		"placeholder" : "Computer Name"
+		}
+		]
+	},
+	{
+	"displayName": "Admin Rights Granted",
+	"fileName": "adminRights.txt",
+	"tickOpen" : true,
+	"options" : [
+		{
+		"id" : "adminRights_comp",
+		"placeholder" : "Computer Name",
+		"mandatory" : true
+		},
+		{
+		"id" : "adminRights_userID",
+		"placeholder" : "UserID",
+		"mandatory" : true
+		}
+		]
+	},
+	{
+	"displayName": "Gmail Disabled",
+	"fileName": "disabledGmail.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName": "Please Call Help Desk",
+	"fileName": "callHelpDesk.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName": "No Response",
+	"fileName": "noResponse.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName": "FERPA",
+	"fileName": "ferpa.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName" : "Data Backup",
+	"fileName" : "dataBackup.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName" : "Phone Move",
+	"fileName" : "phoneMove.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName" : "Office Move",
+	"fileName" : "officeMove.txt",
+	"tickOpen" : true,
+	"options" : []
+	},
+	{
+	"displayName" : "PCL XL",
+	"fileName" : "pclResponse.txt",
+	"tickOpen" : true,
+	"options" : []
+	}	
+]

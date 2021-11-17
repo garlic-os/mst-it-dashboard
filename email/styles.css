@@ -1,0 +1,104 @@
+i{
+	color: white;
+}
+
+.msg_card{
+	width: 80%;
+	margin: 0 auto;
+}
+#msg{
+	height: 350px;
+	padding: 20px;
+}
+
+.tmpl_edit_subtitle{
+	margin: 0px;
+	margin-left: 30px;
+	margin-top: 10px;
+	font-size: 12px;
+	line-height: 15px;
+}
+
+#tmpl_list{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#tmpl_list_wrap{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-bottom: 25px;
+	height: 300px;
+	overflow-y: scroll;
+}
+
+#tmplInput{
+    margin: 0 auto;
+    width: 200px;
+    margin-top: 16px;
+    margin-left: 34px;
+}
+
+#snackbar{
+
+}
+
+dialog {
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.tmpl_edit_dialog{
+	width: 450px;
+    position: fixed;
+}
+
+.tmpl_edit_dialog textarea{
+	width: 100%;
+	min-height: 200px;
+	height: 300px;
+}
+.radio{
+	padding-right: 8px;
+}
+.options_inner{
+	display: inline-block;
+	margin: 20px;
+	text-align: left;
+}
+.options_outer{
+	text-align: center;
+	margin: 0 auto;
+	width: 80%;
+}
+.opt_text{
+	margin: 12px;
+}
+
+.msg_btn{
+	display: inline-block;
+	background: rgb(222, 222, 222);
+}
+
+.options_text{
+	font-weight: bold;
+	text-align: center;
+}
+
+.opt_input{
+	display: block;
+	margin: 10px;
+	width: 93%;
+}
+
+.passwordReset{
+	display: block;
+}
+.mandatory_missing{
+    border: 1px solid red;
+}
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}

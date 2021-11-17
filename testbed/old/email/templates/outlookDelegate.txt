@@ -1,0 +1,50 @@
+Hello[custName],
+
+Setting up delegate access is a two-step process: first, delegate access needs to be granted from the Exchange account owner; afterward, the mailbox needs to be added in Outlook by the end-user.
+
+On the account owner's side:
+
+Delegate Permissions
+1. Log into a campus computer using the account to which you want to allow access.
+2. Open Outlook.
+3. In the top left of the window, click 'File.'
+4. Click the 'Account Settings button, then click 'Delegate Access' from the dropdown menu.
+5. In the Delegates window, click 'Add...'
+6. In the Add Users window that comes up, search the name for the individual that you wish to grant access. Ensure their name is in the 'Add ->' field, then click 'OK.'
+7. Set the Delegate Permissions for the account Calendar, Tasks, Inbox, Contacts, and Notes. A summary of the permissions for each role is in parentheses on the dropdown selection in each field (Typically, permissions are set to 'Editor'). Typically, both 'Automatically send a message to delegate summarizing these permissions' and 'Delegate can see my private items' are not checked, but either can be used at the discretion of the user. Click 'OK' when finished.
+8. Click 'OK' in the Delegates window. Click the Back arrow in the top left of the Account Information page to back out into the Outlook account overview.
+
+Folder Permissions
+9. In the left-hand column, right-click the root account (e.g. account@mst.edu), and select 'Folder Permissions' from the dropdown menu. 
+10. Under the list of users with permissions, click the 'Add...' button.
+11. In the Add Users window that comes up, search the name for the individual that you wish to grant access. Ensure their name is in the 'Add ->' field, then click 'OK.'
+12. Highlight the user's name in the list. Set the permissions level as desired using the 'Permission Level' dropdown menu, or set custom permissions by modifying the 'Read,' 'Write,' 'Delete items,' and 'Other' fields below (Typically, permissions are set to either 'Editor' or 'Publishing Editor'; for resource accounts, 'Owner' is used when a user will be managing the account in question). Click 'Apply' when finished, and then 'OK.'
+13. For each folder inside the account-Inbox, Drafts, Sent Items, Deleted Items, etc.-to which you wish to grant access, you will need to add the user in the same way you did in steps 10-12. Right-click the folder in question, select 'Properties,' navigate to the Permissions tab, and add a user with the desired permissions level. If they are going to be checking email for this account, a user will at least need access to the Inbox folder.
+
+
+On the end-user's side:
+
+To get access to the additional inbox, please follow the steps below:
+
+1. Open Outlook while logged in as the account that needs access to the mailbox.
+2. In the top left of the window, click 'File.'
+3. Click the 'Account Settings' button, then click ' Account Settings' from the dropdown menu.
+4. In the Email tab, make sure your primary account is highlighted, then click 'Change' from the menu ribbon above.
+5. In the 'Change Account Window,' make sure the 'Use Cached Exchange Mode' box is checked. You will be informed that you need to restart Outlook for this change to take effect. Click 'OK' on this dialogue.
+6. Click the 'More Settings' button in the bottom right of the Change Account window.
+7. In the Microsoft Exchange window, navigate to the Advanced tab.
+8. In the Mailboxes section, click the 'Add' button.
+9. The Add Mailbox window should come up. Type the name of the additional mail account in the field provided, and click 'OK.'
+10. Click 'Apply,' and then 'OK' in the Microsoft Exchange box.
+11. Click 'Next' in the Change Account window, and then 'Finish.'
+12. Restart Outlook.
+
+The additional inbox should now be added in the left-hand column on Outlook. You may need to scroll down to see the account listed under your primary account mail folders. 
+
+Additional mailboxes will need to be added in Outlook on each computer that an individual uses, because this is a setting on the local machine. However, delegate access needs to be granted only once.
+
+[resolving]If you have any further questions, you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+Missouri S&T
+IT Help Desk

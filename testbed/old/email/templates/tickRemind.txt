@@ -1,0 +1,9 @@
+Hello[custName],
+
+It's been a while since we've heard from you. Are you still having problems with [tickRemind_issue]?
+
+If you have any further questions, you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+Missouri S&T
+IT Help Desk

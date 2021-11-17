@@ -1,0 +1,9 @@
+Hello,
+
+Administrative privileges on ##### have been granted to #####. Please note that this user will now have access to the C:\ drive, as well as software installation privileges. Please maintain the campus guidelines for appropriate computer use and software installation. The changes will take effect the next time the user logs in.
+
+If you have any further questions, you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or submitting a ticket online at http://help.mst.edu. Please do not reply directly to this email.
+
+Thank You,
+Missouri S&T
+IT Help Desk

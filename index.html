@@ -1,0 +1,706 @@
+﻿<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="//campus.mst.edu/emctest/t4v3/favicon/16px.png" sizes="16x16" />
+    <title>IT Tools Dashboard</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="apple-touch-icon" sizes="940x940" href="./images/Missouri-ST_PrimaryLogo_DigitalLima.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/material.indigo-blue.min.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./scripts/clippyjs/build/clippy.css" media="all">
+  </head>
+  <body>
+      <span id="browser-sync-binding"></span>
+      <div id="toast" class="mdl-js-snackbar mdl-snackbar">
+          <div class="mdl-snackbar__text"></div>
+          <button class="mdl-snackbar__action" type="button"></button>
+      </div>
+      <!-- The drawer is always open in large screens. The header is always shown,
+    even in small screens. -->
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header">
+              <div class="mdl-layout__header-row">
+                  <div id="logo" class="mdl-layout--large-screen-only">
+                      <a href="//www.mst.edu">
+                          <img src="logo.svg">
+                      </a>
+                  </div>
+                  <span class="mdl-layout-title">Dashboard</span>
+				  
+                  <div class="systemStatus">
+                      <span class="systemStatus-button material-icons" >error_outline</span>
+                      <div style="display: none;" class="systemStatus-content mdl-shadow--4dp mdl-card">
+                          <div class="mdl-spinner mdl-js-spinner is-active"></div>
+                      </div> 
+                  </div>
+                  <div class="mdl-layout-spacer"></div>
+                  <!-- Navigation. We hide it in small screens. -->
+                  <nav class="mdl-navigation mdl-layout--large-screen-only">
+                      <a class="mdl-navigation__link" href="../">Return to Live</a>
+                      <a class="mdl-navigation__link" target="_blank" href="https://cherwell.umsystem.edu/CherwellClient">Cherwell Web</a>
+                      <a class="mdl-navigation__link" target="_blank" href="/~ithelp/forms/">Forms</a>
+                      <a class="mdl-navigation__link" target="_blank" href="https://vcc-na7.8x8.com/AGUI/login.php">8x8</a>
+                      <a class="mdl-navigation__link" target="_blank" href="https://password.umsystem.edu/MSTSupport">SecureAuth</a>
+                      <a class="mdl-navigation__link" target="_blank" href="http://myhr.umsystem.edu/">myHR</a>
+                      <a class="mdl-navigation__link" target="_blank" href="http://mst.edu/~ithelp/email/">Emails</a>
+                      <a class="mdl-navigation__link" target="_blank" href="https://papercut.mst.edu:9192/admin?">Papercut</a>
+                      <a class="mdl-navigation__link" target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/swconf/user-port-search.pl">Ports</a>
+
+                  </nav>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-ripple-effect" for="printsub">
+                      <li class="mdl-menu__item" href="https://papercut.mst.edu/admin">PaperCut</li>
+                      <li class="mdl-menu__item" href="https://printer.mst.edu/cgi-bin/cgiwrap/lprsrv/index.pl">Printer Config</li>
+                  </ul>
+                  <button id="settings-menu" class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons">settings</i>
+                  </button>
+                  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="settings-menu">
+                      <div class="mdl-menu__item" onclick="togglePopup()">Show Popup</div>
+                  </ul>
+				  <div id="CherwellHelp" title="View Cherwell Help Documentation" class="material-icons" > <a style="color: white;" href="http://it.mst.edu/internal">help_outline</a></div>
+                  <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons">more_vert</i>
+                  </button>
+                  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="https://cherwell.umsystem.edu/CherwellClient">Cherwell Web</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" href="/~ithelp/forms/">Forms</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="https://vcc-na7.8x8.com/AGUI/login.php">8x8</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="https://password.umsystem.edu/MSTSupport">SecureAuth</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="http://myhr.umsystem.edu/">My Hr</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="http://mst.edu/~ithelp/email/">Email Composer</a>
+                      <a class="mdl-menu__item" target="_blank" href="https://splunk-srch2.kc.umkc.edu/">Splunk</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="https://papercut.mst.edu:9192/admin?">Papercut</a>
+                      <a class="mdl-menu__item" target="_blank" href="https://131.151.249.181/manage/#/login">SafeConnect</a>
+                      <a class="mdl-menu__item" target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/listmgr/list_tools_menu.pl">ListServ Manager</a>
+                      <a class="mdl-menu__item" target="_blank" href="https://printer.mst.edu/cgi-bin/cgiwrap/lprsrv/index.pl">Printer Config</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/swconf/user-port-search.pl">Port Search</a>
+                      <a class="mdl-menu__item" target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/wcat/win-object-admin.pl">Computer Object Admin Tool</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="./old">Old Site</a>
+                  </ul>
+              </div>
+          </header>
+          <!-- Drawer Area -->
+          <div id="triviaApp" class="mdl-layout__drawer">
+              <span class="mdl-layout-title">IT Trivia</span>
+              <div id="navigationTabs" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" :class="{'disappear': state.msg != 'navigation'}">
+                  <div class="mdl-tabs__tab-bar">
+                      <a href="#users-panel" class="mdl-tabs__tab is-active">Users</a>
+                      <a href="#leaders-panel" class="mdl-tabs__tab">Leaders</a>
+                      <a href="#stats-panel" class="mdl-tabs__tab">Stats</a>
+                  </div>
+                  <div class="mdl-tabs__panel is-active" id="users-panel">
+                      <ul id="trivia_usersList" class="mdl-list">
+                          <li v-for="user in users" class="mdl-list__item--two-line mdl-list__item" id="{{$key}}" :class="{'highlight': user.subText == 'Your Turn'}">
+                              <span class="mdl-list__item-primary-content">
+                                  <img class="material-icons mdl-list__item-avatar" src="{{user.img}}">
+                                  <span>{{user.primaryText}}</span>
+                                  <span class="mdl-list__item-sub-title">{{user.subText}}</span>
+                              </span>
+                              <span class="mdl-list__item-secondary-content">
+                                  <button class="mdl-button mdl-js-button mdl-button--icon mdl-list__item-secondary-action">
+                                      <i class="material-icons">play_arrow</i>
+                                  </button>
+                              </span>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="mdl-tabs__panel" id="leaders-panel">
+                      <ul id="trivia_usersList" class="mdl-list">
+                          <li v-for="user in leaders" class="mdl-list__item mdl-list__item--two-line">
+                              <span class="mdl-list__item-primary-content">
+                                  <img class="material-icons mdl-list__item-avatar" src="{{user.pic}}">
+                                  <span>{{$index + 1}}. {{user.fullname}}</span>
+                                  <span class="mdl-list__item-sub-title">Games Played: {{user.gamesPlayed}}</span>
+                              </span>
+                              <span class="mdl-list__item-secondary-content">{{user.score}}</span>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <!-- Greeting Card -->
+              <div id="loginCard" class="mdl-card mdl-shadow--2dp animated" :class="{'disappear': state.msg != 'login'}">
+                  <div class="mdl-card__title">
+                      <h2 class="mdl-card__title-text">Welcome</h2>
+                  </div>
+                  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-card__supporting-text">
+                      <div class="mdl-tabs__tab-bar">
+                          <a href="#trivia_login" class="mdl-tabs__tab is-active">Login</a>
+                          <a href="#trivia_register" class="mdl-tabs__tab">Register</a>
+                      </div>
+                      <!-- Register Tab -->
+                      <div class="mdl-tabs__panel" id="trivia_register">
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" id="trivia_register_nickname" v-model="nickname">
+                              <label class="mdl-textfield__label" for="trivia_register_nickname">Secret Nickname</label>
+                          </div>
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" id="trivia_register_first" v-model="regFirst">
+                              <label class="mdl-textfield__label" for="trivia_register_first">First Name</label>
+                          </div>
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" id="trivia_register_last" v-model="regLast">
+                              <label class="mdl-textfield__label" for="trivia_register_last">Last Name</label>
+                          </div>
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" id="trivia_register_pic" v-model="regPic">
+                              <label class="mdl-textfield__label" for="trivia_register_pic">Profile Pic URL</label>
+                          </div>
+                          <button id="trivia_register_button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" @click="regUser">Register</button>
+                      </div>
+                      <!-- Login Tab -->
+                      <div class="mdl-tabs__panel is-active" id="trivia_login">
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" id="trivia_login_nickname" v-model="nickname" @keyup.enter="loginUser">
+                              <label class="mdl-textfield__label" for="trivia_login_nickname">Secret Nickname</label>
+                          </div>
+                          <button id="trivia_login_button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" @click="loginUser">Login</button>
+                      </div>
+                  </div>
+              </div>
+              <!-- New Question Card -->
+              <div id="newQueVueWrapper">
+                  <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised"
+                          :class="{'disappear': state.msg != 'navigation' && state.msg != 'newQ', 'cancel': state.msg == 'newQ'}" @click="fabHandler">
+                      {{state.msg == 'navigation' ? 'New Question' : 'Cancel'}}
+                  </button>
+                  <div id="newQuestionCard" class="mdl-card mdl-shadow--2dp animated" :class="{'disappear': state.msg != 'newQ'}">
+                      <div class="mdl-card__title">
+                          <h2 class="mdl-card__title-text">New Question</h2>
+                      </div>
+                      <div class="mdl-card__supporting-text">
+                          <div>Select Category</div>
+                          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="trivia-category1">
+                              <input type="radio" id="trivia-category1" class="mdl-radio__button" name="category-option" v-model="catOption" value="Hardware" checked>
+                              <span class="mdl-radio__label">Hardware</span>
+                          </label>
+                          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="trivia-category2">
+                              <input type="radio" id="trivia-category2" class="mdl-radio__button" name="category-option" v-model="catOption" value="Networking">
+                              <span class="mdl-radio__label">Networking</span>
+                          </label>
+                          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="trivia-category3">
+                              <input type="radio" id="trivia-category3" class="mdl-radio__button" name="category-option" v-model="catOption" value="Tools">
+                              <span class="mdl-radio__label">Tools</span>
+                          </label>
+                          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="trivia-category4">
+                              <input type="radio" id="trivia-category4" class="mdl-radio__button" name="category-option" v-model="catOption" value="OS">
+                              <span class="mdl-radio__label">Operating Systems</span>
+                          </label>
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <textarea class="mdl-textfield__input" type="text" id="trivia_newq_text" v-model="formText"></textarea>
+                              <label class="mdl-textfield__label" for="trivia_newq_text">Question Text</label>
+                              <div class="mdl-tooltip" for="trivia_newq_text">
+                                  A good question should be timeless and have an objectively definitive answer. Try to keep questions
+                                  within the appropriate category. Also, this is a COMPLETELY public site so please do not use ANY
+                                  personal or sensitive information.
+                              </div>
+                          </div>
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" rows="3" id="trivia_newq_1" v-model="formOpt1">
+                              <label class="mdl-textfield__label" for="trivia_newq_1">Option 1</label>
+                          </div>
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" id="trivia_newq_2" v-model="formOpt2">
+                              <label class="mdl-textfield__label" for="trivia_newq_2">Option 2</label>
+                          </div>
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" id="trivia_newq_3" v-model="formOpt3">
+                              <label class="mdl-textfield__label" for="trivia_newq_3">Option 3</label>
+                          </div>
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" id="trivia_newq_4" v-model="formOpt4">
+                              <label class="mdl-textfield__label" for="trivia_newq_4">Option 4</label>
+                          </div>
+                          <div>Select the Correct Option</div>
+                          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="trivia-correct1">
+                              <input type="radio" id="trivia-correct1" class="mdl-radio__button" name="correct-option" v-model="formCorrect" value="1" checked>
+                              <span class="mdl-radio__label">First</span>
+                          </label>
+                          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="trivia-correct2">
+                              <input type="radio" id="trivia-correct2" class="mdl-radio__button" name="correct-option" v-model="formCorrect" value="2">
+                              <span class="mdl-radio__label">Second</span>
+                          </label>
+                          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="trivia-correct3">
+                              <input type="radio" id="trivia-correct3" class="mdl-radio__button" name="correct-option" v-model="formCorrect" value="3">
+                              <span class="mdl-radio__label">Third</span>
+                          </label>
+                          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="trivia-correct4">
+                              <input type="radio" id="trivia-correct4" class="mdl-radio__button" name="correct-option" v-model="formCorrect" value="4">
+                              <span class="mdl-radio__label">Fourth</span>
+                          </label>
+                      </div>
+                      <div class="mdl-card__actions mdl-card--border">
+                          <button class="mdl-button mdl-js-button mdl-js-ripple-effect" @click="newQSubmit">Submit</button>
+                      </div>
+                  </div>
+              </div>
+              <div id="answerQuestionCard" class="mdl-card mdl-shadow--2dp animated" :class="{'disappear': state.msg != 'quizzing'}">
+                  <div id="answerQuestion__category" class="mdl-card__title">
+                      <h2 class="mdl-card__title-text">{{title}}</h2>
+                  </div>
+                  <div id="qTimer" class="mdl-progress mdl-js-progress"></div>
+                  <div class="mdl-card__supporting-text">
+                      <span id="answerQuestion__text">{{text}}</span>
+                      <ul class="demo-list-item mdl-list">
+                          <li class="mdl-list__item" v-for="option in options">
+                              <span class="mdl-list__item-primary-content">{{option.text}}</span>
+                              <span class="mdl-list__item-secondary-action">
+                                  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="{{'option' + option.value}}">
+                                      <input type="radio" id="{{'option' + option.value}}" class="mdl-radio__button" name="usersAnswer" v-model="selection" value="{{option.value}}">
+                                  </label>
+                              </span>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" @click="checkAnswer">
+                          Submit
+                      </a>
+                  </div>
+              </div>
+              <div id="reviewQuestionCard" class="mdl-card mdl-shadow--2dp animated" :class="{'disappear': state.msg != 'reviewing'}">
+                  <div id="answerQuestion__category" class="mdl-card__title">
+                      <h2 class="mdl-card__title-text">{{title}}</h2>
+                  </div>
+                  <div class="mdl-card__supporting-text">
+                      <div id="reviewQuestion__author">Created By: {{author}}</div>
+                      <br />
+                      <div>{{text}}</div>
+                      <br />
+                      <div>Correct Answer:</div>
+                      <div id="correctAnswer">{{answer}}</div>
+                      <br />
+                      <div>Your Answer:</div>
+                      <div :class="[answer == yourAnswer ? 'correct' : 'wrong']">{{yourAnswer}}</div>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" @click="closeReview">Continue</a>
+                  </div>
+                  <div class="mdl-card__menu">
+                      <button id="flagQuestion" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                          <i class="material-icons">flag</i>
+                      </button>
+                      <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="flagQuestion">
+                          <li class="mdl-menu__item" @click="flagQuestion">Wrong Answer</li>
+                          <li class="mdl-menu__item" @click="flagQuestion">Too Hard</li>
+                          <li class="mdl-menu__item" @click="flagQuestion">Unrelated</li>
+                          <li class="mdl-menu__item" @click="flagQuestion">Needs More Information</li>
+                          <li class="mdl-menu__item" @click="flagQuestion">Sensitive Information</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Main Content -->
+          <main class="mdl-layout__content">
+              <div class="page-content" style="padding-top: 20px;">
+                  <div class="mdl-grid">
+                     <!-- Analyze User Card -->
+                      <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--4-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Analyze User</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div id="auser" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <input class="mdl-textfield__input" type="text" id="analyzeUserInput" v-model="analyzeUser" @keyup.enter="handleAnalyzeUser">
+                                  <label class="mdl-textfield__label" for="analyzeUserInput">User Info</label>
+
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+                              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="analyzeSearch" @click="handleAnalyzeUser">SSO/ID</button>
+                              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="analyzeSearch" @click="handleAnalyzeLastName">Name</button>
+                              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="analyzeSearch" @click="handleAnalyzeEmail">Email</button>
+                          </div>
+                          <div class="mdl-card__menu">
+                              <a target="_blank" title="Open Analyze User in New Window" href="http://itweb.mst.edu/~analyzer">
+                                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">account_circle</i>
+                                  </button>
+                              </a>
+                          </div>
+                      </div>
+                      <!-- KB Card -->
+                      
+                       <!-- SCCM Install Card -->
+                      <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--4-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Win10 SCCM</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div id="auser" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <input class="mdl-textfield__input" type="text" id="sccmInput" v-model="sccm" @keyup.enter="handleSccmOs">
+                                  <label class="mdl-textfield__label" for="analyzeUserInput">Hostname</label>
+
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+                              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="sccmOS" @click="handleSccmOs">Generate</button>
+                              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="sccmView" @click="handleSccmView">View All</button>
+                          </div>
+                          <div class="mdl-card__menu">
+                              <a target="_blank" title="Open Analyze User in New Window" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/deskwtg/menu.pl">
+                                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">get_app</i>
+                                  </button>
+                              </a>
+                          </div>
+                      </div>
+                      <!-- phone Card -->
+                      <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--4-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Analyze Phone</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <input class="mdl-textfield__input" type="text" id="phoneInput" v-model="phone" @keyup.enter="handlePhone">
+                                  <label class="mdl-textfield__label" for="phoneInput">Extension</label>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+                              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="phone" @click="handlePhone">Search</button>
+                          </div>
+                          <div class="mdl-card__menu">
+                              <a title="Open Analyze Phone in New Window" href="https://telcom.mst.edu/auth-cgi-bin/cgiwrap/mysofttools/analyze-number.pl" target="_blank">
+                                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">contact_phone</i>
+                                  </button>
+                              </a>
+                          </div>
+                      </div>
+                      <!-- NetDB Card -->
+                      <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--4-col">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">NetDB</h2>
+                          </div>
+                          <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-card__supporting-text">
+                              <div class="mdl-tabs__tab-bar">
+                                  <a href="#search-panel" class="mdl-tabs__tab is-active">Search</a>
+                                  <a href="#register-panel" class="mdl-tabs__tab">Register</a>
+                              </div>
+                              <!-- Search Tab -->
+                              <div class="mdl-tabs__panel is-active" id="search-panel">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                      <input class="mdl-textfield__input" type="text" id="netdb_search" v-model="netdbSearch" @keyup.enter="handleNetdb('search')">
+                                      <label class="mdl-textfield__label" for="netdb_search">Computer Info</label>
+                                  </div>
+                                  <div class="mdl-card__actions mdl-card--border">
+                                      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="netdbSearch" @click="handleNetdb('search')">Host/MAC</button>
+                                      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="netdbSearch" @click="handleNetdb('owner')">Owner</button>
+                                      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="netdbSearch" @click="handleNetdb('location')">Loc</button>
+                                      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="netdbSearch" @click="handleNetdb('description')">Description</button>
+                                  </div>
+                              </div>
+                              <!-- Register Tab -->
+                              <div class="mdl-tabs__panel" id="register-panel">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                      <input class="mdl-textfield__input" type="text" id="netdb_user" v-model="netdbRegUser" @keyup.enter="handleNetdb('register')">
+                                      <label class="mdl-textfield__label" for="netdb_user">Username</label>
+                                  </div>
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                      <input class="mdl-textfield__input" type="text" id="netdb_mac" v-model="netdbRegMac" @keyup.enter="handleNetdb('register')">
+                                      <label class="mdl-textfield__label" for="netdb_mac">MAC Address</label>
+                                  </div>
+                                  <div class="mdl-card__actions mdl-card--border">
+                                      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="netdbRegister" @click="handleNetdb('register')">Register Standard</button>
+                                      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="netdbRegister" @click="handleNetdb('registertravel')">Register Travelling</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="mdl-card__menu">
+                              <a title="Open NetDB in New Window" href="https://itweb.mst.edu/~netdb" target="_blank">
+                                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">storage</i>
+                                  </button>
+                              </a>
+                          </div>
+                      </div>
+                      <!-- netgroupInput Card -->
+                      <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--4-col">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Netgroup Tool</h2>
+                          </div>
+                          <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-card__supporting-text">
+                              <div class="mdl-tabs__tab-bar">
+                                  <a href="#net-add-panel" class="mdl-tabs__tab is-active">Add</a>
+                                  <a href="#net-view-panel" class="mdl-tabs__tab">View</a>
+                              </div>
+                              <div class="mdl-tabs__panel is-active" id="net-add-panel">
+                                  <form action="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl" method="post" target="iframe" autocomplete="off">
+                                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                          <input name="add_mem" class="mdl-textfield__input" type="text" v-model="netgroupUser" id="netgroupUserInput">
+                                          <label class="mdl-textfield__label" for="netgroupUserInput">Username</label>
+                                      </div>
+                                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                          <input name="groups" class="mdl-textfield__input" type="text" v-model="netgroup" @keyup="handleNetgroupSearch">
+                                          <label class="mdl-textfield__label" for="netgroupInput">Netgroup</label>
+                                      </div>
+                                      <div class="netgroupMenu">
+                                          <div v-for="group in foundNetgroups" @click="handleNetgroupSelect">{{group}}</div>
+                                      </div>
+                                      <input type="text" name="mode" value="add_member" readonly style="display:none" />
+                                      <div class="mdl-card__actions mdl-card--border">
+                                          <input type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" @click="handleForm(['netgroup', 'netgroupUser'])" />
+                                      </div>
+                                  </form>
+                              </div>
+                              <div class="mdl-tabs__panel" id="net-view-panel">
+                                  <form action="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl" method="post" target="iframe" autocomplete="off">
+                                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                          <input name="groups" class="mdl-textfield__input" type="text" v-model="netgroup" @keyup="handleNetgroupSearch">
+                                          <label class="mdl-textfield__label" for="netgroupViewInput">Netgroup</label>
+                                      </div>
+                                      <div class="netgroupMenu">
+                                          <div v-for="group in foundNetgroups" @click="handleNetgroupSelect">{{group}}</div>
+                                      </div>
+                                      <input type="text" name="mode" value="query" readonly style="display:none" />
+                                      <input type="text" name="option" value="show" readonly style="display:none" />
+                                      <div class="mdl-card__actions mdl-card--border">
+                                          <input type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" @click="handleForm('netgroup')" />
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                          <div class="mdl-card__menu">
+                              <a title="Open Netgroup Management in New Window" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl" target="_blank">
+                                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">group</i>
+                                  </button>
+                              </a>
+                          </div>
+                      </div>
+                      <!-- People Lookup -->
+                      <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--4-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">MST People Search</h2>
+                          </div>
+                          <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-card__supporting-text">
+                              <div class="mdl-tabs__tab-bar">
+                                  <a href="#people-normal" class="mdl-tabs__tab is-active">Normal</a>
+                                  <a href="#people-turbo" class="mdl-tabs__tab">Turbo</a>
+                              </div>
+                              <div class="mdl-tabs__panel is-active" id="people-normal">
+                                  <form action="https://itweb.mst.edu/cgi-bin/cgiwrap/campdir/directory.pl" target="iframe" method="post" name="directory">
+                                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                          <input class="mdl-textfield__input" type="text" id="peopleInput" name="name" v-model="people" @keyup.click="handleForm('people')">
+                                          <label class="mdl-textfield__label" for="peopleInput">Enter Name</label>
+                                      </div>
+                                      <div class="mdl-card__actions mdl-card--border">
+                                          <input type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" @click="handleForm('people')" />
+                                      </div>
+                                  </form>
+                              </div>
+                              <div class="mdl-tabs__panel" id="people-turbo">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                      <input class="mdl-textfield__input" type="text" id="turboPeopleInput" v-model="turboPeople" @keyup.enter="handlePeopleTurbo">
+                                      <label class="mdl-textfield__label" for="turboPeopleInput">Enter Any Info!</label>
+                                  </div>
+                                  <div class="mdl-card__actions mdl-card--border">
+                                      <button id="turboPeopleSearch" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" @click="handlePeopleTurbo">Search</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="mdl-card__menu">
+                              <a target="_blank" title="Open Campus Directory in New Window" href="http://people.mst.edu/">
+                                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">account_circle</i>
+                                  </button>
+                              </a>
+                          </div>
+                      </div>
+                      <!-- Dell Warranty -->
+                      <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--3-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Dell Warranty</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <input class="mdl-textfield__input" type="text" id="dellInput" v-model="dell" @keyup.enter="handleDell">
+                                  <label class="mdl-textfield__label" for="dellInput">Service Tag</label>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+                              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="dellSearch" @click="handleDell">Search</button>
+                          </div>
+                          <div class="mdl-card__menu">
+                              <a target="_blank" title="Open Dell Support in New Window" href="http://support.dell.com/">
+                                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">laptop</i>
+                                  </button>
+                              </a>
+							  <a target="_blank" title="Open Dell TechDirect in New Window" href="http://techdirect.dell.com/">
+								<button class="mdl-button mdl-js-button mdl-button--icon">
+									<i class="material-icons">business</i>
+								 </button>
+							  </a>
+                          </div>
+                      </div>
+
+                      <!-- LAPS -->
+                      <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--3-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">LAPS</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <input class="mdl-textfield__input" type="text" id="lapsInput" v-model="laps" @keyup.enter="handleLaps">
+                                  <label class="mdl-textfield__label" for="lapsInput">Hostname</label>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+                              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" id="lapsSearch" @click="handleLaps">Search</button>
+                          </div>
+                          <div class="mdl-card__menu">
+                              <a target="_blank" title="Open LAPS in New Window" href="http://laps.mst.edu/">
+                                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">vpn_key</i>
+                                  </button>
+                              </a>
+                          </div>
+                      </div>
+
+                      <!-- stephens Card -->
+                      <!--
+                    <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--3-col-desktop">
+                        <div class="mdl-card__title mdl-card--expand">
+                            <h2 class="mdl-card__title-text">Stephens Extra Special Card</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                                    <label class="mdl-button mdl-js-button mdl-button--icon" for="stephen_input">
+                                        <i class="material-icons">face</i>
+                                    </label>
+                                    <div class="mdl-textfield__expandable-holder">
+                                        <input class="mdl-textfield__input" type="text" id="stephen_input" v-model="stephen" @keyup.enter="handleStephen">
+                                        <label class="mdl-textfield__label" for="stephen_input">Stephen says: </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                      <!-- Resources -->
+                      <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--6-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Resources</h2>
+                          </div>
+                          <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                              <div class="mdl-tabs__tab-bar">
+								  <a href="#tab_quick" class="mdl-tabs__tab is-active">Quick</a>
+                                  <a href="#tab_docs" class="mdl-tabs__tab">Docs</a>
+                                  <!--<a href="#tab_3DPrint" class="mdl-tabs__tab">3D Printer</a>-->
+                                  <a href="#tab_emails" class="mdl-tabs__tab">Email</a>
+                                  <a href="#tab_other" class="mdl-tabs__tab">Other</a>
+                              </div>
+							  <div class="mdl-tabs__panel is-active" id="tab_quick">
+                                  <a href="https://wiki.mst.edu/license/change/applications/licensing/start" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">License Server</a>
+                                  <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSA3V5TV-0m-XnPbelHbVA1mNMrmQhZfVMk4nG5cOkoPVA9nyYpSh2J5SeQSK8_W3mYzQ8fZoMyGQrE/pubhtml?gid=27566338&single=true" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">License Info</a>
+                                  <a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/staffdir/directory.pl" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">IT Staff Directory</a>
+								  <a href="https://itweb.mst.edu/cgi-bin/cgiwrap/instevals/eval_calendar.pl" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">CET Eval Dates</a>
+								  <a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/instevals/helpdesk/report.pl" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Active Evals</a>
+								  <a href="https://docs.google.com/spreadsheets/d/1W-V3bKeul8nXl-XMTs6-UO-ro5twUZAyttqP2AXvQkA/preview" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Jack Location Codes</a>
+                              </div>
+                              <div class="mdl-tabs__panel" id="tab_docs">
+                                  <a href="http://kb.mst.edu/internal" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Knowledge Base</a>
+                                  <a href="https://wiki.mst.edu/acadtech/" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">AT Wiki</a>
+                                  <a href="https://sites.google.com/a/mst.edu/walk-in-students/" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Old Knowledge Base</a>
+                                  <a href="https://onedrive.live.com/view.aspx?Bsrc=Share&Bpub=SDX.SkyDrive&resid=E64036F26223F2C0!196&cid=e64036f26223f2c0&app=OneNote&authkey=!AoYGtps0N9nmD1w" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">One Note (Very Old)</a>
+                              </div>
+                             <!-- <div class="mdl-tabs__panel" id="tab_3DPrint">
+                                  <a href="https://wiki.mst.edu/acadtech/functional_area/help_desk/work_flows/3d_printing" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Documentation</a>
+                                  <a href="http://www.stratasys.com/materials/fdm/compare-fdm-materials" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">ABS Properties</a>
+                                  <a href="http://it.mst.edu/services/3d-print/" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Public Info</a>
+                                  <a href="http://www.thingiverse.com/" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Thingiverse</a>
+                              </div> -->
+                              <div class="mdl-tabs__panel" id="tab_emails">
+                                  <a href="https://wiki.mst.edu/acadtech/functional_area/help_desk/canned_emails" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Canned Emails</a>
+                                  <a href="https://sites.google.com/a/mst.edu/walk-in-students/database-2-1/defaultemailresponses" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Old Canned Emails</a>
+                                  <a href="https://docs.google.com/a/mst.edu/document/d/1JIkShBcRs2y5qgLzEGQN_zohtWOQyAIcupUzlfDb7x0/edit?usp=sharing" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Stuart's Canned Emails</a>
+                              </div>
+                              <div class="mdl-tabs__panel" id="tab_other">
+                                  <a href="https://docs.google.com/document/d/1HOG3orMkcluOmJqYNbwJp06sCmi8h0Ng1Q5-Rrt_xHo/edit" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Sam's Need to Know</a>
+                                  <a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/staffdir/directory.pl" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">IT Staff Directory</a>
+                                  <a href="https://wiki.mst.edu/deskinst/change/applications/licensing/start" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">License Servers</a>
+                                  <a href="https://itweb.mst.edu/cgi-bin/cgiwrap/instevals/eval_calendar.pl" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Instructor Eval Dates</a>
+                                  <a href="https://wiki.mst.edu/acadtech/functional_area/help_desk/services/warranty_work" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Warranty Docs</a>
+                                  <a href="https://checkcoverage.apple.com/" target="_blank"
+                                     class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-list__item-primary-content">Apple Warranty</a>
+                              </div>
+                          </div>
+                          <div class="mdl-card__menu">
+                              <a target="_blank" href="http://laps.mst.edu/">
+                                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">folder</i>
+                                  </button>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </main>
+          <div id="iframeCard" class="mdl-card mdl-shadow--4dp animated disappear">
+              <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Resources</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                  <iframe name="iframe" src=""></iframe>
+              </div>
+              <div class="mdl-card__menu">
+                  <a href="javascript:mainVue.modalToTab();">
+                      <button class="mdl-button mdl-js-button mdl-button--icon">
+                          <i class="material-icons">launch</i>
+                      </button>
+                  </a>
+                  <a href="javascript:mainVue.toggleIframe();">
+                      <button class="mdl-button mdl-js-button mdl-button--icon">
+                          <i class="material-icons">clear</i>
+                      </button>
+                  </a>
+              </div>
+          </div>
+      </div>
+      <script defer src="./scripts/material.min.js"></script>
+      <script src="./scripts/firebase.js"></script>
+      <script src="./scripts/vue.min.js"></script>
+      <script src="./scripts/netgroups.js"></script>
+      <script src="./scripts/app.js"></script>
+      <script src="./scripts/systemStatus.js"></script>
+      <!-- jQuery 1.7+ -->
+      <script src="./scripts/jquery.1.7.min.js"></script>
+
+      <!-- Clippy.js -->
+      <script src="./scripts/clippyjs/build/clippy.min.js"></script>
+
+  </body>
+</html >

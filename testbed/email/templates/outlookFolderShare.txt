@@ -1,0 +1,71 @@
+Hello[custName],
+
+Please see the instructions below in order to grant sharing permissions on a particular Outlook Folder.
+
+
+On your computer
+---------------------------------------------------------
+
+1) In your Outlook, right-click on the folder you want to share. (If you are creating a new folder, create it first, then right-click on it.) Select "Properties".
+
+2) On the box that opens up, change to the "Permissions" tab.
+
+3) Click "Add". From the Global Address Book that opens up, Find the person(s) you want to share this folder with. Select "Add->" and "Okay".
+
+4) For each person that you added, choose a permissions level. For most cases, "Editor" is sufficient, but you may choose another level if you need to.
+
+5) Next, you need to grant View permissions on each parent folder. Starting with "Inbox", right-click on the folder and select "Properties".
+
+6) On the box that opens up, change to the "Permissions" tab.
+
+7) Click "Add". From the Global Address Book that opens up, Find the same person(s) shared this folder with. Select "Add->" and "Okay".
+
+8) For each person that you added, under "Other", check the box for "Folder Visible". Make sure their permission level is set to "None". Note that you are NOT sharing the folder and the person(s) will NOT be able to see any of its contents. However, since the original folder you are sharing is a subfolder, this step is necessary.
+
+9) Repeat steps 5-8 for each parent folder. For example, if your Outlook folders look like this (see below) and you want to share the "March" folder under "Committee Minutes", you would need to do steps 5-8 for "joeminer@mst.edu", "Inbox", and "Committee Minutes".
+
+joeminer@mst.edu
+------------------------
+   ->Inbox
+      -> Committee Minutes
+          -> March
+          -> April
+      -> Department News
+      -> Weekly Meetings
+
+
+
+On the user's side (the person(s) you are sharing with)
+---------------------------------------------------------
+
+1. Have the end user open Outlook.
+
+2. In the top left of the window, click 'File.'
+
+3. Click the 'Account Settings' button, then click ' Account Settings' from the dropdown menu.
+
+4. In the Email tab, make sure their primary account is highlighted, then click 'Change' from the menu ribbon above.
+
+5. Click the 'More Settings' button in the bottom right of the Change Account window.
+
+6. In the Microsoft Exchange window, navigate to the Advanced tab.
+
+7. In the Mailboxes section, click the 'Add' button.
+
+8. The Add Mailbox window should come up. Have the user type in your email address, and click 'OK.'
+
+10. Click 'Apply,' and then 'OK' in the Microsoft Exchange box.
+
+11. Click 'Next' in the Change Account window, and then 'Finish.'
+
+12. The user now has a new item labeled with your email address. It will be below their folders, so if they have many folders, they may have to scroll down for a bit.
+
+13. Have the user expand your each item under your email address until they can see the subfolder that you shared with them. The should be able to view and work on email in this subfolder.
+
+
+
+[resolving]For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk
+

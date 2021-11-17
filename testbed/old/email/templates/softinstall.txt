@@ -1,0 +1,9 @@
+Hello[custName],
+ 
+We have finished installing [softInstall_name] on your computer [softInstall_comp]. Please let us know if you experience any issues using this software. If we do not hear a response from you, we will assume the software is behaving as expected and will proceed to resolve your ticket.
+ 
+If you have any questions, or experience problems using this software, you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+
+Thank you,
+Missouri S&T
+IT Help Desk

@@ -1,0 +1,8 @@
+Hello[custName],
+
+This is the IT Help Desk. We have received a request to install [scheduleInst_software] on [scheduleInst_comp]. In order for us to do so, we will need to schedule a time for one of our technicians to remote desktop in to the computer and complete the install manually. Please provide a time during which the computer will be turned on, connected to the campus internet, and all users logged out. Our hours are Monday through Friday 8:00am to 5:00pm.
+
+For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+
+Thank You,
+S&T IT Help Desk

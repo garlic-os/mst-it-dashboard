@@ -1,0 +1,245 @@
+﻿<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="//campus.mst.edu/emctest/t4v3/favicon/16px.png" sizes="16x16" />
+    <title>Forms - IT Tools Dashboard</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="apple-touch-icon" sizes="940x940" href="./images/Missouri-ST_PrimaryLogo_DigitalLima.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/material.indigo-blue.min.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+      <span id="browser-sync-binding"></span>
+      <div id="toast" class="mdl-js-snackbar mdl-snackbar">
+          <div class="mdl-snackbar__text"></div>
+          <button class="mdl-snackbar__action" type="button"></button>
+      </div>
+      <!-- The drawer is always open in large screens. The header is always shown,
+    even in small screens. -->
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header">
+		  <div aria-expanded="false" color="#FFF" role="button" tabindex="0" class="mdl-layout__drawer-button">
+                <a href=".."><i class="material-icons">arrow_back</i></a>
+            </div>
+              <div class="mdl-layout__header-row">
+                  <div id="logo" class="mdl-layout--large-screen-only">
+                      <a href="//www.mst.edu">
+                          <img src="../logo.svg">
+                      </a>
+                  </div>
+                  <span class="mdl-layout-title">Forms & Waivers</span>
+                  <div class="mdl-layout-spacer"></div>
+                  <!-- Navigation. We hide it in small screens. -->
+                  <nav class="mdl-navigation mdl-layout--large-screen-only">
+                      <a class="mdl-navigation__link" target="_blank" href="https://cherwell.umsystem.edu/CherwellClient">Cherwell Web</a>
+                      <a class="mdl-navigation__link" href="#">Forms</a>
+                      <a class="mdl-navigation__link" target="_blank" href="https://vcc-na7.8x8.com/AGUI/login.php">8x8</a>
+                      <a class="mdl-navigation__link" target="_blank" href="https://password.umsystem.edu/MSTSupport">SecureAuth</a>
+                      <a class="mdl-navigation__link" target="_blank" href="http://myhr.umsystem.edu/">myHR</a>
+                      <a class="mdl-navigation__link" target="_blank" href="http://mst.edu/~ithelp/email/">Emails</a>
+                      <a class="mdl-navigation__link" target="_blank" href="https://papercut.mst.edu:9192/admin?">Papercut</a>
+                      <a class="mdl-navigation__link" target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/swconf/user-port-search.pl">Ports</a>
+
+                  </nav>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-ripple-effect" for="printsub">
+                      <li class="mdl-menu__item" href="https://papercut.mst.edu/admin">PaperCut</li>
+                      <li class="mdl-menu__item" href="https://printer.mst.edu/cgi-bin/cgiwrap/lprsrv/index.pl">Printer Config</li>
+                  </ul>
+                  <button id="settings-menu" class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons">settings</i>
+                  </button>
+                  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="settings-menu">
+                      <div class="mdl-menu__item" onclick="togglePopup()">Show Popup</div>
+                  </ul>
+				  <div id="CherwellHelp" title="View Cherwell Help Documentation" class="material-icons" > <a style="color: white;" href="http://it.mst.edu/internal">help_outline</a></div>
+                  <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons">more_vert</i>
+                  </button>
+                  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="https://cherwell.umsystem.edu/CherwellClient">Cherwell Web</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" href="#">Forms</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="https://vcc-na7.8x8.com/AGUI/login.php">8x8</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="https://password.umsystem.edu/MSTSupport">SecureAuth</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="http://myhr.umsystem.edu/">My Hr</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="http://mst.edu/~ithelp/email/">Email Composer</a>
+                      <a class="mdl-menu__item" target="_blank" href="https://splunk-srch2.kc.umkc.edu/">Splunk</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="https://papercut.mst.edu:9192/admin?">Papercut</a>
+                      <a class="mdl-menu__item" target="_blank" href="https://131.151.249.181/manage/#/login">SafeConnect</a>
+                      <a class="mdl-menu__item" target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/listmgr/list_tools_menu.pl">ListServ Manager</a>
+                      <a class="mdl-menu__item" target="_blank" href="https://printer.mst.edu/cgi-bin/cgiwrap/lprsrv/index.pl">Printer Config</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/swconf/user-port-search.pl">Port Search</a>
+                      <a class="mdl-menu__item" target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/wcat/win-object-admin.pl">Computer Object Admin Tool</a>
+                      <a class="mdl-menu__item mdl-layout--small-screen-only" target="_blank" href="./old">Old Site</a>
+                  </ul>
+              </div>
+          </header>
+		  <main class="mdl-layout__content">
+              <div class="page-content" style="padding-top: 20px;">
+                  <div class="mdl-grid">
+                      <!-- Check-In Waiver -->
+                      <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Check-In Waiver</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div id="auser" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <p>Use to Check-in a computer for service.</p>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+								<a href="https://docs.google.com/forms/d/e/1FAIpQLSfUeqOnjzKkkjXUvIT8O7OpVX8bv1NRf5zsG6n2bTykQfkaIw/viewform" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+									Open Waiver
+								</a>
+						  </div>
+                          <div class="mdl-card__menu">
+
+                          </div>
+                      </div>
+					  <!-- Invoice Record -->
+                      <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Invoice Record</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div id="auser" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <p>Use to create a billing record for a transaction.</p>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+								<a href="https://docs.google.com/forms/d/e/1FAIpQLSfMC_hbG5nfvFYVLVDCKZ7K-yfxM-I9M-BaHHU85NAT2vgj0w/viewform" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+									Open Form
+								</a>
+						  </div>
+                          <div class="mdl-card__menu">
+                              
+                          </div>
+                      </div>
+					  <!-- Loaner PC Free -->
+                      <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Loaner PC (No Billing)</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div id="auser" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <p>Use to checkout a loaner laptop for warranty work or while a University computer is under repair.</p>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+							<a href="http://web.mst.edu/~ithelp/forms/local/Laptop%20Rental%20(NO%20BILLING).docx" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+								Download Form
+							</a>
+                          </div>
+                          <div class="mdl-card__menu">
+                              
+                          </div>
+                      </div>
+					  <!-- Loaner PC Billed -->
+                      <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Loaner PC (Billable)</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div id="auser" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <p>Use to checkout a loaner laptop and bill to a MoCode.</p>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+							<a href="http://web.mst.edu/~ithelp/forms/local/Laptop%20Rental.docx" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+								Download Form
+							</a>
+						</div>
+                          <div class="mdl-card__menu">
+                              
+                          </div>
+                      </div>
+					  <!-- Owl Rental -->
+                      <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Owl Rental</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div id="auser" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <p>Use to checkout an Owl camera and bill to a MoCode.</p>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+							<a href="http://web.mst.edu/~ithelp/forms/local/Owl%20Rental.docx" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+								Download Form
+							</a>
+						  </div>
+                          <div class="mdl-card__menu">
+                              
+                          </div>
+                      </div>
+					  <!-- Projector Rental -->
+                      <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Projector Rental</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div id="auser" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <p>Use to checkout a projector and bill to a MoCode.</p>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+                              <a href="http://web.mst.edu/~ithelp/forms/local/Projector%20Rental.docx" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+								Download Form
+							  </a>
+						  </div>
+                          <div class="mdl-card__menu">
+                              
+                          </div>
+                      </div>
+					  <!-- Hardware Donation -->
+                      <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Hardware Donation</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div id="auser" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <p>Use to access hardware donation to the Help Desk.</p>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+							<a href="http://web.mst.edu/~ithelp/forms/local/Hardware%20Donation%20Form.docx" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+								Download Form
+							</a>                          
+						  </div>
+                          <div class="mdl-card__menu">
+                              
+                          </div>
+                      </div>
+					  <!-- Out of Order -->
+                      <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col-desktop">
+                          <div class="mdl-card__title mdl-card--expand">
+                              <h2 class="mdl-card__title-text">Out of Order</h2>
+                          </div>
+                          <div class="mdl-card__supporting-text">
+                              <div id="auser" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <p>Use to print a quick Out of Order sign.</p>
+                              </div>
+                          </div>
+                          <div class="mdl-card__actions mdl-card--border">
+                            <a href="http://web.mst.edu/~ithelp/forms/local/Out%20of%20order.docx" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+								Download Sign
+							</a>
+						  </div>
+                          <div class="mdl-card__menu">
+                              
+                          </div>
+                      </div>
+					  <!--End Content-->
+				  </div>
+			  </div>
+		  </main>
+		</body>
+		</html>

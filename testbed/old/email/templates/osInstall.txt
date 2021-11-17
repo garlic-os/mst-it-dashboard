@@ -1,0 +1,11 @@
+Hello[custName],
+
+
+
+This is the IT Help Desk. We have completed installing Windows on your computer. You may now pick up your system the from the Help Desk in the libaray. As a reminder, there will be a $50 fee for this service. This is payable by credit, debit, cash, or check.
+
+You can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+Missouri S&T
+IT Help Desk

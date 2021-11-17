@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>IT Tools Dashboard</title>
+	<!--///////////////////////   META INFORMATION  ///////////////////////-->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Missouri University of Science and Technology">
+    <meta name="copyright" content="Curators of the University of Missouri">
+
+    <!--//////////////////////   ENABLE ANDROID WEBAPP  //////////////////////-->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!--///////////////////////   STYLES AND SCRIPTS  ///////////////////////-->
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+	<link rel="stylesheet" href="./styles/styles.css" />
+	
+    <!-- Fonts from Google Font API -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+    <!-- Fav Icons from MST.EDU -->
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="//campus.mst.edu/emctest/t4v3/favicon/57px.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="//campus.mst.edu/emctest/t4v3/favicon/114px.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="//campus.mst.edu/emctest/t4v3/favicon/72px.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//campus.mst.edu/emctest/t4v3/favicon/144px.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="//campus.mst.edu/emctest/t4v3/favicon/60px.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="//campus.mst.edu/emctest/t4v3/favicon/120px.png" />
+
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="//campus.mst.edu/emctest/t4v3/favicon/72px.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//campus.mst.edu/emctest/t4v3/favicon/152px.png" />
+        <link rel="icon" type="image/png" href="//campus.mst.edu/emctest/t4v3/favicon/196px.png" sizes="196x196" />
+        <link rel="icon" type="image/png" href="//campus.mst.edu/emctest/t4v3/favicon/96px.png" sizes="96x96" />
+        <link rel="icon" type="image/png" href="//campus.mst.edu/emctest/t4v3/favicon/32px.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="//campus.mst.edu/emctest/t4v3/favicon/16px.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="//campus.mst.edu/emctest/t4v3/favicon/128px.png" sizes="128x128" />
+
+        <meta name="application-name" content="Missouri S&T"/>
+        <meta name="msapplication-TileColor" content="#78BE20" />
+        <meta name="msapplication-TileImage" content="//campus.mst.edu/emctest/t4v3/favicon/196px.png" />
+        <meta name="msapplication-square70x70logo" content="//campus.mst.edu/emctest/t4v3/favicon/70px.png" />
+        <meta name="msapplication-square150x150logo" content="//campus.mst.edu/emctest/t4v3/favicon/150px.png" />
+        <meta name="msapplication-wide310x150logo" content="//campus.mst.edu/emctest/t4v3/favicon/310px_150px.png" />
+        <meta name="msapplication-square310x310logo" content="//campus.mst.edu/emctest/t4v3/favicon/310px.png" />
+    <!-- End Fav Icons -->
+</head>
+
+<header class="mdc-top-app-bar--fixed">
+	<nav class="navbar navbar-light bg-light justify-content-between">
+		<a class="navbar-brand">
+			<img src="assets/images/horizontal_logo.png" width="172" height="30" alt="">
+			IT Dashboard
+		</a>
+		<div class="d-flex flex-row-reverse">
+			<button type="button" class="btn btn-primary bmd-btn-icon">
+				<i class="material-icons">more_vert</i>
+			</button>
+			<button type="button" class="btn btn-primary bmd-btn-icon">
+				<i class="material-icons">settings</i>
+			</button>
+			<div class="p-2"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/swconf/user-port-search.pl">Ports</a></div>
+			<div class="p-2"><a target="_blank" href="https://papercut.mst.edu:9192/admin?">PaperCut</a></div>
+			<div class="p-2"><a target="_blank" href="http://mst.edu/~ithelp/email/">Emails</a></div>
+			<div class="p-2"><a target="_blank" href="http://myhr.umsystem.edu/">myHR</a></div>
+			<div class="p-2"><a target="_blank" href="https://password.umsystem.edu/MSTSupport">SecureAuth</a></div>
+			<div class="p-2"><a target="_blank" href="https://vcc-na7.8x8.com/AGUI/login.php">8x8</a></div>
+			<div class="p-2"><a target="_blank" href="http://web.mst.edu/~ithelp/forms/">Forms</a></div>
+			<div class="p-2"><a target="_blank" href="https://cherwell.umsystem.edu/CherwellClient">Cherwell</a></div>
+		</div>
+	</nav>
+</header>
+<body>
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+		<div class="card-body">
+			<h5 class="card-title">Analyze User</h5>
+			<div class="form-group">
+				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User Info">
+			</div>
+			<a href="#" class="btn btn-primary">User/ID</a>
+			<a href="#" class="btn btn-primary">Name</a>
+			<a href="#" class="btn btn-primary">Email</a>
+		</div>
+	  </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+		<div class="card-body">
+			<h5 class="card-title">Win10 SCCM</h5>
+			<div class="form-group">
+				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Hostname">
+			</div>
+			<a href="#" class="btn btn-primary">Generate</a>
+			<a href="#" class="btn btn-primary">View All</a>
+		</div>
+	  </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+		<div class="card-body">
+			<h5 class="card-title">Analyze Phone</h5>
+			<div class="form-group">
+				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Extension">
+			</div>
+			<a href="#" class="btn btn-primary">Search</a>
+		</div>
+	  </div>
+    </div>
+	<div class="col">
+      <div class="card" style="width: 18rem;">
+		<div class="card-body">
+			<h5 class="card-title">Dell Warranty</h5>
+			<div class="form-group">
+				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Service Tag">
+			</div>
+			<a href="#" class="btn btn-primary">Search</a>
+		</div>
+	  </div>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+	<div class="col">
+		<div class="card" style="width: 24rem;">
+		<div class="card-body">
+			<h5 class="card-title">NetDB</h5>
+			<ul class="nav nav-tabs">
+				<li class="nav-time">
+					<a class="nav-link active" data-toggle="tab" href="#search">Search</a
+				</li>
+				<li class="nav-time">
+					<a class="nav-link" data-toggle="tab" href="#register">Register</a>
+				</li>
+			</ul>
+			
+			<div class="tab-content">
+				<div id="search" class="tab-pane fade in active">
+					<div class="form-group">
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Computer Info">
+						<br/>
+					</div>
+						<a href="#" class="btn btn-primary">Host/MAC</a>
+						<a href="#" class="btn btn-primary">Owner</a>
+						<a href="#" class="btn btn-primary">Loc</a>
+						<a href="#" class="btn btn-primary">Des</a>
+				</div>
+				<div id="register" class="tab-pane fade">
+					<div class="form-group">
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="MAC Address">
+
+					</div>
+						<a href="#" class="btn btn-primary">Standard</a>
+						<a href="#" class="btn btn-primary">Travelling</a>
+				</div>
+			</div>
+			
+			
+		</div>
+	  </div>
+	</div>
+  </div>
+	<!-- End Layout -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+Hello[custName],
+
+The [prnInst_prn] has been successnfully added to the computer [prnInst_comp]. 
+
+[resolving]If you have any further questions, or experience any problems using this printer, you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+
+Thank you,
+Missouri S&T
+IT Help Desk
+

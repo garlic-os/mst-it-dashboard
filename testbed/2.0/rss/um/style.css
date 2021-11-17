@@ -1,0 +1,42 @@
+@font-face{
+	font-family: 'Orgon Slab';
+}
+html	{
+	font-family: 'Orgon Slab', serif;
+	font-size: 11pt;
+}
+body{
+	width: 800px;
+	margin: auto;
+}
+body > h1{
+	text-align: center;
+}
+h2{
+	color: #003b49;
+	margin-bottom: 0;
+	font-size: 16pt;
+}
+
+a:link{
+	
+	color: #007a33;
+}
+h2+a:link{
+	
+	font-weight: bold;
+}
+h3{
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 10pt;
+}
+p{
+	margin: 0;
+}
+output h1 {
+	background-color: #003b49;
+	text-indent: 5px;
+	color:white;
+	font-size: 18pt;
+}

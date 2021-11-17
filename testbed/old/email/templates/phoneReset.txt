@@ -1,0 +1,13 @@
+Hello[custName],
+
+Could you attempt a hard reset of the phone in question? To do this, please perform the following steps:
+
+1. Disconnect the ethernet cable which runs from the phone to the wall from the back of the phone set (The cable in the back of the phone will be labeled 'SW'). Once this cable is disconnected, the phone should lose power/connection.
+2. Let the phone sit disconnected for 3-4 minutes. This should allow the connection enough time for a network refresh.
+3. Reconnect the cable in the back of the phone set. Test the phone after it reboots.
+
+Please let us know if the issue recurs after the reset. If you have any questions, you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+Missouri S&T
+IT Help Desk

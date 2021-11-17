@@ -1,0 +1,58 @@
+a:visited{
+	color: blue;	
+}
+
+a:hover{
+	color: midnightblue;
+}
+
+#header{
+	font-weight: bold;
+	font-size: 26pt;
+	text-align: center;
+	font-family: arial;
+}
+
+#header-picture{
+	height: 80px;
+	width: 80px;
+}
+
+#alpha-image{
+	width: 650px;
+}
+
+div td{
+	width: 200px;
+}
+
+#footer{
+	font-size: 11px;
+	text-align: center;
+}
+
+#footer > a {
+	text-decoration: none;
+}
+
+#stephen {
+	display: none;
+    text-align: center;
+	vertical-align: middle;
+}
+
+#stephen > textarea {
+    width: 180px;
+    height: 18px;
+    border: solid black 1px;
+    text-align: center;
+    font-family: Arial;
+
+}
+#email  {
+
+}
+
+#email  embed {
+	width: 100%;
+}

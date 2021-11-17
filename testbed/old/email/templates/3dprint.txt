@@ -1,0 +1,9 @@
+Hello[custName],
+
+We have completed your 3D print request and it is available for pickup. At your convenience, please stop by the IT Help Desk in the Library to pick up your 3d printed part(s). Our hours are 8:30am to 4:30pm, Monday through Friday.
+
+[resolving]If you have any further questions, you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+Missouri S&T
+IT Help Desk

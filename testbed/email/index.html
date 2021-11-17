@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>IT Email Composer</title>
+    <link rel="icon" type="image/png" href="//campus.mst.edu/emctest/t4v3/favicon/16px.png" sizes="16x16" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../styles/material.indigo-blue.min.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+	<link rel="stylesheet" href="./styles.css" />
+	<script src="./dialog/dialog-polyfill.js"></script>
+	<link rel="stylesheet" href="./dialog/dialog-polyfill.css" />
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</head>
+<body>
+	<!-- Header -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+			<div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button">
+				<a href=".."><i class="material-icons">arrow_back</i></a>
+			</div>
+            <div class="mdl-layout__header-row">
+                <div id="logo" class="mdl-layout--large-screen-only">
+                  <a href="//www.mst.edu">
+                    <img src="../logo.svg">
+                  </a>
+                </div>
+				<span class="mdl-layout-title">IT Email Composer</span>
+			</div>
+		</header>
+	</div>
+	<div>
+		<div id="topspacer" style="height:120px;"></div>
+		
+		<!-- Message Box -->
+		<div class="mdl-card mdl-shadow--2dp msg_card">
+			<div class="mdl-card__title">
+				<h2 id="tmpl_title" class="mdl-card__title-text"></h2>
+				<span style="margin-left:auto;">
+					<button id="select" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect msg_btn">Select Template</button>
+					<button id="copy" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect msg_btn">Copy to Clipboard</button>
+					<button id="reset" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect msg_btn">Reset Text</button>
+				</span>
+			</div>	
+			<textarea id="msg"></textarea>
+		</div>
+		
+		<!-- Options -->
+		<div class="options_outer">
+		
+			<!-- Generic Options -->
+			<span class="options_inner">
+				<div class="mdl-card mdl-shadow--2dp">
+					<div class="mdl-card__title">
+						<h2 class="mdl-card__title-text">Generic Options</h2>
+					</div>
+					<div class="mdl-card__supporting-text">
+						<input type="text" id="custNameInput" class="opt_input mdl-textfield__input" placeholder="Customer Name" oninput="updateMsg()"></input>
+						<hr>
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="tickOpen_true">
+							<input type="radio" id="tickOpen_true" class="mdl-radio__button" name="tickOpen" onchange="updateMsg()" checked>
+							<span class="mdl-radio__label radio">Still Open</span>
+						</label>
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="tickOpen_false">
+							<input type="radio" id="tickOpen_false" class="mdl-radio__button" name="tickOpen" onchange="updateMsg()">
+							<span class="mdl-radio__label radio">Being Resolved</span>
+						</label>
+						<hr>
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="tickUpdateInfo">
+							<input type="checkbox" id="tickUpdateInfo" class="mdl-checkbox__input" onchange="updateMsg()">
+							<span class="mdl-checkbox__label">Add Info on Updating Ticket?</span>
+						</label>
+					</div>
+				</div>
+			</span>
+			
+			<!-- Template Options -->
+			<span class="options_inner">
+				<div class="mdl-card mdl-shadow--2dp">
+					<div class="mdl-card__title">
+						<h2 class="mdl-card__title-text">Template-Specific Options</h2>
+					</div>
+					<div id="template_options" class="mdl-card__supporting-text"></div>
+				</div>
+			</span>
+		</div>
+	</div>
+	
+	<!-- Dialog -->
+	<dialog class="mdl-dialog tmpl_edit_dialog">
+		<h4 class="mdl-dialog__title">
+			Select Email Template
+			<h4 class="tmpl_edit_subtitle">Templates can be edited at: \\minerfiles.mst.edu\dfs\userweb\ithelp\email\templates\</h4>
+			<input id="tmplInput" type="text" placeholder="Search" oninput="updateTmplList(this.value)"></input>
+			<button type="button" style="margin-left: 20px;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="listSelect(0)">Default Template</button>
+		</h4>
+		<div id="tmpl_list_wrap" class="mdl-dialog__content">
+			<ul id="tmpl_list" class="mdl-list"></ul>
+		</div>
+		<div class="mdl-dialog__actions">
+			<button id="close_dialog" type="button" class="mdl-button close mdl-button--raised mdl-js-button mdl-js-ripple-effect" onclick="dialog.close()">Cancel</button>
+		</div>
+	</dialog>
+
+	
+	<!-- Snackbar -->
+	<div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
+		<div class="mdl-snackbar__text"></div>
+		<button class="mdl-snackbar__action" type="button"></button>
+	</div>
+	
+	<!-- Script Includes -->
+	<script type="text/javascript" src="./msgFill.js" ></script>
+	
+</body>
+</html>

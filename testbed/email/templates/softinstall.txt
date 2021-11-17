@@ -1,0 +1,6 @@
+Hello[custName],
+ 
+We have finished installing [softInstall_name] on your computer [softInstall_comp]. For assistance, or if you experience problems using this software, you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+
+Thank you,
+S&T IT Help Desk

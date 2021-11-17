@@ -1,0 +1,6 @@
+Hello[custName],
+
+This is the IT Help Desk. We have received the replacement part for you Dell laptop repair. When convenient for you, please stop by the IT Help Desk with your laptop so that we can install the replacement part. Our hours are weekdays 8:30am to 4:30pm. You can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk

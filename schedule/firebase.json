@@ -1,0 +1,9 @@
+{
+  "firebase": "cow-scheduling-app",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

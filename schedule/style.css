@@ -1,0 +1,50 @@
+body {
+    padding-bottom: 50px;
+}
+
+.times {
+    margin-bottom: 50px;
+}
+
+/* Checkbox - each time slot */
+.time-slot { }
+
+/* Hide checkbox itself - label will be styled */
+.time-slot input {
+    display: none;
+}
+
+/* Default styling for labels */
+.time-slot label {
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    background: #eee;
+    border-radius: 5px;
+    transition: 0.3s ease all;
+}
+
+/* If label is checked */
+.time-slot input:checked ~ label {
+    background: #f2dede;
+    cursor: not-allowed;
+    animation: flashBooked 0.5s ease;
+}
+
+/* If label is not checked */
+.time-slot input:not(:checked) ~ label {
+    background: #6Ab074;
+    animation: flashAvailable 0.5s ease;
+}
+
+/* Animation for time slot to flash red */
+@keyframes flashBooked {
+    0%, 100% { background: #f2dede; transform: scale(1); }
+    50% { background: #f99090; transform: scale(1.5); }
+}
+
+/* Animation for time slot to flash green */
+@keyframes flashAvailable {
+    0%, 100% { background: #6ab074; transform: scale(1); }
+    50% { background: rgb(119, 218, 78); transform: scale(1.5); }
+}

@@ -1,0 +1,9 @@
+Hello[custName],
+
+We have received your request to install [softwareNO_software] on [softwareNO_comp]. Unfortunately, requests for software installations must come from the either computer owner (in this case, [softwareNO_owner]), or from a user with admin privileges on the computer. Please have one of these people submit a new request under their name. At this time we will be resolving your ticket.
+
+[resolving]If you have any further questions, you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+Missouri S&T
+IT Help Desk

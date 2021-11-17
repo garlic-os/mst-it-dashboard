@@ -1,0 +1,279 @@
+.disappear {
+  opacity:0;
+  transform:translate3d(0,25px,0);
+  pointer-events: none;
+}
+
+.animated {
+	transition:.25s;
+}
+
+
+form {
+	margin:0;
+	padding:0 !important;
+}
+a, a:visited {
+	text-decoration: none;
+	color:black;
+}
+ul {
+	list-style:none;
+}
+.mdl-tabs.mdl-card__supporting-text {
+	width:auto;
+}
+.mdl-tabs__panel .mdl-card__actions {
+	width:calc(100% + 32px);
+	position:relative;
+	left:-16px;
+	top:16px;
+}
+.mdl-card__title {
+	background:#509E2F;
+	color:#003B3D;
+}
+.mdl-card__menu i {
+	color:#fff;
+}
+.netgroupMenu {
+	max-height:100px;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+.netgroupMenu > div {
+	cursor:pointer;
+}
+.mdl-layout__header {
+	background:#003B49;
+}
+#logo {
+	position:relative;
+	top:1.3rem;
+	margin-right:1rem;
+	margin-left:1.6rem;
+	width:7.5rem;
+	background:transparent linear-gradient(to bottom, #78BE20 0%, #6FB91E 100%) repeat scroll 0% 0%;
+	box-shadow:0px 0px 3px 0px rgba(0,0,0,0.24), -2px 2px 7px 0 rgba(0,0,0,0.54);
+}
+.page-content {
+	padding-top:2.5rem;
+}
+.mdl-textfield__label:after, .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+	background-color:#007a33 !important;
+}
+.mdl-button--primary {
+	background:white !important;
+	color: #007a33 !important;
+
+}
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+	color:#007a33 !important;
+}
+.mdl-layout__header-row {
+	padding: 0px 16px;
+	padding-left:5rem;
+}
+.mdl-layout__header .mdl-layout__drawer-button {
+	box-sizing:border-box;
+	padding-top:10px;
+}
+.mdl-layout__drawer {
+	width:360px !important;
+	max-width:100vw;
+	transform:translateX(-370px);
+	background:#DCE3E4;
+	border:none;
+}
+.mdl-layout__drawer .mdl-layout-title {
+	background:#509E2F;
+	color:white;
+}
+#newQueVueWrapper > .mdl-button {
+	position:absolute;
+	z-index:9001;
+	top:-3.85rem;
+	right:1rem;
+	transition:.5s;
+}
+#newQueVueWrapper > .mdl-button.cancel {
+	background:#E87722 !important;
+}
+.mdl-layout__drawer > .mdl-card {
+	position:absolute;
+	top:5rem;
+	left:1rem;
+	width: calc(100% - 2rem);
+}
+.mdl-layout__drawer .mdl-card .mdl-card__title {
+	background: #003B49;
+	color:white;
+}
+.mdl-layout__drawer .mdl-card__supporting-text {
+	max-height:calc(100vh - 18rem);
+	overflow:auto;
+}
+#newQueVueWrapper {
+	/* To fix position due to bundling fab with form
+	 to make the controller work*/
+	box-sizing: border-box;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	top:4.5rem;
+	padding:1rem;
+	pointer-events:none;
+}
+#newQueVueWrapper > *:not(.disappear) {
+	pointer-events:auto;
+}
+#newQuestionCard .mdl-radio {
+	display:block;
+}
+#answerQuestionCard .mdl-radio {
+	top:-1rem;
+}
+#reviewQuestion__author {
+	text-align:right;
+}
+#answerQuestionCard #answerQuestion__text {
+	color:black;
+	font-size:1rem;
+	padding-top:.5rem;
+}
+.mdl-list__item.highlight .mdl-list__item-sub-title {
+	color: rgba(1, 122, 51, .54) !important;
+}
+#trivia_usersList {
+	-webkit-display:flex;
+	display:flex;
+	-webkit-flex-direction:column;
+	flex-direction:column;
+}
+#trivia_usersList .mdl-list__item {
+	order: 2;
+	height:56px;
+}
+#trivia_usersList .mdl-list__item.highlight {
+	order: 1;
+}
+.mdl-radio.is-checked .mdl-radio__outer-circle {
+	border-color: #017a33;
+}
+.mdl-radio.is-checked .mdl-radio__inner-circle, .mdl-button--colored, .progressbar, .mdl-ripple {
+	background: #017a33 !important;
+	color: white !important;
+}
+.mdl-textfield__label {
+	color:#017a33 !important;
+}
+#reviewQuestionCard .mdl-card__supporting-text #correctAnswer {
+	color:black;
+	font-size:1.1rem;
+}
+#reviewQuestionCard .correct {
+	color: #509E2F;
+}
+#reviewQuestionCard .wrong {
+	color: #E87722;
+}
+
+#iframeCard {
+	position:absolute;
+	top:2rem;
+	left:2rem;
+	height:calc(100% - 5rem);
+	width:calc(100% - 5rem);
+	z-index:9001;
+	border-radius:4px;
+	box-shadow:0px 0px 0px 100px rgba(0,0,0,.54);
+}
+#iframeCard .mdl-card__supporting-text {
+	padding:0;
+	width:100%;
+	height:100%;
+}
+#iframeCard iframe {
+	height:100%;
+	width:100%;
+}
+
+/* System Status Popup */
+.systemStatus {
+	position: relative;
+}
+.systemStatus .systemstatus-button {
+	margin-left: 20px;
+	cursor: pointer;
+}
+.systemStatus .systemStatus-content {
+	color: black;
+	background-color: white;
+	position: absolute;
+	left: 5px;
+	display: none;
+	height: 350px;
+	width: 400px; !important;
+	overflow-y: scroll;
+}
+.systemStatus .mdl-spinner {
+    margin-top: 150px;
+	margin-left: 184px;
+}
+.systemStatus .systemStatus-titleContainer {
+	display: inline-grid;
+	margin: 10px;
+	width: calc(100% - 50px);
+}
+.systemStatus .systemStatus-title {
+	font-weight: bold;
+}
+.systemStatus .systemStatus-status {
+	display: inline-block;
+	font-size: 18px;
+	vertical-align: middle;
+	height: 26px;
+}
+.systemStatus .systemStatus-desc {
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.4s;
+	transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.systemStatus button.systemStatus-expand {
+	border: 1px solid rgba(0,0,0,.12) !important;
+	background-color: #ffffff;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.4s;
+	transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.systemStatus button.systemStatus-expand.active, button.systemStatus-expand:hover {
+	background-color: #eeeeee;
+}
+@media only screen and (max-device-width: 480px) {
+	.systemStatus {
+		position: static;
+		z-index: 10;
+	}
+	.systemStatus .systemStatus-content {
+		width: 97%;
+	}
+}
+
+.inni {
+	background-image: url('https://mst.edu/~ithelp/images/inni.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: scroll;
+	background-position: center;
+}

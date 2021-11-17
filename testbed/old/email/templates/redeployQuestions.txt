@@ -1,0 +1,20 @@
+Hello[custName],
+
+This is the IT Help Desk. We have received your request for a redeploy coputer. In order for us to move forward with your request, we need for you to answer a few questions, please. 
+
+1.  Why are you requesting a redeploy? 
+2.  How long will you need a redeploy computer? (no endpoint, 1 semester, 1 academic year, etc)
+3.  Who will the primary user(s) be? 
+4.  Who is the faculty adviser or staff supervisor of the primary user(s)? 
+5.  If this computer is for a student, who is the primary point of contact for changes? 
+6.  What computer(s) is/are the primary user(s) currently using? 
+7.  In what building and room number would the redeploy computer be located? 
+8.  Who, if anyone, needs administrative rights on the redeploy computer? 
+9.  What software needs to be installed on the redeploy computer?
+10. If the software requires purchasing a license, please provide a MoCode for purchasing.
+
+You can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+Missouri S&T
+IT Help Desk

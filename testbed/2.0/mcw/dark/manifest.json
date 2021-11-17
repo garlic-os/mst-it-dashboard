@@ -1,0 +1,13 @@
+{
+  "short_name": "IT Tools Dashboard",
+  "name": "IT Tools Dashboard",
+  "icons": [
+    {
+      "src": "./images/Missouri-ST_PrimaryLogo_DigitalLima.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone"
+}

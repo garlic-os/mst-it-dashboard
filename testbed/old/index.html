@@ -1,0 +1,174 @@
+<!--- IT Help Desk Quick Links Userweb
+  --- Maintaned by: Stuart Miller (t-sm67c@mst.edu)
+  --- Last Update:  11/2/15
+  --->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IT Help Desk Quick Links</title>
+	<script src="jquery-2.1.4.min.js" type="text/javascript" language="javascript"></script>
+	<script src="inputboxes.js" type="text/javascript" language="javascript"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">		
+</head>
+<body>
+	
+	<div id="header">
+		<img src="images/computer_on_fire.jpg" id="header-picture">
+		&nbsp;&nbsp;Help Desk Quick Links&nbsp;&nbsp;
+		<img src="images/flipped_computer_on_fire.jpg" id="header-picture">
+	</div>
+	<br>
+	<br>
+	
+	<table border align="center">
+		<tr align="center" style="font-weight: bold;">
+			<td colspan="3">
+				<div id="header-table">
+					<table noborder id="header-table">
+						<tr align="center">					
+							<td>Ticketing System</td>
+							<td>Call Manager</td>
+							<td>Timesheet</td>
+						</tr><tr align="center">
+							<td><a href="http://remedy.umsystem.edu">Remedy</a></td>
+							<td><a href="https://vcc-na7.8x8.com/AGUI/login.php">8x8</a></td>
+							<td><a href="http://myhr.umsystem.edu">myHR</a></td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr align="center" style="vertical-align: top;">
+			<td style="width: 220px;">
+				<b>Standard Tools</b><br>
+				<a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl">Analyze User</a><br>
+				<a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netdb/menu.pl">NetDB</a><br>
+				<a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/deskwtg/menu.pl">SCCM Template Generator</a><br>
+				<a href="https://password.mst.edu/auth-cgi-bin/cgiwrap/pwchanger/reset.pl">Password Changer</a><br>
+				<a href="https://papercut.mst.edu:9192/admin?">PaperCut Admin Console</a><br>
+				
+				<br><b>Advanced Tools</b><br>
+				<a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl">Netgroup Management</a><br>
+				<a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/listmgr/list_tools_menu.pl">Listserv Manager</a><br>
+				<a href="https://printer.mst.edu/cgi-bin/cgiwrap/lprsrv/index.pl">Printer Configuration</a><br>
+				<a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/swconf/user-port-search.pl">Port Search</a><br>
+				<a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/vpnlog/user.pl">VPN Users</a><br>
+				<a href="https://131.151.2.153:8443/dashboard.do">SafeConnect Dashboard</a><br>
+				<a href="https://wiki.mst.edu/deskinst/change/applications/licensing/start">License Servers</a><br>
+				<a href="https://itweb.mst.edu/cgi-bin/cgiwrap/instevals/eval_calendar.pl">Instructor Eval. Dates</a><br>
+				
+				<br><b>3D Print Info</b><br>
+				<a href="https://wiki.mst.edu/acadtech/functional_area/help_desk/work_flows/3d_printing">Documentation</a><br>
+				<a href="http://www.stratasys.com/materials/fdm/compare-fdm-materials">Material Properties</a><br>
+				<a href="http://it.mst.edu/services/3d-print/">Public Info</a><br>
+				<a href="http://www.thingiverse.com/">Thingiverse</a><br>
+				
+				<br><b>S&T Links</b><br>
+				<a href="http://joess.mst.edu">Joe'SS</a><br>
+				<a href="http://blackboard.mst.edu">Blackboard</a><br>
+				<a href="http://canvas.mst.edu">Canvas</a><br>
+				<a href="http://minermail.mst.edu">Staff Email</a><br>
+				<a href="http://gmail.mst.edu">Student Email</a><br>
+					
+			</td>
+			<td style="width: 280px;">
+				<table>
+					<tr align="center">
+						<td colspan="2"><b>Analyze User</b><br></td>
+					</tr><tr>
+						<td>Username:</td>
+						<td><input type="text" id="analyze1" placeholder="joemnr"></td>
+					</tr><tr>
+						<td>ID Number:</td>
+						<td><input type="text" id="analyze2" placeholder="12345678"></td>
+					</tr><tr align="center">
+						<td colspan="2"><br><b>NetDB Search</b><br></td>
+					</tr><tr>
+						<td>Comp. Name:</td>
+						<td><input type="text" id="netdb1" placeholder="r01joeminer"></td>
+					</tr><tr>
+						<td>Username:</td>
+						<td><input type="text" id="netdb2" placeholder="joemnr" value=""></td>
+					</tr><tr align="center">
+						<td colspan="2"><br><b>Password Reset</b><br></td>
+					</tr><tr>
+						<td>Username:</td>
+						<td><input type="text" id="password" placeholder="joemnr"></td>
+					</tr><tr align="center">
+						<td colspan="2"><br><b>SCCM Software Install</b><br></td>
+					</tr><tr>
+						<td>Comp. Name:</td>
+						<td><input type="text" id="sccm" placeholder="r01joeminer"></td>
+					</tr><tr align="center">
+						<td colspan="2"><br><b>Analyze Phone</b><br></td>
+					</tr><tr>
+						<td>Extension:</td>
+						<td><input type="text" id="phone" placeholder="1234"></td>
+					</tr><tr align="center">
+						<td colspan="2"><br><b>Add to Netgroup</b><br></td>
+					</tr><tr>
+						<form action="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl" method="post">
+							<td>Username:</td>
+							<td><input name="add_mem" type="text"  placeholder="joemnr" /></td>
+					</tr><tr>
+							<td>Netgroup:</td>
+							<td>
+								<input name="groups" type="text" id="solidworks" placeholder="dept-it" />
+								<input type="text" name="mode" value="add_member" readonly style="display:none" />
+							</td>
+					</tr><tr>
+						<td></td>
+						<td>							
+							<input type="submit" style="align: left;">
+							</form>
+							<input type="button" onclick="solidworks();" value="Solidworks">
+						</td>
+						
+					</tr>
+				</table>
+			</td>
+			<td style="width: 220px;">
+				
+				<b>Documentation</b><br>
+				<a href="https://kb.mst.edu/internal">Knowledge Base</a><br>
+				<a href="https://wiki.mst.edu/acadtech/">AT Wiki</a><br>
+				<a href="https://sites.google.com/a/mst.edu/walk-in-students/">Knowledge Base (Old)</a><br>
+				<a href="https://onedrive.live.com/view.aspx?Bsrc=Share&Bpub=SDX.SkyDrive&resid=E64036F26223F2C0!196&cid=e64036f26223f2c0&app=OneNote&authkey=!AoYGtps0N9nmD1w">OneNote (Very Old)</a><br>
+					
+				<br><b>Staff Notes</b><br>
+				<a href="https://docs.google.com/document/d/1HOG3orMkcluOmJqYNbwJp06sCmi8h0Ng1Q5-Rrt_xHo/edit">Sam's Need to Know</a><br>
+				
+				<br><b>Canned Emails</b><br>
+				<a href="https://wiki.mst.edu/acadtech/functional_area/help_desk/canned_emails">Canned Emails</a><br>
+				<a href="https://sites.google.com/a/mst.edu/walk-in-students/database-2-1/defaultemailresponses">Canned Emails (Old)</a><br>
+				<a href="https://docs.google.com/a/mst.edu/document/d/1JIkShBcRs2y5qgLzEGQN_zohtWOQyAIcupUzlfDb7x0/edit?usp=sharing">Stuart's Canned Emails</a><br>
+				
+				<br><b>Find People</b><br>
+				<a href="http://people.mst.edu/">MST All Staff Directory</a><br>
+				<a href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/staffdir/directory.pl">IT Staff Directory</a><br>
+				
+				<br><b>Warranty Work</b><br>
+				<a href="http://www.support.dell.com">Check Dell Warranty</a><br>
+				<a href="https://checkcoverage.apple.com/">Check Apple Warranty</a><br>
+				<a href="https://wiki.mst.edu/acadtech/functional_area/help_desk/services/warranty_work">Warranty Documentation</a><br>
+				
+				<br><b>Other</b><br>
+				<a href="alphabet.html">Phonetic Alphabet</a><br>
+				<a href="http://google.mst.edu">MST Search</a><br>
+			</td>
+		</tr>
+	</table>
+	
+	<div id="footer">
+		<a href="./old">Old Site</a>
+		&nbsp<b>&middot</b>&nbsp
+		<a href="mailto:t-sm67c@mst.edu" target="_top">Questions About This Site?</a> 
+	</div>
+
+    <div id="stephen" style="dislpay:none">
+        <br><b>Stephen's Extra Special Text Box</b><br>
+        &rarr;&nbsp;<textarea id="stephen-text" value=""></textarea>&nbsp;&larr;
+    </div>
+		
+</body>
+</html>

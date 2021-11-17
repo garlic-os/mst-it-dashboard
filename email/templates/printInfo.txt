@@ -1,0 +1,8 @@
+Hello[custName],
+
+We have received your ticket requesting a printer installation on your computer [printInfo_comp]. In order to complete this installation, we need some more information. Please provide either the registered name of the printer (it should be on a white sticker on the printer and look like [name].prn.mst.edu). If you do not see such a sticker, I can try to track it down by its type and location. Please provide the manufacturer name/model of the printer and the building and room where it is located.
+
+[resolving]For assistance you can contact the IT Help Desk by calling (573) 341-4357 (HELP), visiting the IT Help Desk on the first floor of the Curtis Laws Wilson Library, or [tickOpen] ticket online at http://help.mst.edu. [tickUpdateInfo]
+	
+Thank You,
+S&T IT Help Desk
