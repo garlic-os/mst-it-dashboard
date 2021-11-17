@@ -169,12 +169,3 @@ a:not([href]) {
 	height: 100%;
 	border: none;
 }
-
-.dropdown-icon {
-	background-image: url("/images/dropdown.svg");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	height: 100%;
-	filter: invert();
-}
