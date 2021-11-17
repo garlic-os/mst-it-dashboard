@@ -132,7 +132,7 @@ function updateNav() { // This also controls RDP and Apps page elements
 function setApp(app) {
     switch(app) {
         // We do not add 0: Welcome because page.js will auto detect if needed.
-        case "dashboard": // Dashboard
+        case "dashboard":
             // Set Display Mode
             switch(modeParam) {
                 case "helpdesk":
@@ -154,27 +154,27 @@ function setApp(app) {
             loadJsApp("./data/dashboard/buildings.js");
             loadJsApp("./scripts/dashboard/app.js");
             break;
-        case "settings": // Settings
+        case "settings":
             replaceGrid("./templates/dash/settings.html");
             loadJsApp("./scripts/settings/app.js");
             break;
-        case "forms": // Forms
+        case "forms":
             replaceGrid("./templates/form/general.html");
             loadJsApp("./scripts/forms/app.js");
             break;
-        case "emails": // Emails
+        case "emails":
             replaceGrid("./templates/email/general.html");
             loadJsApp("./scripts/email/app.js");
             break;
-        case "loaners": // Loaners
+        case "loaners":
             replaceGrid("./templates/loaner/general.html");
             loadJsApp("./scripts/loaner/app.js");
             break;
-        case "error": // Errors
+        case "error":
             replaceGrid("./templates/page/error.html");
             loadJsApp("./scripts/page/error.js");
             break;
-        case "help": // Help
+        case "help":
             replaceGrid("./templates/page/help.html");
             loadJsApp("./scripts/page/help.js");
             break;
