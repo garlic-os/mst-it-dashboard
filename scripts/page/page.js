@@ -8,8 +8,8 @@ Contains functions related to page generation */
 const rootFile = '';
 const versionNumber = '?66';
 const urlParams = new URLSearchParams(window.location.search);
-const appParam = parseInt(urlParams.get('app'), 10);
-const modeParam = parseInt(urlParams.get('mode'), 10);
+const appParam = urlParams.get('app');
+const modeParam = urlParams.get('mode');
 const typeParam = urlParams.get('type');
 const radarParam = urlParams.get('radar');
 const errorParam = urlParams.get('code');
@@ -19,16 +19,15 @@ const errorParam = urlParams.get('code');
 var isDark = false; // Lets the page/script check if dark mode is active without reading cookie everytime.
 var isSetup = Cookies.get('setup');
 
-function generatePage(){
-
+function generatePage() {
     // Check if setup
-    if(isSetup == 'yes'){
-        var goMode = parseInt(Cookies.get('mode'), 10);
+    if (isSetup) {
+        var goMode = Cookies.get('mode');
         // Check if app and mode exist in URL
-        if(isNaN(appParam) && isNaN(modeParam)){
+        if (!appParam && !modeParam) {
             // Redirect to dashboard
-            window.location.replace('./'+rootFile+'?app=1&mode='+goMode);
-        } else if (isNaN(modeParam)) {
+            window.location.replace(`./${rootFile}?app=dashboard&mode=${goMode}`);
+        } else if (!modeParam) {
             // Redirect with correct mode
             window.location.replace(constructURL(goMode));
         } else {
@@ -40,7 +39,7 @@ function generatePage(){
             if (darkSwitch == 'enabled') {enableDarkmode(); isDark = true;}
             // Load Background Image
             var bURL = Cookies.get('backgroundURL');
-            if(bURL == 'none') {
+            if (bURL == 'none') {
             document.body.style.backgroundImage = "none"
             } else {
                 document.body.style.backgroundImage = "url('" + bURL+ "')";
@@ -58,23 +57,19 @@ function generatePage(){
     // Bring in external HTML
     includeHTML();
     // Wait half second for completion
-    setTimeout(function (){
+    document.addEventListener("DOMContentLoaded", function () {
         // Update Navbar
         updateNav();
-        
-        // Set Opacity if not Email App or Error App
-        if(appParam != 4 && appParam !=9){
-            const opacity = Cookies.get('cardOpacity');
-            document.documentElement.style.setProperty("--CARD-OPACITY", opacity);
-        }
+
+        const opacity = Cookies.get('cardOpacity') ?? '1';
+        document.documentElement.style.setProperty("--CARD-OPACITY", opacity);
         // Call up application
-        if(isSetup == 'yes'){  
+        if (isSetup) {  
             loadApp();
-        }
-        else{
+        } else {
             loadSetup();
         }
-    }, 500);
+    });
 }
 
 function checkVersion() {
@@ -101,8 +96,8 @@ function setAlert(message) {
 function constructURL(cookieMode) {
     var constructURL = './' + rootFile + '?app=' + appParam;
 
-    if (isNaN(modeParam)){
-        constructURL += '&mode=' + Cookiemode;
+    if (!modeParam) {
+        constructURL += '&mode=' + cookieMode;
     }
     if (typeParam !== null) {
         constructURL += '&type=' + typeParam;
@@ -115,19 +110,19 @@ function constructURL(cookieMode) {
 
 function updateNav() { // This also controls RDP and Apps page elements
     // Remove HD items if not HD modes
-    if(modeParam > 1){
+    if (modeParam !== "helpdesk") {
         var toDelete = getAllElementsWithAttribute('dept');
-        for(var i=0;i<toDelete.length;i++){
-            if(toDelete[i].getAttribute("dept") == 'hd'){
+        for (var i=0;i<toDelete.length;i++) {
+            if (toDelete[i].getAttribute("dept") == 'hd') {
                 toDelete[i].remove();
             }
         }
     }
     // Remove Deployment items if not Deployment
-    if(modeParam != 3){
+    if (modeParam !== "deploy") {
         var toDelete = getAllElementsWithAttribute('dept');
-        for(var i=0;i<toDelete.length;i++){
-            if(toDelete[i].getAttribute("dept") == 'deploy'){
+        for (var i=0;i<toDelete.length;i++) {
+            if (toDelete[i].getAttribute("dept") == 'deploy') {
                 toDelete[i].remove();
             }
         }
@@ -137,16 +132,16 @@ function updateNav() { // This also controls RDP and Apps page elements
 function setApp(app) {
     switch(app) {
         // We do not add 0: Welcome because page.js will auto detect if needed.
-        case 1: // Dashboard
+        case "dashboard": // Dashboard
             // Set Display Mode
-                case 0:
             switch(modeParam) {
+                case "helpdesk":
                     replaceGrid("./templates/dash/helpdesk.html");
                     break;
-                case 1:
+                case "pros":
                     replaceGrid("./templates/dash/pros.html");
                     break;
-                case 2:
+                case "deploy":
                     replaceGrid("./templates/dash/deploy.html");
                     break;
                 default:
@@ -159,69 +154,33 @@ function setApp(app) {
             loadJsApp("./data/dashboard/buildings.js");
             loadJsApp("./scripts/dashboard/app.js");
             break;
-        case 2: // Settings
+        case "settings": // Settings
             replaceGrid("./templates/dash/settings.html");
             loadJsApp("./scripts/settings/app.js");
             break;
-        case 3: // Forms
+        case "forms": // Forms
             replaceGrid("./templates/form/general.html");
             loadJsApp("./scripts/forms/app.js");
             break;
-        case 4: // Emails
+        case "emails": // Emails
             replaceGrid("./templates/email/general.html");
             loadJsApp("./scripts/email/app.js");
             break;
-        case 5: // Loaners
+        case "loaners": // Loaners
             replaceGrid("./templates/loaner/general.html");
             loadJsApp("./scripts/loaner/app.js");
             break;
-        case 6: // Status
-            replaceGrid("./templates/status/general.html");
-            loadJsApp("./scripts/status/app.js");
-            break;
-        case 7: // Trivia
-            replaceGrid("./templates/trivia/general.html");
-            loadJsApp("./scripts/trivia/app.js");
-            break;
-        case 8: // Weather
-            // Set Display Mode
-            switch(typeParam){
-                case 'nws':
-                    replaceGrid("./templates/wx/nws.html");
-                    break;
-                case 'nws-single':
-                    replaceGrid("./templates/wx/cards/radar/"+radarParam+".html");
-                    break;
-                case 'wu':
-                default:
-                    replaceGrid("./templates/wx/general.html");
-                    break;
-            }
-            loadJsApp("./scripts/weather/app.js");
-            break;
-        case 9: // Errors
+        case "error": // Errors
             replaceGrid("./templates/page/error.html");
             loadJsApp("./scripts/page/error.js");
             break;
-        case 10: // Help
+        case "help": // Help
             replaceGrid("./templates/page/help.html");
             loadJsApp("./scripts/page/help.js");
             break;
-        case 11: // Bug Tracking
-            replaceGrid("./templates/page/bugs.html");
-            loadJsApp("./scripts/page/bugs.js");
-            break;
-        case 12: // Apps Page
-            replaceGrid("./templates/page/apps/general.html");
-            loadJsApp("./scripts/page/apps.js");
-            break;
-        case 13: // Apps Page
-            replaceGrid("./templates/rdp/general.html");
-            loadJsApp("./scripts/rdp/app.js");
-            break;
         default: // Nothing
             // Error 0
-            window.location.replace('./'+rootFile+'?app=9&code=0');
+            window.location.replace(`./${rootFile}?app=error&code=0`);
             break;
     }
 }
@@ -301,10 +260,9 @@ function includeHTML() {
     }
 }
 
-function setDarkmode(lightswitch){
-    var cookieValue = null;
-    // Set value based on lightswitch and set cookie.
-    if(lightswitch){cookieValue = "enabled"} else {cookieValue = "disabled"};
+function setDarkmode(darkMode) {
+    let cookieValue = null;
+    if (darkMode) {cookieValue = "enabled"} else {cookieValue = "disabled"};
     Cookies.set('dark', cookieValue, { expires: Infinity });
     // Display Success Message
     UIkit.notification({message: 'Dark mode ' + cookieValue + ' successfully!', status: 'success'});
@@ -314,14 +272,14 @@ function setMode(mode) {
     // Set cookie.
     Cookies.set('mode', mode, { expires: Infinity });
     // Based on mode, display corresponding success message.
-        case 0:
     switch(mode) {
+        case "helpdesk":
           UIkit.notification({message: 'Operation Mode set to IT Help Desk.', status: 'success'})
           break;
-        case 1:
+        case "pros":
           UIkit.notification({message: 'Operation Mode set to Desktop Pros.', status: 'success'})
           break;
-        case 2:
+        case "deploy":
           UIkit.notification({message: 'Operation Mode set to Deployment.', status: 'success'})
           break;
 }        

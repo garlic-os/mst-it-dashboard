@@ -5,19 +5,14 @@ function loadApp() {
     setTimeout(function () {
         setPageName("Dashboard");
         // Load User Settings from Cookies
-        document.getElementById("runMode").selectedIndex = parseInt(Cookies.get('mode'), 10);
+        document.getElementById("runMode").value = Cookies.get('mode');
         var darkSwitch = Cookies.get('dark');
-        if(darkSwitch == 'enabled') {
-            document.getElementById("darkmode").checked = true;
-        } else {
-        document.getElementById("darkmode").checked = false;
-        }
+        document.getElementById("darkmode").checked = darkSwitch === 'enabled';
         document.getElementById("backURL").value = Cookies.get('backgroundURL');
         document.getElementById("cardOpat").value = Cookies.get('cardOpacity');
         // Add Event Listeners
         document.getElementById("fileUpload").addEventListener('change', processFile, false);
     }, 500);
-    
 }
 
 function loadSetup() {
@@ -31,9 +26,9 @@ function loadSetup() {
 
 function saveSettings() {
     // Clear setup hold
-    Cookies.set('setup', 'yes', { expires: Infinity });
+    Cookies.set('setup', true, { expires: Infinity });
     // Get runMode Index and send to setMode
-    var runMode = document.getElementById("runMode").selectedIndex;
+    var runMode = document.getElementById("runMode").value;
     setMode(runMode);
     // Get darkmode and send to setDarkmode
     var darkChecked = document.getElementById("darkmode").checked;
@@ -47,9 +42,8 @@ function saveSettings() {
     UIkit.notification('Settings saved. Reloading page...');
     setTimeout(function () {
       window.location.replace("./index.html");
-      }, 100);
-    
-  }
+    }, 100);
+}
 
 function checkDarkmode() {
   if (document.getElementById('darkmode').checked) {
@@ -90,7 +84,7 @@ function updateOpacity() {
 
 function exportSettings() {
   var userSettings = {
-    mode: document.getElementById("runMode").selectedIndex,
+    mode: document.getElementById("runMode").value,
     cardOpacity: document.getElementById("cardOpat").value,
     backgroundURL: document.getElementById("backURL").value,
     dark: document.getElementById("darkmode").checked,
@@ -128,9 +122,9 @@ function processFile(evt) {
       console.log(contents.backgroundURL);
       console.log(contents.dark)
       UIkit.notification('Importing settings...', 'success');
-      document.getElementById("runMode").selectedIndex = contents.mode;
+      document.getElementById("runMode").value = contents.mode;
         var darkSwitch = contents.dark;
-        if(darkSwitch) {
+        if (darkSwitch) {
             document.getElementById("darkmode").checked = true;
         } else {
         document.getElementById("darkmode").checked = false;
@@ -152,9 +146,9 @@ function processFile(evt) {
 
 function toggleImport() {
 	var currentView = window.getComputedStyle(document.querySelector('#importCard')).display;
-	if(currentView == "none"){
+	if (currentView == "none") {
 		document.getElementById("importCard").style.display = "inherit";
-	}else{
+	} else {
 		document.getElementById("importCard").style.display = "none";
 	}
 }
