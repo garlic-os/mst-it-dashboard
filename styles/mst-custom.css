@@ -1,19 +1,20 @@
 :root {
 	--CARD-COLOR-RGB: 80, 158, 47;
 	--CARD-OPACITY: 1;
+	--CARD-BLUR-RADIUS: 20px;
 }
 
 #iframeCard{
-    position: absolute;
-    overflow: hidden; 
-    top: 2rem;
-    left: 2rem;
-    height: 95vh;
-    width: 95vw;
-    z-index: 9001;
-    border-radius: 4px;
-    box-shadow: 0px 0px 0px 100px rgba(0,0,0,.54);
-    background: #003B49;
+	position: absolute;
+	overflow: hidden; 
+	top: 2rem;
+	left: 2rem;
+	height: 95vh;
+	width: 95vw;
+	z-index: 9001;
+	border-radius: 4px;
+	box-shadow: 0px 0px 0px 100px rgba(0,0,0,.54);
+	background: #005F83;
 }
 #iframeCard iframe {
 	border: 0;
@@ -30,10 +31,10 @@
 }
 
 .iframe-hide {
-    visibility: hidden;
+	visibility: hidden;
 }
 .iframe-show {
-    visibility: visible;
+	visibility: visible;
 }
 
 /* System Status Popup */
@@ -56,7 +57,7 @@
 	overflow-y: scroll;
 }
 .systemStatus .mdl-spinner {
-    margin-top: 150px;
+	margin-top: 150px;
 	margin-left: 184px;
 }
 .systemStatus .systemStatus-titleContainer {
@@ -123,8 +124,9 @@
 }
 
 .uk-card {
+	position: relative;
 	animation: fade-in 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-	backdrop-filter: saturate(180%) blur(20px);
+	backdrop-filter: saturate(180%) blur(var(--CARD-BLUR-RADIUS));
 	background-color: rgba(var(--CARD-COLOR-RGB), var(--CARD-OPACITY));
 	border-radius: 10px;
 }
@@ -142,6 +144,9 @@
 	padding: 10px 0;
 	width: unset;
 	min-width: 200px;
+	backdrop-filter: blur(var(--CARD-BLUR-RADIUS));
+	background-color: #ffffffcc;
+	border: 1px solid #a9a9a9;
 }
 
 .uk-navbar-dropdown li {
@@ -156,8 +161,8 @@
 .uk-navbar-dropdown-nav > li > a {
 	color: #000;
 	display: flex;
-    align-items: center;
-    justify-content: space-between;
+	align-items: center;
+	justify-content: space-between;
 }
 
 /* Hover + Focus */	
@@ -207,6 +212,10 @@
 	border-radius: 4px;
 }
 
+.uk-nav-divider {
+	border-top: 1px solid #a9a9a9 !important;
+}
+
 a:not([href]) {
 	cursor: default;
 }
@@ -219,4 +228,87 @@ a:not([href]) {
 	width: 100%;
 	height: 100%;
 	border: none;
+}
+
+
+/* https://codepen.io/haxzie/pen/xxKNEGM */
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #005F83;
+	backdrop-filter: saturate(180%) blur(var(--CARD-BLUR-RADIUS));
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 40px;
+	width: 40px;
+	left: 0px;
+	bottom: 4px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+	box-shadow: 0 0px 15px #2020203d;
+	background: white url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGRhdGEtbmFtZT0iTGF5ZXIgMSIgdmlld0JveD0iMCAwIDMyIDMyIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPkRhcmsgVGhlbWU8L3RpdGxlPjxwYXRoIGQ9Ik0xOC4yMywzMUExNS4wNywxNS4wNywwLDAsMSwxNi4xNiwxLDEsMSwwLDAsMSwxNywyLjczYTEzLDEzLDAsMCwwLTIuODUsMTUuMTYsMTMsMTMsMCwwLDAsNy40NCw2LjY5aDBhMTMsMTMsMCwwLDAsNi4xNS42MiwxLDEsMCwwLDEsLjgyLDEuNzJBMTUsMTUsMCwwLDEsMTguMjMsMzFaTTEzLjQ3LDMuNzZBMTMuMDYsMTMuMDYsMCwxLDAsMjQuNywyNy4yN2ExNC44NiwxNC44NiwwLDAsMS0zLjgxLS44MWgwQTE1LjA3LDE1LjA3LDAsMCwxLDExLjcxLDcuMjMsMTQuOTQsMTQuOTQsMCwwLDEsMTMuNDcsMy43NloiPjwvcGF0aD48L3N2Zz4=");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 75%;
+}
+
+input:checked + .slider {
+	background-color: #005F83;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #005F83;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(24px);
+	-ms-transform: translateX(24px);
+	transform: translateX(24px);
+	background: white url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGRhdGEtbmFtZT0iTGF5ZXIgMSIgdmlld0JveD0iMCAwIDMyIDMyIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPkxpZ2h0IFRoZW1lPC90aXRsZT48cGF0aCBkPSJNMTYsMjNhNyw3LDAsMSwxLDctN0E3LDcsMCwwLDEsMTYsMjNabTAtMTJhNSw1LDAsMSwwLDUsNUE1LDUsMCwwLDAsMTYsMTFabTEtNFYyYTEsMSwwLDAsMC0yLDBWN2ExLDEsMCwwLDAsMiwwWm0tNi42NiwzLjM0YTEsMSwwLDAsMCwwLTEuNDFMNi44MSw1LjM5QTEsMSwwLDAsMCw1LjM5LDYuODFsMy41NCwzLjU0YTEsMSwwLDAsMCwxLjQxLDBaTTgsMTZhMSwxLDAsMCwwLTEtMUgyYTEsMSwwLDAsMCwwLDJIN0ExLDEsMCwwLDAsOCwxNlpNNi44MSwyNi42MWwzLjU0LTMuNTRhMSwxLDAsMCwwLTEuNDEtMS40MUw1LjM5LDI1LjE5YTEsMSwwLDEsMCwxLjQxLDEuNDFaTTE3LDMwVjI1YTEsMSwwLDAsMC0yLDB2NWExLDEsMCwwLDAsMiwwWm05LjYxLTMuMzlhMSwxLDAsMCwwLDAtMS40MWwtMy41NC0zLjU0YTEsMSwwLDAsMC0xLjQxLDEuNDFsMy41NCwzLjU0YTEsMSwwLDAsMCwxLjQxLDBaTTMxLDE2YTEsMSwwLDAsMC0xLTFIMjVhMSwxLDAsMCwwLDAsMmg1QTEsMSwwLDAsMCwzMSwxNlptLTcuOTMtNS42NiwzLjU0LTMuNTRhMSwxLDAsMCwwLTEuNDEtMS40MUwyMS42Niw4LjkzYTEsMSwwLDEsMCwxLjQxLDEuNDFaIj48L3BhdGg+PC9zdmc+");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 75%;
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+#theme-switch {
+	position: absolute;
+	top: 40px;
+	right: 40px;
 }

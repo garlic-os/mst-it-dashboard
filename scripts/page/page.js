@@ -1,42 +1,43 @@
-/* IT Dashboard Page Functions
-Written By: Sean Apple
-Modified: 4/18/19 by Sean Apple
+/**
+ * IT Dashboard Page Functions
+ * Written By: Sean Apple
+ * Modified: 4/18/19 by Sean Apple
+ *
+ * Contains functions related to page generation
+ */
 
-Contains functions related to page generation */
-
-/* Constant URL Parameters */
 const rootFile = '';
 const versionNumber = '?66';
+
+// URL Parameters
 const urlParams = new URLSearchParams(window.location.search);
 const appParam = urlParams.get('app');
 const modeParam = urlParams.get('mode');
 const typeParam = urlParams.get('type');
 const radarParam = urlParams.get('radar');
 const errorParam = urlParams.get('code');
-// Others will be handled by each app.
 
-/* Other Variables */
-var isDark = false; // Lets the page/script check if dark mode is active without reading cookie everytime.
-var isSetup = Cookies.get('setup');
 
 function generatePage() {
+    const setupComplete = Cookies.get("setupComplete");
     // Check if setup
-    if (isSetup) {
-        var goMode = Cookies.get('mode');
+    if (setupComplete) {
+        const operationMode = Cookies.get('mode');
         // Check if app and mode exist in URL
         if (!appParam && !modeParam) {
             // Redirect to dashboard
-            window.location.replace(`./${rootFile}?app=dashboard&mode=${goMode}`);
+            window.location.replace(`./${rootFile}?app=dashboard&mode=${operationMode}`);
         } else if (!modeParam) {
             // Redirect with correct mode
-            window.location.replace(constructURL(goMode));
+            window.location.replace(constructURL(operationMode));
         } else {
             // Continue
             // Set the Application Mode
             setApp(appParam);
-            // Replace CSS for darkmode, if needed
-            var darkSwitch = Cookies.get('dark');
-            if (darkSwitch == 'enabled') {enableDarkmode(); isDark = true;}
+            // Replace CSS for theme, if needed
+            if (Cookies.get("theme") === "false") {
+                enableDarkMode();
+            }
             // Load Background Image
             var bURL = Cookies.get('backgroundURL');
             if (bURL == 'none') {
@@ -67,10 +68,8 @@ function generatePage() {
     // Wait half second for completion
     setTimeout(function () {
         // Call up application
-        if (isSetup) {
+        if (setupComplete) {
             loadApp();
-        } else {
-            loadSetup();
         }
     }, 1000);
 }
@@ -262,47 +261,23 @@ function includeHTML() {
     }
 }
 
-function setDarkmode(darkMode) {
-    let cookieValue = null;
-    if (darkMode) {cookieValue = "enabled"} else {cookieValue = "disabled"};
-    Cookies.set('dark', cookieValue, { expires: Infinity });
-    // Display Success Message
-    UIkit.notification({message: 'Dark mode ' + cookieValue + ' successfully!', status: 'success'});
-}
-  
-function setMode(mode) {
-    // Set cookie.
-    Cookies.set('mode', mode, { expires: Infinity });
-    // Based on mode, display corresponding success message.
-    switch(mode) {
-        case "helpdesk":
-          UIkit.notification({message: 'Operation Mode set to IT Help Desk.', status: 'success'})
-          break;
-        case "pros":
-          UIkit.notification({message: 'Operation Mode set to Desktop Pros.', status: 'success'})
-          break;
-        case "deploy":
-          UIkit.notification({message: 'Operation Mode set to Deployment.', status: 'success'})
-          break;
-}        
-}
 
-function enableDarkmode() {
+function enableDarkMode() {
     const darkLink = document.createElement("link");
     const darkLink2 = document.createElement("link");
     darkLink.rel = "stylesheet";
     darkLink2.rel = "stylesheet";
     darkLink.href = "./styles/uikit-dark.css";
     darkLink2.href = "./styles/mst-custom-dark.css";
-    darkLink.classList.add("darkmode");
-    darkLink2.classList.add("darkmode");
+    darkLink.classList.add("theme");
+    darkLink2.classList.add("theme");
     document.head.appendChild(darkLink);
     document.head.appendChild(darkLink2);
 }
 
 
-function disableDarkmode() {
-    for (const darkLink of document.querySelectorAll(".darkmode")) {
+function disableDarkMode() {
+    for (const darkLink of document.querySelectorAll(".theme")) {
         darkLink.remove();
     }
 }

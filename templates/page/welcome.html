@@ -10,36 +10,36 @@
                     <option value="deploy">Desktop Deployment</option>
                 </select>
             </div>
+            <label id="theme-switch" class="switch">
+                <input type="checkbox" onchange="toggleTheme()" id="theme">
+                <span class="slider round"></span>
+            </label>
             <hr/>
             <div class="uk-margin">
-                <h4>Dark Mode</h4>
-                <label class="uk-form-label">Enable Dark Mode?</label>
-                <input id="darkmode" class="uk-checkbox" type="checkbox" onclick="checkDarkmode()">
+                <h4>Background Image</h4>
+                <label class="uk-form-label">Leave blank for no image. </label>
+                <label class="uk-form-label">Must be a web hosted image. Local files will not work.</label>
+                <label class="uk-form-label">Google Drive and OneDrive links will not work.</label><br/>
+                <label class="uk-form-label">Click the magnifying glass to preview.</label>
+                <label class="uk-form-label">May also be a link to a YouTube video.</label>
+                <br/>
+                <div class="uk-inline">
+                    <input id="backURL" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Image URL" onchange="updateBackground(this.value)">
+                </div>
             </div>
-            <hr/>
+            <hr/>            
             <div class="uk-margin">
-                    <h4>Background Image</h4>
-                    <label class="uk-form-label">Leave blank for no image. </label>
-                    <label class="uk-form-label">Must be a web hosted image. Local files will not work.</label>
-                    <label class="uk-form-label">Google Drive and OneDrive links will not work.</label><br/>
-                    <label class="uk-form-label">Click the magnifying glass to preview.</label>
-                    <label class="uk-form-label">May also be a link to a YouTube video.</label>
-                    <br/>
-                    <div class="uk-inline">
-                        <a class="uk-form-icon uk-form-icon-flip" onclick="updateBackground(document.getElementById('backURL').value)" uk-icon="search"></a>
-                        <input id="backURL" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="No Image">
-                    </div>
-                </div>
-                <hr/>            
+                <h4>Card Opacity</h4>
+                <label class="uk-form-label">Minumum is completely transparent. Maximum is completely opaque</label>
+                <input id="cardOpat" class="uk-range" type="range" value="1" min="0.5" max="1.0" step="0.001" onchange="updateOpacity()">
+            </div>
             <div class="uk-margin">
-                    <h4>Card Opacity</h4>
-                    <label class="uk-form-label">Maximum is completely opaque</label>
-                    <input id="cardOpat" class="uk-range" type="range" value="1" min="0.5" max="1.0" step="0.001" onchange="updateOpacity()">
-                </div>
+                <h4>Card Background Blur</h4>
+                <label class="uk-form-label">Minimum is perfectly clear. Maximum is completely frosty.</label>
+                <input id="cardBlur" class="uk-range" type="range" value="1" min="0" max="40" step="0.001" onchange="updateBlur()">
+            </div>
             <div class="uk-margin">
-                    <button class="uk-button uk-button-default" onclick="saveSettings()">Save and Reload</button>
-                    <button class="uk-button uk-button-default" onclick="exportSettings()">Export</button>
-                    <button class="uk-button uk-button-default" onclick="toggleImport()">Import</button>
+                <button class="uk-button uk-button-default" onclick="saveSettings()">Save and Reload</button>
             </div>
         </div>
     </div>

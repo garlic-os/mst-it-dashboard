@@ -26,8 +26,8 @@
 }
 
 .uk-navbar-dropdown {
-  background: rgb(70, 70, 70);
-  border: 1px solid rgb(114, 114, 114);
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #3c403f;
 }
 
 .uk-navbar-dropdown li a {
@@ -39,5 +39,5 @@
 }
 
 .uk-nav-divider {
-	border-top: 1px solid rgb(114, 114, 114) !important;
+	border-top: 1px solid #3c403f !important;
 }
