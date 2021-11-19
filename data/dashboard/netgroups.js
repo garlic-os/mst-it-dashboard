@@ -1,4 +1,4 @@
-var netgroups = [
+const netgroups = [
 "aavg-admin",
 "aavg-editor",
 "aavg-reviewer",
@@ -3506,4 +3506,5 @@ var netgroups = [
 "writingcenter-smartboard-users",
 "zta-admin",
 "zta-editor",
-"zta-reviewer",]
+"zta-reviewer",
+];

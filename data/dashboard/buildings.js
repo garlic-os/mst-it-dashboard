@@ -1,4 +1,4 @@
-var building = [
+const building = [
     ["ALTM", "Altman Hall (905 N. State St.)"], 
 	["AUXS", "Auxiliary Services Building (901 East 18th St.)"], 
 	["BERT", "James E. Bertelsmeyer Hall (1101 N. State St.)"], 
@@ -59,4 +59,4 @@ var building = [
 	["TMYH", "Toomey Hall (400 W. 13th St.)"], 
 	["U710", "710 University Drive Building (710 University Dr.)"], 
 	["UCOM", "University Commons (850 University Dr.)"]
-]
+];
