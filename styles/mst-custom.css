@@ -181,6 +181,32 @@
 .uk-logo:active {
 	color: #ffffffb3 !important;
 }
+
+.uk-button-small {
+	border-radius: 4px;
+	margin-top: 5px;
+}
+
+.uk-input {
+	color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.inputs > .uk-input[type="text"]:first-of-type {
+	border-radius: 4px 4px 0 0;
+}
+
+.inputs > .uk-input[type="text"]:last-of-type {
+	border-radius: 0 0 4px 4px;
+}
+
+.inputs > .uk-input[type="text"]:only-of-type {
+	border-radius: 4px;
+}
+
+.uk-subnav > li > a {
+	border-radius: 4px;
+}
+
 a:not([href]) {
 	cursor: default;
 }
