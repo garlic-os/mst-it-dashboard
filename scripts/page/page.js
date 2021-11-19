@@ -57,19 +57,20 @@ function generatePage() {
     // Bring in external HTML
     includeHTML();
     // Wait half second for completion
-    document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
         // Update Navbar
         updateNav();
 
         const opacity = Cookies.get('cardOpacity') ?? '1';
         document.documentElement.style.setProperty("--CARD-OPACITY", opacity);
+
         // Call up application
-        if (isSetup) {  
+        if (isSetup) {
             loadApp();
         } else {
             loadSetup();
         }
-    });
+    }, 1000);
 }
 
 function checkVersion() {

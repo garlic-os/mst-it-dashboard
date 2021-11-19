@@ -5,37 +5,34 @@ Modified: 11/12/21 by Nate Kean
 Contains functions related to the dashboard app */
 
 function loadApp() {
-    // Load Auto Completes
-    document.addEventListener("DOMContentLoaded", () => {
-        // Netgroups
-        // Clear out JavaScript warning
-        document.getElementById('netgroupList').innerHTML = '';
+    // Netgroups
+    // Clear out JavaScript warning
+    document.getElementById('netgroupList').innerHTML = '';
 
-        // Go through entire Netgroup list and add option for each.
-        for (var i=0; i<netgroups.length; i++) {
-            var node = document.createElement("option");
-            var val = document.createTextNode(netgroups[i]);
-            node.appendChild(val);
-            // Create netgroup list
-            document.getElementById("netgroupList").appendChild(node);
-        }
+    // Go through entire Netgroup list and add option for each.
+    for (var i=0; i<netgroups.length; i++) {
+        var node = document.createElement("option");
+        var val = document.createTextNode(netgroups[i]);
+        node.appendChild(val);
+        // Create netgroup list
+        document.getElementById("netgroupList").appendChild(node);
+    }
 
-        // Building Codes
-        // 0: Code | 1: Building
-        // Clear out JavaScript warning
-        document.getElementById('buildingList').innerHTML = '';
-        // Go through entire building list and add option for each put code in data-value and name in value
-        var options = '';
-        for (var i=0; i<building.length; i++) {
-            // Create options
-            options+= '<option data-value="'+building[i][0]+'" value="'+building[i][1]+'" />';   
-        }
-        // Send to page
-        document.getElementById('buildingList').innerHTML = options;
+    // Building Codes
+    // 0: Code | 1: Building
+    // Clear out JavaScript warning
+    document.getElementById('buildingList').innerHTML = '';
+    // Go through entire building list and add option for each put code in data-value and name in value
+    var options = '';
+    for (var i=0; i<building.length; i++) {
+        // Create options
+        options+= '<option data-value="'+building[i][0]+'" value="'+building[i][1]+'" />';   
+    }
+    // Send to page
+    document.getElementById('buildingList').innerHTML = options;
 
-        // onEnter actions
-        setEnter();
-    });
+    // onEnter actions
+    setEnter();
 }
 
 function setEnter() {
