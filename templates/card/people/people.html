@@ -13,13 +13,17 @@
         <ul class="uk-switcher uk-margin">
             <li>
                 <form action="https://itweb.mst.edu/cgi-bin/cgiwrap/campdir/directory.pl" target="iframeURL" method="post" name="directory">
-                    <input class="uk-input uk-form-width-medium uk-form-small" type="text" id="peopleInput" name="name" placeholder="Name">
+                    <div class="inputs">
+                        <input class="uk-input uk-form-width-medium uk-form-small" type="text" id="peopleInput" name="name" placeholder="Name">
+                    </div>
                     <br /><br />
                     <input type="submit" class="uk-button uk-button-default uk-button-small" onclick="handlePeople(0)" />
                 </form>
             </li>
             <li>
-                <input class="uk-input uk-form-width-medium uk-form-small" type="text" id="googleInput" placeholder="Enter Any Info" />
+                <div class="inputs">
+                    <input class="uk-input uk-form-width-medium uk-form-small" type="text" id="googleInput" placeholder="Enter Any Info" />
+                </div>
                 <br /><br />
                 <button id="turboButton" class="uk-button uk-button-default uk-button-small" onclick="handlePeople(1)">
                     Search

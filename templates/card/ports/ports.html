@@ -9,8 +9,10 @@
         <datalist id="buildingList">
             <option value="JavaScript is disabled"></option>
         </datalist>
-        <input id="portBuilding" class="uk-input uk-form-width-medium uk-form-small" list="buildingList" type="text" placeholder="Building" />
-        <input id="portNumber" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Port Number" />
+        <div class="inputs">
+            <input id="portBuilding" class="uk-input uk-form-width-medium uk-form-small" list="buildingList" type="text" placeholder="Building" />
+            <input id="portNumber" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Port Number" />
+        </div>
         <br /><br />
         <button id="portButton" class="uk-button uk-button-default uk-button-small" onclick="handlePorts()">
             Search
