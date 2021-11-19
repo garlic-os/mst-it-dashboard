@@ -4,16 +4,18 @@
             <a target="_blank" href="https://itweb.mst.edu/~deskwtg">SCCM</a>
         </h4>
     </div>
-    <div class="uk-card-body">
+    <div class="uk-card-body" style="position: relative;">
         <div class="inputs">
             <input id="sccm" name="sccm" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Hostname" />
         </div>
-        <br /><br />
-        <button id="sccmButton" onclick="handleSccm(0)" class="uk-button uk-button-default uk-button-small">
-            Create
-        </button>
-        <button onclick="handleSccm(1)" class="uk-button uk-button-default uk-button-small">
-            View
-        </button>
+        <br />
+        <div class="buttons" style="position: absolute; bottom: 0;">
+            <button id="sccmButton" onclick="handleSccm(0)" class="uk-button uk-button-default uk-button-small">
+                Create
+            </button>
+            <button onclick="handleSccm(1)" class="uk-button uk-button-default uk-button-small">
+                View
+            </button>
+        </div>
     </div>
 </div>
