@@ -129,6 +129,10 @@
 	border-radius: 10px;
 }
 
+.uk-card-primary {
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.34);
+}
+
 .uk-navbar {
 	padding: 0 1.25em;
 }
