@@ -166,6 +166,17 @@
 	margin-left: 10px;
 }
 
+.uk-navbar-nav > li > a, .uk-logo {
+	color: #fff !important;
+	transition: color 125ms ease-out;
+}
+
+.uk-navbar-nav > li > a:hover,
+.uk-navbar-nav > li > a:active,
+.uk-logo:hover,
+.uk-logo:active {
+	color: #ffffffb3 !important;
+}
 a:not([href]) {
 	cursor: default;
 }
