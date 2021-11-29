@@ -100,12 +100,11 @@ function expandPopup() {
 
 function navigate(title, URL) {
     var self = this;
-    setTimeout(function() {
-        document.getElementById("iframeTitle").innerHTML = title;
-        document.getElementById("iframeURL").method = 'get';
-        document.getElementById("iframeURL").src = URL;
-        self.showPopup();
-    }, 300);   
+function navigate(title, url) {
+    document.getElementById("iframeTitle").innerHTML = title;
+    document.getElementById("iframeURL").method = 'get';
+    document.getElementById("iframeURL").src = url;
+    showPopup();
 }
 
 function clearInput(element) {
@@ -226,12 +225,10 @@ function handleNetDB(mode) {
 function handleForm() {
     var self = this;
     this.showPopup();
-    // We have to wait a split second or the modal is updated before the form can be opened
-    setTimeout(function () {
-        clearInput("netgroupUserInput");
-        clearInput("netgroupNetGroupInput");
-        clearInput("netgroupViewInput");
-    }, 250);
+    showPopup();
+    clearInput("netgroupUserInput");
+    clearInput("netgroupNetGroupInput");
+    clearInput("netgroupViewInput");
 }
 
 function handlePorts() {
@@ -251,9 +248,7 @@ function handlePeople(mode) {
     switch (mode) {
         case 0: // Normal
             // We have to wait a split second or the model is updated before the form can be opened
-            setTimeout(function () {
-                clearInput("peopleInput");
-            }, 250);
+            clearInput("peopleInput");
             break;
         case 1: // Turbo (Google)
             var value = document.getElementById("googleInput").value;
