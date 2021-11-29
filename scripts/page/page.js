@@ -154,8 +154,6 @@ function setApp(app) {
                     break;
             }
             // Add JS Files
-            loadJsApp("./data/dashboard/netgroups.js");
-            loadJsApp("./data/dashboard/buildings.js");
             loadJsApp("./scripts/dashboard/app.js");
             break;
         case "settings":
