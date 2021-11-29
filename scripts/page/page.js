@@ -33,46 +33,37 @@ document.addEventListener("DOMContentLoaded", async function () {
         } else {
             // Continue
             // Set the Application Mode
-            setApp(appParam);
+            await setApp(appParam);
             // Replace CSS for theme, if needed
             if (Cookies.get("theme") === "false") {
                 enableDarkMode();
             }
             // Load Background Image
-            var bURL = Cookies.get('backgroundURL');
-            if (bURL == 'none') {
-            document.body.style.backgroundImage = "none"
+            const backgroundURL = Cookies.get('backgroundURL');
+            if (!backgroundURL) {
+                document.body.style.backgroundImage = "none";
             } else {
-                document.body.style.backgroundImage = "url('" + bURL+ "')";
+                document.body.style.backgroundImage = `url("${backgroundURL}")`;
                 document.body.style.backgroundSize = "cover";
                 document.body.style.backgroundAttachment = "fixed";
             }
         }
     } else {
         // Set to Welcome
-        replaceGrid("./templates/page/welcome.html");
+        await replaceGrid("./templates/page/welcome.html");
         loadJsApp("./scripts/settings/app.js");
     }
     // Check version and add update alert if needed
     checkVersion();
 
-    // Bring in external HTML
-    includeHTML();
-
     // Update Navbar
     updateNav();
 
-    const opacity = Cookies.get('cardOpacity') ?? '1';
-    document.documentElement.style.setProperty("--CARD-OPACITY", opacity);
+    const cardOpacity = Cookies.get('cardOpacity') ?? '1';
+    document.documentElement.style.setProperty("--CARD-OPACITY", cardOpacity);
 
-    // Wait half second for completion
-    setTimeout(function () {
-        // Call up application
-        if (setupComplete) {
-            loadApp();
-        }
-    }, 1000);
-}
+    const cardBlur = Cookies.get('cardBlur') ?? '0';
+    document.documentElement.style.setProperty("--CARD-BLUR-RADIUS", cardBlur);
 });
 
 function checkVersion() {
@@ -132,20 +123,20 @@ function updateNav() {
     }
 }
 
-function setApp(app) {
+async function setApp(app) {
     switch(app) {
         // We do not add 0: Welcome because page.js will auto detect if needed.
         case "dashboard":
             // Set Display Mode
             switch(modeParam) {
                 case "helpdesk":
-                    replaceGrid("./templates/dash/helpdesk.html");
+                    await replaceGrid("./templates/dash/helpdesk.html");
                     break;
                 case "pros":
-                    replaceGrid("./templates/dash/pros.html");
+                    await replaceGrid("./templates/dash/pros.html");
                     break;
                 case "deploy":
-                    replaceGrid("./templates/dash/deploy.html");
+                    await replaceGrid("./templates/dash/deploy.html");
                     break;
                 default:
                     // Go to root
@@ -153,31 +144,30 @@ function setApp(app) {
                     Cookies.set("mode", "helpdesk");
                     break;
             }
-            // Add JS Files
             loadJsApp("./scripts/dashboard/app.js");
             break;
         case "settings":
-            replaceGrid("./templates/dash/settings.html");
+            await replaceGrid("./templates/dash/settings.html");
             loadJsApp("./scripts/settings/app.js");
             break;
         case "forms":
-            replaceGrid("./templates/form/general.html");
+            await replaceGrid("./templates/form/general.html");
             loadJsApp("./scripts/forms/app.js");
             break;
         case "emails":
-            replaceGrid("./templates/email/general.html");
+            await replaceGrid("./templates/email/general.html");
             loadJsApp("./scripts/email/app.js");
             break;
         case "loaners":
-            replaceGrid("./templates/loaner/general.html");
+            await replaceGrid("./templates/loaner/general.html");
             loadJsApp("./scripts/loaner/app.js");
             break;
         case "error":
-            replaceGrid("./templates/page/error.html");
+            await replaceGrid("./templates/page/error.html");
             loadJsApp("./scripts/page/error.js");
             break;
         case "help":
-            replaceGrid("./templates/page/help.html");
+            await replaceGrid("./templates/page/help.html");
             loadJsApp("./scripts/page/help.js");
             break;
         default: // Nothing
@@ -187,13 +177,11 @@ function setApp(app) {
     }
 }
 
-function loadJsApp(filepath) {
-    var fileref = document.createElement('script');
-    fileref.setAttribute("type", "text/javascript");
-    fileref.setAttribute("src", filepath + versionNumber);
-    if (typeof fileref != "undefined") {
-        document.head.appendChild(fileref);
-    }
+function loadJsApp(filePath) {
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = filePath + versionNumber;
+    document.head.appendChild(script);
 }
 
 function getAllElementsWithAttribute(attribute)
@@ -220,8 +208,9 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     }
 }
 
-function replaceGrid(newgrid) {
+async function replaceGrid(newgrid) {
     document.getElementById("grid-holder").setAttribute("it-include-html", newgrid);
+    await includeHTML();
 }
 
 function addAlert() {
@@ -232,31 +221,25 @@ function setPageName(name) {
     document.getElementById('page-title').innerHTML = name;
 }
 
-function includeHTML() {
-    var z, i, elmnt, file, xhttp;
-    /* Loop through a collection of all HTML elements: */
-    z = document.getElementsByTagName("*");
-    for (i = 0; i < z.length; i++) {
-      elmnt = z[i];
-      /*search for elements with a certain atrribute:*/
-      file = elmnt.getAttribute("it-include-html");
-      if (file) {
-        /* Make an HTTP request using the attribute value as the file name: */
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4) {
-            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-            /* Remove the attribute, and call this function once more: */
-            elmnt.removeAttribute("it-include-html");
-            includeHTML();
-          }
-        } 
-        xhttp.open("GET", file, true);
-        xhttp.send();
-        /* Exit the function: */
-        return;
-      }
+async function includeHTML() {
+    // Loop all the elements on the page
+    for (const element of document.getElementsByTagName("*")) {
+        // Search for elements with a certain atrribute
+        const filePath = element.getAttribute("it-include-html");
+        if (filePath) {
+            // Make an HTTP request using the attribute value as the file name
+            // and replace the element's content with the response text
+            try {
+                const response = await fetch(filePath);
+                const responseText = await response.text();
+                element.innerHTML = responseText;
+            } catch {
+                element.innerHTML = "Page not found.";
+            }
+            element.removeAttribute("it-include-html");
+            await includeHTML();
+            break;
+        }
     }
 }
 

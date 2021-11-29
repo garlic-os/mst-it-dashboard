@@ -4,69 +4,60 @@ Modified: 11/12/21 by Nate Kean
 
 Contains functions related to the dashboard app */
 
-function loadApp() {
+(async function () {
     // Netgroups
     // Clear out JavaScript warning
-    document.getElementById('netgroupList').innerHTML = '';
+    const netgroupList = document.getElementById('netgroupList');
+    netgroupList.innerHTML = "";
 
     // Go through entire Netgroup list and add option for each.
-    for (var i=0; i<netgroups.length; i++) {
-        var node = document.createElement("option");
-        var val = document.createTextNode(netgroups[i]);
-        node.appendChild(val);
-        // Create netgroup list
-        document.getElementById("netgroupList").appendChild(node);
+    let options = "";
+    for (const netgroup of await loadJSON("./data/dashboard/netgroups.json")) {
+        options += `<option value="${netgroup}" />`;
     }
+    netgroupList.innerHTML = options;
 
     // Building Codes
     // 0: Code | 1: Building
-    // Clear out JavaScript warning
-    document.getElementById('buildingList').innerHTML = '';
-    // Go through entire building list and add option for each put code in data-value and name in value
-    var options = '';
-    for (var i=0; i<building.length; i++) {
-        // Create options
-        options+= '<option data-value="'+building[i][0]+'" value="'+building[i][1]+'" />';   
-    }
-    // Send to page
-    document.getElementById('buildingList').innerHTML = options;
 
-    // onEnter actions
-    setEnter();
-}
+    // Clear out JavaScript warning
+    const buildingList = document.getElementById('buildingList');
+    buildingList.innerHTML = "";
+
+    // Go through entire building list and add option for each put code in data-value and name in value
+    options = "";
+    for (const building of await loadJSON("./data/dashboard/buildings.json")) {
+        // Create options
+        options += `<option data-value="${building[0]}" value="${building[1]}" />`;
+    }
+    buildingList.innerHTML = options;
+})();
+
+// onEnter actions
+setEnter();
 
 function setEnter() {
-    var auser = document.getElementById("analyzeUser");
-    var sccm = document.getElementById("sccm");
-    var phone = document.getElementById("analyzePhone");
-    var laps = document.getElementById("lapsPassword");
-    var dell = document.getElementById("serviceTag");
-    var ndbView = document.getElementById("netdb");
-    var ndbReg = document.getElementById("netdbMac");
-    var portB = document.getElementById("portBuilding");
-    var portN = document.getElementById("portNumber");
-    var turbo = document.getElementById("googleInput");
+    const auser = document.getElementById("analyzeUser");
+    const sccm = document.getElementById("sccm");
+    const phone = document.getElementById("analyzePhone");
+    const laps = document.getElementById("lapsPassword");
+    const dell = document.getElementById("serviceTag");
+    const ndbView = document.getElementById("netdb");
+    const ndbReg = document.getElementById("netdbMac");
+    const portB = document.getElementById("portBuilding");
+    const portN = document.getElementById("portNumber");
+    const turbo = document.getElementById("googleInput");
 
-    // Create AUSER if exist
-    if (cardExists(auser)) {createEnter(auser, "analyzeUserButton");}
-    // Create SCCM if exist
-    if (cardExists(sccm)) {createEnter(sccm, "sccmButton");}
-    // Create Phone if exist
-    if (cardExists(phone)) {createEnter(phone, "phoneButton");}
-    // Create laps if exist
-    if (cardExists(laps)) {createEnter(laps, "lapsButton");}
-    // Create Dell if exist
-    if (cardExists(dell)) {createEnter(dell, "dellButton");}
-    // Create ndbView if exist
-    if (cardExists(ndbView)) {createEnter(ndbView, "ndbViewButton");}
-    // Create ndbReg if exist
-    if (cardExists(ndbReg)) {createEnter(ndbReg, "ndbRegButton");}
-    // Create portB if exist
-    if (cardExists(portB)) {createEnter(portB, "portButton");}
-    // Create portN if exist
-    if (cardExists(portN)) {createEnter(portN, "portButton");}
-    // Create TURBO if exist
-    if (cardExists(turbo)) {createEnter(turbo, "turboButton");}
+    if (cardExists(auser))   createEnter(auser, "analyzeUserButton");
+    if (cardExists(sccm))    createEnter(sccm, "sccmButton");
+    if (cardExists(phone))   createEnter(phone, "phoneButton");
+    if (cardExists(laps))    createEnter(laps, "lapsButton");
+    if (cardExists(dell))    createEnter(dell, "dellButton");
+    if (cardExists(ndbView)) createEnter(ndbView, "ndbViewButton");
+    if (cardExists(ndbReg))  createEnter(ndbReg, "ndbRegButton");
+    if (cardExists(portB))   createEnter(portB, "portButton");
+    if (cardExists(portN))   createEnter(portN, "portButton");
+    if (cardExists(turbo))   createEnter(turbo, "turboButton");
 }
 
 function createEnter(elementName, buttonName) {
@@ -79,6 +70,11 @@ function createEnter(elementName, buttonName) {
             document.getElementById(buttonName).click();
         }
     })
+}
+
+async function loadJSON(url) {
+    const response = await fetch(url);
+    return response.json();
 }
 
 function cardExists(elementName) {
