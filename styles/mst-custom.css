@@ -26,6 +26,10 @@
 	width: 100%;
 }
 
+#iframeTitle {
+	color: #fff !important;
+}
+
 #statusCard {
 	display: none;
 }
