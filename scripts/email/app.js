@@ -12,13 +12,8 @@ var tickOpen = true;
 var tickUpdateInfo = "";
 var tickUpdateInstText = "";
 
-function loadApp() {
-  // Set Navigation Title
-  setTimeout(function () {
-  setPageName("Email Generator");
-  startEmail();
-  }, 500);       
-}
+setPageName("Email Generator");
+startEmail();
 
 function loadEmail() {
   // Load Template Configuration File into 

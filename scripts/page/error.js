@@ -1,10 +1,5 @@
-function loadApp() {
-    // Set Navigation Title
-    setTimeout(function () {
-        setPageName("Dashboard Error");
-        loadError();
-    }, 500);
-}
+setPageName("Dashboard Error");
+loadError();
 
 function loadError() {
     switch(errorParam) {
