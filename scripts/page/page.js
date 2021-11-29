@@ -18,7 +18,7 @@ const radarParam = urlParams.get('radar');
 const errorParam = urlParams.get('code');
 
 
-function generatePage() {
+document.addEventListener("DOMContentLoaded", async function () {
     const setupComplete = Cookies.get("setupComplete");
     // Check if setup
     if (setupComplete) {
@@ -73,6 +73,7 @@ function generatePage() {
         }
     }, 1000);
 }
+});
 
 function checkVersion() {
     try {
