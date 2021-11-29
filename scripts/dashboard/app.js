@@ -94,6 +94,12 @@ function closePopup() {
     document.getElementById("iframeCard").className = "uk-animation-fade iframe-hide";
 }
 
+document.addEventListener("keydown", function (event) {
+    if (event.code === "Escape") {
+        closePopup();
+    }
+});
+
 function expandPopup() {
 	window.open(document.getElementById("iframeURL").src);
 }
