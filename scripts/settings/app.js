@@ -1,42 +1,64 @@
+const root = document.documentElement;
+const backgroundURLInput = document.getElementById("backURL");
+const cardOpacityInput = document.getElementById("cardOpat");
+const cardBlurInput = document.getElementById("cardBlur");
+const themeInput = document.getElementById("theme");
+let backgroundURL = null;
+let cardOpacity = null;
+let cardBlur = null;
 
 
-function loadApp() {
-    // Set Navigation Title
-    setTimeout(function () {
-        setPageName("Dashboard");
-        // Load User Settings from Cookies
-        document.getElementById("runMode").value = Cookies.get("mode");
-        document.getElementById("theme").checked = Cookies.get("theme") === "false" ? false : true;
-        document.getElementById("backURL").value = Cookies.get("backgroundURL");
-        document.getElementById("cardOpat").value = Cookies.get("cardOpacity");
-    }, 500);
+setPageName("Settings");
+
+// Load user settings from cookies
+document.getElementById("runMode").value = Cookies.get("mode");
+document.getElementById("theme").checked = Cookies.get("theme") === "false" ? false : true;
+backgroundURLInput.value = Cookies.get("backgroundURL");
+cardOpacityInput.value = Cookies.get("cardOpacity");
+cardBlurInput.value = Cookies.get("cardBlur");
+
+// Live reload user settings
+requestAnimationFrame(pollSettingsChange);
+
+
+function pollSettingsChange() {
+	if (backgroundURLInput.value !== backgroundURL) {
+		backgroundURL = backgroundURLInput.value;
+		updateBackground(backgroundURL);
+	}
+	if (cardOpacityInput.value !== cardOpacity) {
+		cardOpacity = cardOpacityInput.value;
+		updateCardOpacity(cardOpacity);
+	}
+	if (cardBlurInput.value !== cardBlur) {
+		cardBlur = cardBlurInput.value;
+		updateCardBlur(cardBlur);
+	}
+	requestAnimationFrame(pollSettingsChange);
 }
 
 function saveSettings() {
-    // Clear setup hold
-    Cookies.set("setupComplete", true, { expires: Infinity });
-  
-    Cookies.set("mode", document.getElementById("runMode").value, { expires: Infinity });
-    Cookies.set("theme", document.getElementById("theme").checked, { expires: Infinity });
-    Cookies.set("backgroundURL", document.getElementById("backURL").value, { expires: Infinity });
-    Cookies.set("cardOpacity", document.getElementById("cardOpat").value, { expires: Infinity });
-    Cookies.set("cardBlur", document.getElementById("cardBlur").value, { expires: Infinity });
-    Cookies.set("backgroundURL", document.getElementById("backURL").value, { expires: Infinity });
-    Cookies.set("cardOpacity", document.getElementById("cardOpat").value, { expires: Infinity });
-    Cookies.set("cardBlur", document.getElementById("cardBlur").value, { expires: Infinity });
-    UIkit.notification("Settings saved. Reloading page...");
-    setTimeout(function () {
-      window.location.replace("./");
-    }, 750);
+	// Clear setup hold
+	Cookies.set("setupComplete", true, { expires: Infinity });
+
+	// Save user settings to cookies
+	Cookies.set("mode", document.getElementById("runMode").value, { expires: Infinity });
+	Cookies.set("theme", themeInput.checked, { expires: Infinity });
+	Cookies.set("backgroundURL", backgroundURLInput.value, { expires: Infinity });
+	Cookies.set("cardOpacity", cardOpacityInput.value, { expires: Infinity });
+	Cookies.set("cardBlur", cardBlurInput.value, { expires: Infinity });
+
+	// Refresh back to the Dashboard
+	window.location.replace("./");
 }
 
-function toggleTheme() {
-  if (document.getElementById("theme").checked) {
-    disableDarkMode();
-  } else {
-    enableDarkMode();
-  }
-}
+themeInput.addEventListener("change", function () {
+	if (themeInput.checked) {
+		disableDarkMode();
+	} else {
+		enableDarkMode();
+	}
+});
 
 function getYouTubeID(url) {
 	const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -48,29 +70,23 @@ function getYouTubeID(url) {
 }
 
 function updateBackground(url) {
-  if (url === "") {
-    document.body.style.backgroundImage = "none";
-    document.getElementById("backVideo").src = "";
-  } else if (url.includes("youtu")) {
-    document.body.style.backgroundImage = "none";
-    document.getElementById("backVideo").src = `//www.youtube.com/embed/${getYouTubeID(url)}?autoplay=1`;
-  } else {
-    document.body.style.backgroundImage = `url("${url}")`;
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundAttachment = "fixed";
-  }
+	if (url === "") {
+		document.body.style.backgroundImage = "none";
+		document.getElementById("backVideo").src = "";
+	} else if (url.includes("youtu")) {
+		document.body.style.backgroundImage = "none";
+		document.getElementById("backVideo").src = `//www.youtube.com/embed/${getYouTubeID(url)}?autoplay=1`;
+	} else {
+		document.body.style.backgroundImage = `url("${url}")`;
+		document.body.style.backgroundSize = "cover";
+		document.body.style.backgroundAttachment = "fixed";
+	}
 }
 
-function updateOpacity() {
-  const root = document.documentElement;
-  const opacity = document.getElementById("cardOpat").value;
-  root.style.setProperty("--CARD-OPACITY", opacity);
+function updateCardOpacity(opacity) {
+	root.style.setProperty("--CARD-OPACITY", opacity);
 }
 
-function updateBlur() {
-  const root = document.documentElement;
-  const blurRadius = document.getElementById("cardBlur").value;
-  root.style.setProperty("--CARD-BLUR-RADIUS", blurRadius + "px");
-}
-
+function updateCardBlur(blurRadius) {
+	root.style.setProperty("--CARD-BLUR-RADIUS", blurRadius + "px");
 }
