@@ -73,11 +73,4 @@ function updateBlur() {
   root.style.setProperty("--CARD-BLUR-RADIUS", blurRadius + "px");
 }
 
-function toggleImport() {
-	var currentView = window.getComputedStyle(document.querySelector("#importCard")).display;
-	if (currentView == "none") {
-		document.getElementById("importCard").style.display = "inherit";
-	} else {
-		document.getElementById("importCard").style.display = "none";
-	}
 }
