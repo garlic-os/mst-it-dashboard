@@ -5,10 +5,10 @@ function loadApp() {
     setTimeout(function () {
         setPageName("Dashboard");
         // Load User Settings from Cookies
-        document.getElementById("runMode").value = Cookies.get('mode');
-        document.getElementById("theme").checked = Cookies.get('theme') === "false" ? false : true;
-        document.getElementById("backURL").value = Cookies.get('backgroundURL');
-        document.getElementById("cardOpat").value = Cookies.get('cardOpacity');
+        document.getElementById("runMode").value = Cookies.get("mode");
+        document.getElementById("theme").checked = Cookies.get("theme") === "false" ? false : true;
+        document.getElementById("backURL").value = Cookies.get("backgroundURL");
+        document.getElementById("cardOpat").value = Cookies.get("cardOpacity");
     }, 500);
 }
 
@@ -17,18 +17,21 @@ function saveSettings() {
     Cookies.set("setupComplete", true, { expires: Infinity });
   
     Cookies.set("mode", document.getElementById("runMode").value, { expires: Infinity });
-    Cookies.set("theme", document.getElementById("theme").checked);
-    Cookies.set('backgroundURL', document.getElementById("backURL").value, { expires: Infinity });
-    Cookies.set('cardOpacity', document.getElementById("cardOpat").value, { expires: Infinity });
-    Cookies.set('cardBlur', document.getElementById("cardBlur").value, { expires: Infinity });
-    UIkit.notification('Settings saved. Reloading page...');
+    Cookies.set("theme", document.getElementById("theme").checked, { expires: Infinity });
+    Cookies.set("backgroundURL", document.getElementById("backURL").value, { expires: Infinity });
+    Cookies.set("cardOpacity", document.getElementById("cardOpat").value, { expires: Infinity });
+    Cookies.set("cardBlur", document.getElementById("cardBlur").value, { expires: Infinity });
+    Cookies.set("backgroundURL", document.getElementById("backURL").value, { expires: Infinity });
+    Cookies.set("cardOpacity", document.getElementById("cardOpat").value, { expires: Infinity });
+    Cookies.set("cardBlur", document.getElementById("cardBlur").value, { expires: Infinity });
+    UIkit.notification("Settings saved. Reloading page...");
     setTimeout(function () {
       window.location.replace("./");
     }, 750);
 }
 
 function toggleTheme() {
-  if (document.getElementById('theme').checked) {
+  if (document.getElementById("theme").checked) {
     disableDarkMode();
   } else {
     enableDarkMode();
@@ -52,7 +55,7 @@ function updateBackground(url) {
     document.body.style.backgroundImage = "none";
     document.getElementById("backVideo").src = `//www.youtube.com/embed/${getYouTubeID(url)}?autoplay=1`;
   } else {
-    document.body.style.backgroundImage = "url('" + url + "')";
+    document.body.style.backgroundImage = `url("${url}")`;
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundAttachment = "fixed";
   }
@@ -71,7 +74,7 @@ function updateBlur() {
 }
 
 function toggleImport() {
-	var currentView = window.getComputedStyle(document.querySelector('#importCard')).display;
+	var currentView = window.getComputedStyle(document.querySelector("#importCard")).display;
 	if (currentView == "none") {
 		document.getElementById("importCard").style.display = "inherit";
 	} else {
