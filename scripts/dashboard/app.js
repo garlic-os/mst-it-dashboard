@@ -98,8 +98,6 @@ function expandPopup() {
 	window.open(document.getElementById("iframeURL").src);
 }
 
-function navigate(title, URL) {
-    var self = this;
 function navigate(title, url) {
     document.getElementById("iframeTitle").innerHTML = title;
     document.getElementById("iframeURL").method = 'get';
@@ -223,8 +221,6 @@ function handleNetDB(mode) {
 
 
 function handleForm() {
-    var self = this;
-    this.showPopup();
     showPopup();
     clearInput("netgroupUserInput");
     clearInput("netgroupNetGroupInput");
