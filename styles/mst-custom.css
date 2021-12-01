@@ -4,7 +4,7 @@
 	--CARD-BLUR-RADIUS: 20px;
 }
 
-#iframeCard{
+#iframeCard {
 	position: absolute;
 	overflow: hidden; 
 	top: 2rem;
@@ -169,10 +169,10 @@
 	justify-content: space-between;
 }
 
-/* Hover + Focus */	
-.uk-navbar-dropdown-nav > li > a:hover,	
-.uk-navbar-dropdown-nav > li > a:focus {	
-	color: #fff;	
+/* Hover + Focus */
+.uk-navbar-dropdown-nav > li > a:hover,
+.uk-navbar-dropdown-nav > li > a:focus {
+	color: #fff;
 }
 
 .uk-navbar-dropdown-nav > li svg {
