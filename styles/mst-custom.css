@@ -130,9 +130,13 @@
 .uk-card {
 	position: relative;
 	animation: fade-in 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-	backdrop-filter: saturate(180%) blur(var(--CARD-BLUR-RADIUS));
-	background-color: rgba(var(--CARD-COLOR-RGB), var(--CARD-OPACITY));
 	border-radius: 10px;
+	background-color: rgba(var(--CARD-COLOR-RGB), var(--CARD-OPACITY));
+
+	/* Slightly increase saturation with blur to keep the background from
+	   looking dull at higher blur radii */
+	backdrop-filter: saturate(calc((var(--CARD-BLUR-RADIUS) / 150) + 1))
+		             blur(calc(var(--CARD-BLUR-RADIUS) * 1px));
 }
 
 .uk-card-primary {

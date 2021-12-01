@@ -88,5 +88,5 @@ function updateCardOpacity(opacity) {
 }
 
 function updateCardBlur(blurRadius) {
-	root.style.setProperty("--CARD-BLUR-RADIUS", blurRadius + "px");
+	root.style.setProperty("--CARD-BLUR-RADIUS", blurRadius);
 }
