@@ -11,11 +11,11 @@ let cardBlur = null;
 setPageName("Settings");
 
 // Load user settings from cookies
-document.getElementById("runMode").value = Cookies.get("mode");
+document.getElementById("runMode").value = Cookies.get("mode") ?? "helpdesk";
 document.getElementById("theme").checked = Cookies.get("theme") === "false" ? false : true;
-backgroundURLInput.value = Cookies.get("backgroundURL");
-cardOpacityInput.value = Cookies.get("cardOpacity");
-cardBlurInput.value = Cookies.get("cardBlur");
+backgroundURLInput.value = Cookies.get("backgroundURL") ?? "";
+cardOpacityInput.value = Cookies.get("cardOpacity") ?? 1;
+cardBlurInput.value = Cookies.get("cardBlur") ?? 0;
 
 // Live reload user settings
 requestAnimationFrame(pollSettingsChange);
