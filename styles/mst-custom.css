@@ -2,6 +2,19 @@
 	--CARD-COLOR-RGB: 80, 158, 47;
 	--CARD-OPACITY: 1;
 	--CARD-BLUR-RADIUS: 20px;
+	--BACKGROUND-IMAGE: none;
+}
+
+body {
+	background-image: var(--BACKGROUND-IMAGE);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: local;
+	color: #fff;
+}
+
+a, .uk-link {
+	color: #fff;
 }
 
 #iframeCard {
@@ -30,10 +43,6 @@
 	color: #fff !important;
 }
 
-#statusCard {
-	display: none;
-}
-
 .iframe-hide {
 	visibility: hidden;
 }
@@ -41,55 +50,46 @@
 	visibility: visible;
 }
 
-/* System Status Popup */
-.systemStatus {
-	position: relative;
-	cursor: pointer;
+
+.system-status {
+	color: #000;
 }
-.systemStatus .systemstatus-button {
-	margin-left: 20px;
-	cursor: pointer;
+
+.system-status .entry {
+	width: 60ch;
+	margin: 0 5px 10px;
 }
-.systemStatus .systemStatus-content {
-	color: black;
-	background-color: white;
-	position: absolute;
-	left: 5px;
-	display: none;
-	height: 350px;
-	width: 400px !important;
-	overflow-y: scroll;
-}
-.systemStatus .mdl-spinner {
-	margin-top: 150px;
-	margin-left: 184px;
-}
-.systemStatus .systemStatus-titleContainer {
+
+.system-status .title-container {
 	display: inline-grid;
 	margin: 10px;
 	width: calc(100% - 50px);
 }
-.systemStatus .systemStatus-title {
+
+.system-status .title {
 	font-weight: bold;
 }
-.systemStatus .systemStatus-status {
-	display: inline-block;
+
+.system-status .status-icon {
 	font-size: 18px;
 	vertical-align: middle;
 	height: 26px;
 }
-.systemStatus .systemStatus-desc {
+
+.system-status .desc {
 	padding: 0 18px;
 	background-color: white;
 	max-height: 0;
 	overflow: hidden;
-	transition: max-height 0.4s;
-	transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+	transition: max-height 300ms ease;
 }
-.systemStatus button.systemStatus-expand {
+.system-status .expand-button.active + .desc {
+	max-height: unset;
+}
+
+.system-status .expand-button {
 	border: 1px solid rgba(0,0,0,.12) !important;
 	background-color: #ffffff;
-	color: #444;
 	cursor: pointer;
 	padding: 18px;
 	width: 100%;
@@ -97,23 +97,23 @@
 	text-align: left;
 	outline: none;
 	font-size: 15px;
-	transition: 0.4s;
-	transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
 }
-.systemStatus button.systemStatus-expand.active, button.systemStatus-expand:hover {
+.system-status .expand-button.active, .system-status .expand-button:hover {
 	background-color: #eeeeee;
 }
 
-.open {
-	display: block !important;
+#statusCard {
+	width: 100%;
+	min-height: 80vh;
+	margin-bottom: 20px;
 }
 
 @media only screen and (max-device-width: 480px) {
-	.systemStatus {
+	.system-status {
 		position: static;
 		z-index: 10;
 	}
-	.systemStatus .systemStatus-content {
+	.system-status .system-status-content {
 		width: 97%;
 	}
 }
@@ -125,6 +125,15 @@
 	to {
 		opacity: 1;
 	}
+}
+
+.uk-navbar-container:not(.uk-navbar-transparent) {
+	background-color: rgb(var(--CARD-COLOR-RGB));
+	transition: background-color 300ms ease;
+}
+
+.uk-navbar-container {
+	transition: background-color 50ms ease-out;
 }
 
 .uk-card {
@@ -139,7 +148,7 @@
 		             blur(calc(var(--CARD-BLUR-RADIUS) * 1px));
 }
 
-.uk-card-primary {
+.uk-card-primary, .uk-navbar-container:not(.uk-navbar-transparent) {
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.34);
 }
 

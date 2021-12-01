@@ -33,19 +33,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         } else {
             // Continue
             // Set the Application Mode
-            await setApp(appParam);
+            setApp(appParam);
             // Replace CSS for theme, if needed
             if (Cookies.get("theme") === "false") {
                 enableDarkMode();
             }
             // Load Background Image
             const backgroundURL = Cookies.get('backgroundURL');
-            if (!backgroundURL) {
-                document.body.style.backgroundImage = "none";
-            } else {
-                document.body.style.backgroundImage = `url("${backgroundURL}")`;
-                document.body.style.backgroundSize = "cover";
-                document.body.style.backgroundAttachment = "fixed";
+            if (backgroundURL) {
+                setCSSvar("--BACKGROUND-IMAGE", `url("${backgroundURL}")`);
             }
         }
     } else {
@@ -60,11 +56,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     updateNav();
 
     const cardOpacity = Cookies.get('cardOpacity') ?? '1';
-    document.documentElement.style.setProperty("--CARD-OPACITY", cardOpacity);
+    setCSSvar("--CARD-OPACITY", cardOpacity);
 
     const cardBlur = Cookies.get('cardBlur') ?? '0';
-    document.documentElement.style.setProperty("--CARD-BLUR-RADIUS", cardBlur);
+    setCSSvar("--CARD-BLUR-RADIUS", cardBlur);
 });
+
+function setCSSvar(name, value) {
+    document.documentElement.style.setProperty(name, value);
+}
 
 function checkVersion() {
     try {
@@ -170,6 +170,10 @@ async function setApp(app) {
             await replaceGrid("./templates/page/help.html");
             loadJsApp("./scripts/page/help.js");
             break;
+        case "status":
+            await replaceGrid("/templates/dash/status.html");
+            loadJsApp("./scripts/status/app.js");
+            break;
         default: // Nothing
             // Go to root
             window.location.replace(`./${rootFile}`);
@@ -197,15 +201,6 @@ function getAllElementsWithAttribute(attribute)
     }
   }
   return matchingElements;
-}
-
-
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-    for (var i = this.length - 1; i >= 0; i--) {
-        if (this[i] && this[i].parentElement) {
-            this[i].parentElement.removeChild(this[i]);
-        }
-    }
 }
 
 async function replaceGrid(newgrid) {
