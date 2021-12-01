@@ -234,6 +234,10 @@ a:not([href]) {
 	border: none;
 }
 
+.uk-range {
+	height: 25px;  /* Thicken sliders' hitboxes */
+}
+
 
 /* https://codepen.io/haxzie/pen/xxKNEGM */
 /* The switch - the box around the slider */
