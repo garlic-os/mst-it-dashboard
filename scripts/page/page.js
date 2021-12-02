@@ -12,37 +12,33 @@ const versionNumber = "?69";  // nice
 // URL Parameters
 const urlParams = new URLSearchParams(window.location.search);
 const appParam = urlParams.get("app");
-const modeParam = urlParams.get("mode");
 const typeParam = urlParams.get("type");
 const radarParam = urlParams.get("radar");
 const errorParam = urlParams.get("code");
+
+const operationMode = Cookies.get("mode");
 
 
 document.addEventListener("DOMContentLoaded", async function () {
     const setupComplete = Cookies.get("setupComplete");
     // Check if setup
-    if (setupComplete) {
-        const operationMode = Cookies.get("mode");
-        // Check if app and mode exist in URL
-        if (!appParam && !modeParam) {
-            // Redirect to dashboard
-            window.location.replace(`./${rootFile}?app=dashboard&mode=${operationMode}`);
-        } else if (!modeParam) {
-            // Redirect with correct mode
-            window.location.replace(constructURL(operationMode));
-        } else {
-            // Continue
-            // Set the Application Mode
+    if (setupComplete || !operationMode) {
+        // Check if app name exists in URL
+        if (appParam) {
+            // Load the requested app
             setApp(appParam);
-            // Replace CSS for theme, if needed
+
             if (Cookies.get("theme") === "false") {
                 enableDarkMode();
             }
-            // Load Background Image
+
             const backgroundURL = Cookies.get("backgroundURL");
             if (backgroundURL) {
                 setCSSvar("--BACKGROUND-IMAGE", `url("${backgroundURL}")`);
             }
+        } else {
+            // Redirect to dashboard
+            window.location.replace(`./${rootFile}?app=dashboard`);
         }
     } else {
         // Set to Welcome
@@ -87,19 +83,15 @@ function setAlert(message) {
     document.body.getElementById("alert-message").innerHTML = message;
 }
 
-function constructURL(cookieMode) {
-    var constructURL = "./" + rootFile + "?app=" + appParam;
-
-    if (!modeParam) {
-        constructURL += "&mode=" + cookieMode;
+function constructURL() {
+    let url = `./${rootFile}?app=${appParam}`;
+    if (typeParam) {
+        url += "&type=" + typeParam;
     }
-    if (typeParam !== null) {
-        constructURL += "&type=" + typeParam;
+    if (errorParam) {
+        url += "&code=" + errorParam;
     }
-    if (errorParam !== null) {
-        constructURL += "&code=" + errorParam;
-    }
-    return constructURL;
+    return url;
 }
 
 function updateNav() {
@@ -128,7 +120,7 @@ async function setApp(app) {
         // We do not add 0: Welcome because page.js will auto detect if needed.
         case "dashboard":
             // Set Display Mode
-            switch(modeParam) {
+            switch(operationMode) {
                 case "helpdesk":
                     await replaceGrid("./templates/dash/helpdesk.html");
                     break;
