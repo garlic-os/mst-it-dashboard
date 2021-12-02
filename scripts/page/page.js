@@ -6,23 +6,23 @@
  * Contains functions related to page generation
  */
 
-const rootFile = '';
-const versionNumber = '?69';  // nice
+const rootFile = "";
+const versionNumber = "?69";  // nice
 
 // URL Parameters
 const urlParams = new URLSearchParams(window.location.search);
-const appParam = urlParams.get('app');
-const modeParam = urlParams.get('mode');
-const typeParam = urlParams.get('type');
-const radarParam = urlParams.get('radar');
-const errorParam = urlParams.get('code');
+const appParam = urlParams.get("app");
+const modeParam = urlParams.get("mode");
+const typeParam = urlParams.get("type");
+const radarParam = urlParams.get("radar");
+const errorParam = urlParams.get("code");
 
 
 document.addEventListener("DOMContentLoaded", async function () {
     const setupComplete = Cookies.get("setupComplete");
     // Check if setup
     if (setupComplete) {
-        const operationMode = Cookies.get('mode');
+        const operationMode = Cookies.get("mode");
         // Check if app and mode exist in URL
         if (!appParam && !modeParam) {
             // Redirect to dashboard
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 enableDarkMode();
             }
             // Load Background Image
-            const backgroundURL = Cookies.get('backgroundURL');
+            const backgroundURL = Cookies.get("backgroundURL");
             if (backgroundURL) {
                 setCSSvar("--BACKGROUND-IMAGE", `url("${backgroundURL}")`);
             }
@@ -55,10 +55,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Update Navbar
     updateNav();
 
-    const cardOpacity = Cookies.get('cardOpacity') ?? '1';
+    const cardOpacity = Cookies.get("cardOpacity") ?? "1";
     setCSSvar("--CARD-OPACITY", cardOpacity);
 
-    const cardBlur = Cookies.get('cardBlur') ?? '0';
+    const cardBlur = Cookies.get("cardBlur") ?? "0";
     setCSSvar("--CARD-BLUR-RADIUS", cardBlur);
 });
 
@@ -69,10 +69,10 @@ function setCSSvar(name, value) {
 function checkVersion() {
     try {
         // See if the cookie exists
-        var version = Cookies.get('version');
+        var version = Cookies.get("version");
         if (version !== versionNumber) {
             addAlert();
-            Cookies.set('version', versionNumber, { expires: Infinity });
+            Cookies.set("version", versionNumber, { expires: Infinity });
         } else {
             // Do nothing.
         }
@@ -88,16 +88,16 @@ function setAlert(message) {
 }
 
 function constructURL(cookieMode) {
-    var constructURL = './' + rootFile + '?app=' + appParam;
+    var constructURL = "./" + rootFile + "?app=" + appParam;
 
     if (!modeParam) {
-        constructURL += '&mode=' + cookieMode;
+        constructURL += "&mode=" + cookieMode;
     }
     if (typeParam !== null) {
-        constructURL += '&type=' + typeParam;
+        constructURL += "&type=" + typeParam;
     }
     if (errorParam !== null) {
-        constructURL += '&code=' + errorParam;
+        constructURL += "&code=" + errorParam;
     }
     return constructURL;
 }
@@ -105,18 +105,18 @@ function constructURL(cookieMode) {
 function updateNav() {
     // Remove HD items if not HD modes
     if (modeParam !== "helpdesk") {
-        var toDelete = getAllElementsWithAttribute('dept');
+        var toDelete = getAllElementsWithAttribute("dept");
         for (var i=0;i<toDelete.length;i++) {
-            if (toDelete[i].getAttribute("dept") == 'hd') {
+            if (toDelete[i].getAttribute("dept") == "hd") {
                 toDelete[i].remove();
             }
         }
     }
     // Remove Deployment items if not Deployment
     if (modeParam !== "deploy") {
-        var toDelete = getAllElementsWithAttribute('dept');
+        var toDelete = getAllElementsWithAttribute("dept");
         for (var i=0;i<toDelete.length;i++) {
-            if (toDelete[i].getAttribute("dept") == 'deploy') {
+            if (toDelete[i].getAttribute("dept") == "deploy") {
                 toDelete[i].remove();
             }
         }
@@ -191,7 +191,7 @@ function loadJsApp(filePath) {
 function getAllElementsWithAttribute(attribute)
 {
   var matchingElements = [];
-  var allElements = document.getElementsByTagName('*');
+  var allElements = document.getElementsByTagName("*");
   for (var i = 0, n = allElements.length; i < n; i++)
   {
     if (allElements[i].getAttribute(attribute) !== null)
@@ -213,7 +213,7 @@ function addAlert() {
 }
 
 function setPageName(name) {
-    document.getElementById('page-title').innerHTML = name;
+    document.getElementById("page-title").innerHTML = name;
 }
 
 async function includeHTML() {
@@ -223,7 +223,7 @@ async function includeHTML() {
         const filePath = element.getAttribute("it-include-html");
         if (filePath) {
             // Make an HTTP request using the attribute value as the file name
-            // and replace the element's content with the response text
+            // and replace the element"s content with the response text
             try {
                 const response = await fetch(filePath);
                 const responseText = await response.text();
