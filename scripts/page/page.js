@@ -63,19 +63,9 @@ function setCSSvar(name, value) {
 }
 
 function checkVersion() {
-    try {
-        // See if the cookie exists
-        var version = Cookies.get("version");
-        if (version !== versionNumber) {
-            addAlert();
-            Cookies.set("version", versionNumber, { expires: Infinity });
-        } else {
-            // Do nothing.
-        }
-    }
-    catch {
-        //If cookie does not exist, do the same
-        //addAlert();
+    if (Cookies.get("version") !== versionNumber) {
+        addAlert();
+        Cookies.set("version", versionNumber, { expires: Infinity });
     }
 }
 
