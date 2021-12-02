@@ -86,21 +86,15 @@ function constructURL() {
 
 function updateNav() {
     // Remove HD items if not HD modes
-    if (modeParam !== "helpdesk") {
-        var toDelete = getAllElementsWithAttribute("dept");
-        for (var i=0;i<toDelete.length;i++) {
-            if (toDelete[i].getAttribute("dept") == "hd") {
-                toDelete[i].remove();
-            }
+    if (operationMode !== "helpdesk") {
+        for (const element of document.querySelectorAll("[dept='hd']")) {
+            element.remove();
         }
     }
     // Remove Deployment items if not Deployment
-    if (modeParam !== "deploy") {
-        var toDelete = getAllElementsWithAttribute("dept");
-        for (var i=0;i<toDelete.length;i++) {
-            if (toDelete[i].getAttribute("dept") == "deploy") {
-                toDelete[i].remove();
-            }
+    if (operationMode !== "deploy") {
+        for (const element of document.querySelectorAll("[dept='deploy']")) {
+            element.remove();
         }
     }
 }
@@ -170,20 +164,6 @@ function loadJsApp(filePath) {
     document.head.appendChild(script);
 }
 
-function getAllElementsWithAttribute(attribute)
-{
-  var matchingElements = [];
-  var allElements = document.getElementsByTagName("*");
-  for (var i = 0, n = allElements.length; i < n; i++)
-  {
-    if (allElements[i].getAttribute(attribute) !== null)
-    {
-      // Element exists with attribute. Add to array.
-      matchingElements.push(allElements[i]);
-    }
-  }
-  return matchingElements;
-}
 
 async function replaceGrid(newgrid) {
     document.getElementById("grid-holder").setAttribute("it-include-html", newgrid);
