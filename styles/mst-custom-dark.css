@@ -41,3 +41,14 @@
 .uk-nav-divider {
 	border-top: 1px solid #3c403f !important;
 }
+
+::-webkit-scrollbar {
+  background-color: #222;
+  border-radius: 500px;
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ffffffd4;
+  border-radius: 500px;
+}

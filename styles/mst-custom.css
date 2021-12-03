@@ -333,3 +333,26 @@ input:checked + .slider:before {
 	top: 40px;
 	right: 40px;
 }
+
+.uk-navbar-right {
+	overflow-x: auto;
+}
+
+.uk-navbar-left, .uk-navbar-right, .uk-navbar-center:only-child {
+	flex-wrap: unset;
+}
+
+.uk-grid-small > * {
+	padding-right: 15px;
+}
+
+::-webkit-scrollbar {
+    background-color: rgb(var(--CARD-COLOR-RGB));
+	border-radius: 500px;
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #fffffff2;
+	border-radius: 500px;
+}
