@@ -6,47 +6,39 @@
  * Contains functions related to page generation
  */
 
-const rootFile = '';
-const versionNumber = '?69';  // nice
+const rootFile = "";
+const versionNumber = "?71";
 
 // URL Parameters
 const urlParams = new URLSearchParams(window.location.search);
-const appParam = urlParams.get('app');
-const modeParam = urlParams.get('mode');
-const typeParam = urlParams.get('type');
-const radarParam = urlParams.get('radar');
-const errorParam = urlParams.get('code');
+const appParam = urlParams.get("app");
+const typeParam = urlParams.get("type");
+const radarParam = urlParams.get("radar");
+const errorParam = urlParams.get("code");
+
+const operationMode = Cookies.get("mode");
 
 
 document.addEventListener("DOMContentLoaded", async function () {
     const setupComplete = Cookies.get("setupComplete");
     // Check if setup
-    if (setupComplete) {
-        const operationMode = Cookies.get('mode');
-        // Check if app and mode exist in URL
-        if (!appParam && !modeParam) {
-            // Redirect to dashboard
-            window.location.replace(`./${rootFile}?app=dashboard&mode=${operationMode}`);
-        } else if (!modeParam) {
-            // Redirect with correct mode
-            window.location.replace(constructURL(operationMode));
-        } else {
-            // Continue
-            // Set the Application Mode
-            await setApp(appParam);
-            // Replace CSS for theme, if needed
+    if (setupComplete || !operationMode) {
+        // Check if app name exists in URL
+        if (appParam) {
+            // Load the requested app
+            setApp(appParam);
+
             if (Cookies.get("theme") === "false") {
                 enableDarkMode();
             }
-            // Load Background Image
-            const backgroundURL = Cookies.get('backgroundURL');
-            if (!backgroundURL) {
-                document.body.style.backgroundImage = "none";
-            } else {
-                document.body.style.backgroundImage = `url("${backgroundURL}")`;
-                document.body.style.backgroundSize = "cover";
-                document.body.style.backgroundAttachment = "fixed";
+
+            const backgroundURL = Cookies.get("backgroundURL");
+            if (backgroundURL) {
+                setCSSvar("--BACKGROUND-IMAGE", `url("${backgroundURL}")`);
             }
+        } else {
+            // Redirect to dashboard
+            window.location.replace(`./${rootFile}?app=dashboard`);
         }
     } else {
         // Set to Welcome
@@ -59,27 +51,21 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Update Navbar
     updateNav();
 
-    const cardOpacity = Cookies.get('cardOpacity') ?? '1';
-    document.documentElement.style.setProperty("--CARD-OPACITY", cardOpacity);
+    const cardOpacity = Cookies.get("cardOpacity") ?? "1";
+    setCSSvar("--CARD-OPACITY", cardOpacity);
 
-    const cardBlur = Cookies.get('cardBlur') ?? '0';
-    document.documentElement.style.setProperty("--CARD-BLUR-RADIUS", cardBlur);
+    const cardBlur = Cookies.get("cardBlur") ?? "0";
+    setCSSvar("--CARD-BLUR-RADIUS", cardBlur);
 });
 
+function setCSSvar(name, value) {
+    document.documentElement.style.setProperty(name, value);
+}
+
 function checkVersion() {
-    try {
-        // See if the cookie exists
-        var version = Cookies.get('version');
-        if (version !== versionNumber) {
-            addAlert();
-            Cookies.set('version', versionNumber, { expires: Infinity });
-        } else {
-            // Do nothing.
-        }
-    }
-    catch {
-        //If cookie does not exist, do the same
-        //addAlert();
+    if (Cookies.get("version") !== versionNumber) {
+        addAlert();
+        Cookies.set("version", versionNumber, { expires: Infinity });
     }
 }
 
@@ -87,38 +73,28 @@ function setAlert(message) {
     document.body.getElementById("alert-message").innerHTML = message;
 }
 
-function constructURL(cookieMode) {
-    var constructURL = './' + rootFile + '?app=' + appParam;
-
-    if (!modeParam) {
-        constructURL += '&mode=' + cookieMode;
+function constructURL() {
+    let url = `./${rootFile}?app=${appParam}`;
+    if (typeParam) {
+        url += "&type=" + typeParam;
     }
-    if (typeParam !== null) {
-        constructURL += '&type=' + typeParam;
+    if (errorParam) {
+        url += "&code=" + errorParam;
     }
-    if (errorParam !== null) {
-        constructURL += '&code=' + errorParam;
-    }
-    return constructURL;
+    return url;
 }
 
 function updateNav() {
     // Remove HD items if not HD modes
-    if (modeParam !== "helpdesk") {
-        var toDelete = getAllElementsWithAttribute('dept');
-        for (var i=0;i<toDelete.length;i++) {
-            if (toDelete[i].getAttribute("dept") == 'hd') {
-                toDelete[i].remove();
-            }
+    if (operationMode !== "helpdesk") {
+        for (const element of document.querySelectorAll("[dept='hd']")) {
+            element.remove();
         }
     }
     // Remove Deployment items if not Deployment
-    if (modeParam !== "deploy") {
-        var toDelete = getAllElementsWithAttribute('dept');
-        for (var i=0;i<toDelete.length;i++) {
-            if (toDelete[i].getAttribute("dept") == 'deploy') {
-                toDelete[i].remove();
-            }
+    if (operationMode !== "deploy") {
+        for (const element of document.querySelectorAll("[dept='deploy']")) {
+            element.remove();
         }
     }
 }
@@ -128,7 +104,7 @@ async function setApp(app) {
         // We do not add 0: Welcome because page.js will auto detect if needed.
         case "dashboard":
             // Set Display Mode
-            switch(modeParam) {
+            switch(operationMode) {
                 case "helpdesk":
                     await replaceGrid("./templates/dash/helpdesk.html");
                     break;
@@ -170,6 +146,10 @@ async function setApp(app) {
             await replaceGrid("./templates/page/help.html");
             loadJsApp("./scripts/page/help.js");
             break;
+        case "status":
+            await replaceGrid("/templates/dash/status.html");
+            loadJsApp("./scripts/status/app.js");
+            break;
         default: // Nothing
             // Go to root
             window.location.replace(`./${rootFile}`);
@@ -184,29 +164,6 @@ function loadJsApp(filePath) {
     document.head.appendChild(script);
 }
 
-function getAllElementsWithAttribute(attribute)
-{
-  var matchingElements = [];
-  var allElements = document.getElementsByTagName('*');
-  for (var i = 0, n = allElements.length; i < n; i++)
-  {
-    if (allElements[i].getAttribute(attribute) !== null)
-    {
-      // Element exists with attribute. Add to array.
-      matchingElements.push(allElements[i]);
-    }
-  }
-  return matchingElements;
-}
-
-
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-    for (var i = this.length - 1; i >= 0; i--) {
-        if (this[i] && this[i].parentElement) {
-            this[i].parentElement.removeChild(this[i]);
-        }
-    }
-}
 
 async function replaceGrid(newgrid) {
     document.getElementById("grid-holder").setAttribute("it-include-html", newgrid);
@@ -218,7 +175,7 @@ function addAlert() {
 }
 
 function setPageName(name) {
-    document.getElementById('page-title').innerHTML = name;
+    document.getElementById("page-title").innerHTML = name;
 }
 
 async function includeHTML() {
@@ -228,7 +185,7 @@ async function includeHTML() {
         const filePath = element.getAttribute("it-include-html");
         if (filePath) {
             // Make an HTTP request using the attribute value as the file name
-            // and replace the element's content with the response text
+            // and replace the element"s content with the response text
             try {
                 const response = await fetch(filePath);
                 const responseText = await response.text();

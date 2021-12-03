@@ -1,27 +1,27 @@
 :root {
   --CARD-COLOR-RGB: 34, 34, 34;
+  --BORDER-COLOR: #3c403f;
 }
 
 #iframeCard {
   background: #000;
 }
 
-.systemStatus .systemStatus-content {
+.system-status {
   color: white;
-  background-color: black;
 }
 
-.systemStatus .systemStatus-desc {
-  background-color: black;
+.system-status .desc {
+  background-color: #000000b5;
 }
 
-.systemStatus button.systemStatus-expand {
-  border: 1px solid rgba(255,255,255,.12) !important;
-  background-color: #000000;
+.system-status .expand-button {
+  border: 1px solid rgba(255,255,255,.12);
+  background-color: #000000b5;
   color: #888;
 }
 
-.systemStatus button.systemStatus-expand.active, button.systemStatus-expand:hover {
+.system-status .expand-button.active, .system-status .expand-button:hover {
   background-color: #222222;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .uk-navbar-dropdown li a {
-	color: #fff;
+	color: #fff !important;
 }
 
 .uk-navbar-dropbar {
@@ -39,5 +39,16 @@
 }
 
 .uk-nav-divider {
-	border-top: 1px solid #3c403f !important;
+	border-top: 1px solid var(--BORDER-COLOR) !important;
+}
+
+::-webkit-scrollbar {
+  background-color: #222;
+  border-radius: 500px;
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ffffffd4;
+  border-radius: 500px;
 }

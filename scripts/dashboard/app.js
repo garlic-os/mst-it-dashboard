@@ -138,27 +138,6 @@ function handleAnalyzeUser(mode) {
     }
 }
 
-function handleSccm(mode) {
-    var value = document.getElementById("sccm").value;
-    switch(mode) {
-        case 0: // SSO or ID number
-			navigate("Web Template Generator - OS Install","https://itweb.mst.edu/auth-cgi-bin/cgiwrap/deskwtg/generate.pl?mode=search&platform=win10-x64-sccm2012&host=" + value);
-			clearInput("sccm");
-            break;
-        case 1: // Name (partial)
-            navigate("Web Template Generator - View Templates","https://cmdesk-p1.srv.mst.edu/ReportServer_RDP/Pages/ReportViewer.aspx?%2fConfigMgr_RDP%2f00+Desktop+Engineering%2fMST+All+task+sequence+deployments");
-            clearInput("sccm");
-            break;
-        default:
-            UIkit.notification({
-                message: 'Unknown error in SCCM! Please refresh and try again.',
-                status: 'danger',
-                pos: 'top-center',
-                timeout: 5000
-            });
-    }
-}
-
 function handleAnalyzePhone() {
 	var value = document.getElementById("analyzePhone").value;
 	navigate("Analyze Phone", "https://telcom.mst.edu/auth-cgi-bin/cgiwrap/mysofttools/analyze-number.pl?phone=" + value);
