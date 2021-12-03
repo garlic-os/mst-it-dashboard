@@ -161,7 +161,7 @@ a, .uk-link {
 	padding: 10px 0;
 	width: unset;
 	min-width: 200px;
-	backdrop-filter: blur(var(--CARD-BLUR-RADIUS));
+	backdrop-filter: blur(calc(var(--CARD-BLUR-RADIUS) * 1px));
 	background-color: #ffffffcc;
 	border: 1px solid #a9a9a9;
 }
