@@ -7,7 +7,7 @@
  */
 
 const rootFile = "";
-const versionNumber = "?69";  // nice
+const versionNumber = "?70";
 
 // URL Parameters
 const urlParams = new URLSearchParams(window.location.search);
