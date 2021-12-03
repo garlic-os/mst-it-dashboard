@@ -290,7 +290,7 @@ svg {
 	right: 0;
 	bottom: 0;
 	background-color: #005F83;
-	backdrop-filter: saturate(180%) blur(var(--CARD-BLUR-RADIUS));
+	backdrop-filter: saturate(180%) blur(calc(var(--CARD-BLUR-RADIUS) * 1px));
 	-webkit-transition: 0.4s;
 	transition: 0.4s;
 }
