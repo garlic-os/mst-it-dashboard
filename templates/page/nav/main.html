@@ -1,93 +1,91 @@
 <!-- Navigation -->
-<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light bottom: #transparent-sticky-navbar">
-    <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
-        <div class="uk-navbar-left">
-            <a id="page-title" class="uk-navbar-item uk-logo" href="./">Dashboard</a>
-            <a href="./?app=status" target="_blank">
-                <span class="system-status-button" uk-icon="bell"></span>
-            </a>
-        </div>
-        <div id="linknav" class="uk-navbar-right">
-            <ul class="uk-navbar-nav">
-                <li dept="all">
-                    <a target="_blank" href="https://cherwell.umsystem.edu/CherwellClient">Cherwell</a>
-                </li>
-                <li dept="hd">
-                    <a target="_blank" href="https://sso.8x8.com/signout/vcc-na7">8x8</a>
-                </li>
-                <li dept="all">
-                    <a target="_blank" href="https://myhr.umsystem.edu/">myHR</a>
-                </li>
-                <li dept="all">
-                    <a target="_blank" href="https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers">Azure</a>
-                </li>
-            </ul>
-            <ul class="uk-navbar-nav">
-                <li>
-                    <a uk-icon="chevron-down">Tools</a>
-                    <div class="uk-navbar-dropdown">
-                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li dept="all"><a href="./?app=emails">Canned Emails</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li dept="all"><a target="_blank" href="https://papercut.mst.edu/admin?">PaperCut</a></li>
-                            <li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/listmgr/list_tools_menu.pl">ListServ Tools</a></li>
-                            <li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/wcat/win-object-admin.pl">Object Admin Tool</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a uk-icon="chevron-down">Info</a>
-                    <div class="uk-navbar-dropdown">
-                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li dept="all"><a target="_blank" href="https://itweb.mst.edu/cgi-bin/cgiwrap/clcreq/software_list.pl">CLC Software</a></li>
-                            <li dept="all"><a target="_blank" href="https://it.mst.edu/services/clc/map/">CLC Map</a></li>
-                            <li class="uk-nav-divider"></li>
-							<li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/msts2info/provisions.pl">Apps Anywhere Info</a></li>
-                            <li dept="all"><a target="_blank" href="https://designconstruction.mst.edu/floorplan/">Floorplans</a></li>
-                            <li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/staffdir/directory.pl">IT Staff Directory</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li dept="hd">
-                    <a uk-icon="chevron-down">Forms</a>
-                    <div class="uk-navbar-dropdown">
-                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfUeqOnjzKkkjXUvIT8O7OpVX8bv1NRf5zsG6n2bTykQfkaIw/viewform">Service Waiver</a></li>
-                            <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfMC_hbG5nfvFYVLVDCKZ7K-yfxM-I9M-BaHHU85NAT2vgj0w/viewform">Invoice</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a uk-icon="download" target="_blank" href="./data/forms/Hardware%20Donation%20Form.docx">Hardware Donation</a></li>
-                            <li><a uk-icon="download" target="_blank" href="./data/forms/Laptop%20Rental%20(NO%20BILLING).docx" alt="For warranty work or while a university computer is under repair">Loaner Checkout (no billing)</a></li>
-                            <li><a uk-icon="download" target="_blank" href="./data/forms/Laptop%20Rental.docx" alt="For a loaner rented with a MoCode">Loaner Checkout (with billing)</a></li>
-                            <li><a uk-icon="download" target="_blank" href="./data/forms/Owl%20Rental.docx">Owl Rental</a></li>
-                            <li><a uk-icon="download" target="_blank" href="./data/forms/Projector%20Rental.docx">Projector Rental</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a uk-icon="download" target="_blank" href="./data/forms/Out%20of%20order.docx">Out of Order Sign</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li dept="all">
-                    <a uk-icon="chevron-down">Licensing</a>
-                    <div class="uk-navbar-dropdown">
-                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li><a target="_blank" href="https://wiki.mst.edu/license/change/applications/licensing/start">License Servers</a></li>
-                            <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSA3V5TV-0m-XnPbelHbVA1mNMrmQhZfVMk4nG5cOkoPVA9nyYpSh2J5SeQSK8_W3mYzQ8fZoMyGQrE/pubhtml?gid=27566338&single=true">License Information</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li dept="all">
-                    <a uk-icon="cog"></a>
-                    <div class="uk-navbar-dropdown">
-                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li><a onclick="showPopup()">Re-open last pop-up</a></li>
-                            <li><a href="./?app=settings">Settings</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a href="./old">Old Site</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="./?app=help" uk-icon="question"></a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+<nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light bottom: #transparent-sticky-navbar">
+    <div class="uk-navbar-left">
+        <a id="page-title" class="uk-navbar-item uk-logo" href="./">Dashboard</a>
+        <a href="./?app=status" target="_blank">
+            <span class="system-status-button" uk-icon="bell"></span>
+        </a>
+    </div>
+    <div id="linknav" class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li dept="all">
+                <a target="_blank" href="https://cherwell.umsystem.edu/CherwellClient">Cherwell</a>
+            </li>
+            <li dept="hd">
+                <a target="_blank" href="https://sso.8x8.com/signout/vcc-na7">8x8</a>
+            </li>
+            <li dept="all">
+                <a target="_blank" href="https://myhr.umsystem.edu/">myHR</a>
+            </li>
+            <li dept="all">
+                <a target="_blank" href="https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers">Azure</a>
+            </li>
+        </ul>
+        <ul class="uk-navbar-nav">
+            <li>
+                <a uk-icon="chevron-down">Tools</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li dept="all"><a href="./?app=emails">Canned Emails</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li dept="all"><a target="_blank" href="https://papercut.mst.edu/admin?">PaperCut</a></li>
+                        <li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/listmgr/list_tools_menu.pl">ListServ Tools</a></li>
+                        <li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/wcat/win-object-admin.pl">Object Admin Tool</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a uk-icon="chevron-down">Info</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li dept="all"><a target="_blank" href="https://itweb.mst.edu/cgi-bin/cgiwrap/clcreq/software_list.pl">CLC Software</a></li>
+                        <li dept="all"><a target="_blank" href="https://it.mst.edu/services/clc/map/">CLC Map</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/msts2info/provisions.pl">Apps Anywhere Info</a></li>
+                        <li dept="all"><a target="_blank" href="https://designconstruction.mst.edu/floorplan/">Floorplans</a></li>
+                        <li dept="all"><a target="_blank" href="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/staffdir/directory.pl">IT Staff Directory</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li dept="hd">
+                <a uk-icon="chevron-down">Forms</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfUeqOnjzKkkjXUvIT8O7OpVX8bv1NRf5zsG6n2bTykQfkaIw/viewform">Service Waiver</a></li>
+                        <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfMC_hbG5nfvFYVLVDCKZ7K-yfxM-I9M-BaHHU85NAT2vgj0w/viewform">Invoice</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li><a uk-icon="download" target="_blank" href="./data/forms/Hardware%20Donation%20Form.docx">Hardware Donation</a></li>
+                        <li><a uk-icon="download" target="_blank" href="./data/forms/Laptop%20Rental%20(NO%20BILLING).docx" alt="For warranty work or while a university computer is under repair">Loaner Checkout (no billing)</a></li>
+                        <li><a uk-icon="download" target="_blank" href="./data/forms/Laptop%20Rental.docx" alt="For a loaner rented with a MoCode">Loaner Checkout (with billing)</a></li>
+                        <li><a uk-icon="download" target="_blank" href="./data/forms/Owl%20Rental.docx">Owl Rental</a></li>
+                        <li><a uk-icon="download" target="_blank" href="./data/forms/Projector%20Rental.docx">Projector Rental</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li><a uk-icon="download" target="_blank" href="./data/forms/Out%20of%20order.docx">Out of Order Sign</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li dept="all">
+                <a uk-icon="chevron-down">Licensing</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a target="_blank" href="https://wiki.mst.edu/license/change/applications/licensing/start">License Servers</a></li>
+                        <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSA3V5TV-0m-XnPbelHbVA1mNMrmQhZfVMk4nG5cOkoPVA9nyYpSh2J5SeQSK8_W3mYzQ8fZoMyGQrE/pubhtml?gid=27566338&single=true">License Information</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li dept="all">
+                <a uk-icon="cog"></a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a onclick="showPopup()">Re-open last pop-up</a></li>
+                        <li><a href="./?app=settings">Settings</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li><a href="./old">Old Site</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="./?app=help" uk-icon="question"></a></li>
+        </ul>
+    </div>
+</nav>
 <!-- End Navigation -->
