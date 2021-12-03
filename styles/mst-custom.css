@@ -16,6 +16,8 @@ body {
 
 a, .uk-link {
 	color: #fff;
+svg {
+	vertical-align: unset;
 }
 
 #iframeCard {
@@ -75,6 +77,10 @@ a, .uk-link {
 	font-size: 18px;
 	vertical-align: middle;
 	height: 26px;
+}
+
+.system-status-button {
+	vertical-align: middle;
 }
 
 .system-status .desc {
