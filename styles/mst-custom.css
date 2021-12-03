@@ -3,6 +3,7 @@
 	--CARD-OPACITY: 1;
 	--CARD-BLUR-RADIUS: 20px;
 	--BACKGROUND-IMAGE: none;
+	--BORDER-COLOR: rgba(0,0,0,.12);
 }
 
 body {
@@ -82,13 +83,17 @@ a, .uk-link {
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 300ms ease;
+	border-left:   1px solid var(--BORDER-COLOR);
+	border-right:  1px solid var(--BORDER-COLOR);
+	border-bottom: 1px solid var(--BORDER-COLOR);
+	border-radius: 0 0 10px 10px;
 }
 .system-status .expand-button.active + .desc {
 	max-height: unset;
 }
 
 .system-status .expand-button {
-	border: 1px solid rgba(0,0,0,.12) !important;
+	border: 1px solid var(--BORDER-COLOR);
 	background-color: #ffffff;
 	cursor: pointer;
 	padding: 18px;
@@ -97,9 +102,11 @@ a, .uk-link {
 	text-align: left;
 	outline: none;
 	font-size: 15px;
+	border-radius: 10px;
 }
 .system-status .expand-button.active, .system-status .expand-button:hover {
 	background-color: #eeeeee;
+	border-radius: 10px 10px 0 0;
 }
 
 #statusCard {
