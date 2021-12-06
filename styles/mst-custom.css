@@ -72,6 +72,13 @@ svg {
 	visibility: visible;
 }
 
+.system-status-button {
+	vertical-align: middle;
+}
+
+.system-status-button--warning {
+	color: #FDDA24;
+}
 
 .uk-navbar-container:not(.uk-navbar-transparent) {
 	background-color: rgb(var(--CARD-COLOR-RGB));
