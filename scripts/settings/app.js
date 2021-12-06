@@ -48,7 +48,7 @@ function saveSettings() {
 	Cookies.set("cardOpacity", cardOpacityInput.value, { expires: Infinity });
 	Cookies.set("cardBlur", cardBlurInput.value, { expires: Infinity });
 
-	window.history.back();
+	window.location.href = "./";
 }
 
 themeInput.addEventListener("change", function () {
