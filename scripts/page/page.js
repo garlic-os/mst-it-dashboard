@@ -7,7 +7,7 @@
  */
 
 const rootFile = "";
-const versionNumber = "?71";
+const versionNumber = "?72";
 
 // URL Parameters
 const urlParams = new URLSearchParams(window.location.search);
