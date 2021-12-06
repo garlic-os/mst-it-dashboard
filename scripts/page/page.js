@@ -53,6 +53,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const cardBlur = Cookies.get("cardBlur") ?? "0";
     setCSSvar("--CARD-BLUR-RADIUS", cardBlur);
+
+    updateBackground(Cookies.get("backgroundURL"));
+
     // Check version and add update alert if needed
     checkVersion();
 });
