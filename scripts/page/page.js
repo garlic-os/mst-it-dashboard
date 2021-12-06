@@ -222,3 +222,77 @@ function disableDarkMode() {
         darkLink.remove();
     }
 }
+
+
+let ytAPIready = false;
+
+function onYouTubeIframeAPIReady() {
+    ytAPIready = true;
+}
+
+function getYouTubeID(url) {
+	const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+	const match = url.match(regExp);
+
+	return (match && match[2] && match[2].length === 11)
+		? match[2]
+		: null;
+}
+
+function loadYouTubeVideo(id) {
+    if (!ytAPIready) {
+        return setTimeout(() => {
+            loadYouTubeVideo(id);
+        }, 100);
+    }
+	new YT.Player("bg-youtube", {
+		height: "100%",
+		width: "100%",
+		videoId: id,
+		playerVars: {
+			autoplay: 1,
+			loop: 1,
+            mute: 1,
+			controls: 0,
+			disablekb: 1,
+			fs: 0,
+			iv_load_policy: 3,
+			modestbranding: 1,
+			showinfo: 0,
+			start: 0,
+			playsinline: 1,
+            playlist: id,
+			vq: "hd1080"
+		},
+	});
+}
+
+function updateBackground(url) {
+	if (url === "") {
+		document.body.style.backgroundImage = "none";
+		document.querySelector("#bg-youtube").src = "";
+		document.querySelector("#bg-video").src = "";
+	} else if (url.includes("youtu")) {
+		document.body.style.backgroundImage = "none";
+		document.querySelector("#bg-video").src = "";
+		loadYouTubeVideo(getYouTubeID(url));
+	} else if (url.endsWith(".mp4")) {
+		document.body.style.backgroundImage = "none";
+		document.querySelector("#bg-youtube").src = "";
+		document.querySelector("#bg-video").src = url;
+	} else {
+		document.querySelector("#bg-youtube").src = "";
+		document.querySelector("#bg-video").src = "";
+		document.body.style.backgroundImage = `url("${url}")`;
+		document.body.style.backgroundSize = "cover";
+		document.body.style.backgroundAttachment = "fixed";
+	}
+}
+
+function updateCardOpacity(opacity) {
+	root.style.setProperty("--CARD-OPACITY", opacity);
+}
+
+function updateCardBlur(blurRadius) {
+	root.style.setProperty("--CARD-BLUR-RADIUS", blurRadius);
+}

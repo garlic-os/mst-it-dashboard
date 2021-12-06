@@ -21,6 +21,9 @@
     <!-- MST Custom CSS Elements -->
     <link rel="stylesheet" type="text/css" href="./styles/mst-custom.css" />
 
+    <!-- YouTube API for video backgrounds -->
+    <script async src="https://www.youtube.com/iframe_api"></script>
+
     <!-- UIkit JS -->
     <script src="./scripts/uikit.js"></script>
     <script src="./scripts/uikit-icons.js"></script>
@@ -55,8 +58,9 @@
     <meta name="msapplication-square310x310logo" content="//campus.mst.edu/emctest/t4v3/favicon/310px.png" />
     <!-- End Fav Icons -->
 </head>
-<body style="height: 100vh;">
-    <iframe id="backVideo" title="YouTube video player"></iframe>
+<body>
+    <div id="bg-youtube"></div>
+    <video id="bg-video" autoplay loop muted></video>
     <div id="nav-holder" it-include-html="./templates/page/nav/main.html"></div>
     <div id="alert-holder"></div>
     <div id="grid-holder" it-include-html="./templates/page/loading.html" class="uk-margin-top uk-margin-left uk-margin-right uk-margin-bottom uk-grid-small uk-grid-match" uk-grid></div>

@@ -1,5 +1,5 @@
 const root = document.documentElement;
-const backgroundURLInput = document.getElementById("backURL");
+const backgroundURLInput = document.getElementById("bg-url");
 const cardOpacityInput = document.getElementById("cardOpat");
 const cardBlurInput = document.getElementById("cardBlur");
 const themeInput = document.getElementById("theme");
@@ -59,33 +59,3 @@ themeInput.addEventListener("change", function () {
 	}
 });
 
-function getYouTubeID(url) {
-	const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-	const match = url.match(regExp);
-
-	return (match && match[2] && match[2].length === 11)
-		? match[2]
-		: null;
-}
-
-function updateBackground(url) {
-	if (url === "") {
-		document.body.style.backgroundImage = "none";
-		document.getElementById("backVideo").src = "";
-	} else if (url.includes("youtu")) {
-		document.body.style.backgroundImage = "none";
-		document.getElementById("backVideo").src = `//www.youtube.com/embed/${getYouTubeID(url)}?autoplay=1`;
-	} else {
-		document.body.style.backgroundImage = `url("${url}")`;
-		document.body.style.backgroundSize = "cover";
-		document.body.style.backgroundAttachment = "fixed";
-	}
-}
-
-function updateCardOpacity(opacity) {
-	root.style.setProperty("--CARD-OPACITY", opacity);
-}
-
-function updateCardBlur(blurRadius) {
-	root.style.setProperty("--CARD-BLUR-RADIUS", blurRadius);
-}
