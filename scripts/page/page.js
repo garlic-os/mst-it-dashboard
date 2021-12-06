@@ -45,9 +45,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         await replaceGrid("./templates/page/welcome.html");
         loadJsApp("./scripts/settings/app.js");
     }
-    // Check version and add update alert if needed
-    checkVersion();
-
     // Update Navbar
     updateNav();
 
@@ -56,6 +53,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const cardBlur = Cookies.get("cardBlur") ?? "0";
     setCSSvar("--CARD-BLUR-RADIUS", cardBlur);
+    // Check version and add update alert if needed
+    checkVersion();
 });
 
 function setCSSvar(name, value) {
