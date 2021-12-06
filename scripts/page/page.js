@@ -1,7 +1,7 @@
 /**
  * IT Dashboard Page Functions
  * Written By: Sean Apple
- * Modified: 4/18/19 by Sean Apple
+ * Modified: 12/6/21 by Nate Kean
  *
  * Contains functions related to page generation
  */
