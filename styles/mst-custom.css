@@ -39,6 +39,40 @@ svg {
 	vertical-align: unset;
 }
 
+#iframeCard {
+	position: absolute;
+	overflow: hidden; 
+	top: 2rem;
+	left: 2rem;
+	height: 95vh;
+	width: 95vw;
+	z-index: 9001;
+	border-radius: 4px;
+	box-shadow: 0px 0px 0px 100px rgba(0,0,0,.54);
+	background: #005F83;
+}
+#iframeCard iframe {
+	border: 0;
+	padding-top: 65px;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+#iframeTitle {
+	color: #fff !important;
+}
+
+.iframe-hide {
+	visibility: hidden;
+}
+.iframe-show {
+	visibility: visible;
+}
+
+
 .uk-navbar-container:not(.uk-navbar-transparent) {
 	background-color: rgb(var(--CARD-COLOR-RGB));
 	transition: background-color 300ms ease;
