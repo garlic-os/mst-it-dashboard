@@ -21,7 +21,7 @@ a, .uk-link {
 	transition: color 125ms ease-out;
 }
 
-a:hover,
+a:not([role="button"]):hover,
 .uk-link:hover {
 	color: #ffffffb3 !important;
 }
