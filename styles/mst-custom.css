@@ -14,7 +14,6 @@ body {
 	background-position: center;
 	color: #fff;
 	height: 100vh;
-	contain: strict;
 }
 
 a, .uk-link {
@@ -22,7 +21,7 @@ a, .uk-link {
 	transition: color 125ms ease-out;
 }
 
-a:hover,
+a:not([role="button"]):hover,
 .uk-link:hover {
 	color: #ffffffb3 !important;
 }
@@ -37,6 +36,8 @@ a:not([href]), li.uk-active > a {
 
 svg {
 	vertical-align: unset;
+	max-width: unset;
+	height: unset;
 }
 
 #iframeCard {
@@ -107,6 +108,7 @@ svg {
 
 .uk-navbar {
 	padding: 0 1.25em;
+	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.34);
 }
 
 .uk-navbar-dropdown {
@@ -175,10 +177,6 @@ svg {
 }
 
 #bg-video, #bg-youtube {
-	z-index: -1000;
-	position: absolute;
-	left: 0; top: 50%;
-	transform: translateY(-50%);
 	width: 100%;
 	height: 100%;
 }
@@ -186,6 +184,16 @@ svg {
 #bg-youtube {
 	aspect-ratio: 16/9;
 	height: unset;
+}
+
+#bg-video-container {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	margin-bottom: -100vh;
+	contain: strict;
+	z-index: -1000;
 }
 
 #bg-url-container, #bg-url {
@@ -277,6 +285,10 @@ input:checked + .slider:before {
 	position: absolute;
 	top: 40px;
 	right: 40px;
+}
+
+.uk-navbar-nav {
+
 }
 
 .uk-navbar-right {
