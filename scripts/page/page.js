@@ -6,7 +6,7 @@
  * Contains functions related to page generation
  */
 
-const versionNumber = "?73";
+const versionNumber = "?74";
 
 // URL Parameters
 const urlParams = new URLSearchParams(window.location.search);
