@@ -40,6 +40,10 @@ a:not([href]), li.uk-active > a {
 	height: unset;
 }
 
+.uk-navbar .uk-icon > svg {
+	filter: drop-shadow(0 1px 4px #000);	
+}
+
 #iframeCard {
 	position: absolute;
 	overflow: hidden; 
