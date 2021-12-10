@@ -157,6 +157,7 @@ async function setApp(app) {
             loadJsApp("./scripts/status/app.js");
             break;
     }
+    convertToSinglePage();  // Apply SPA functionality to the newly loaded page
 }
 
 
@@ -315,7 +316,6 @@ function convertToSinglePage() {
         ) {
             continue;
         }
-        console.debug(a);
         a.addEventListener("click", async (event) => {
             if (event.which !== 1) return;  // Only left click
             event.preventDefault();
