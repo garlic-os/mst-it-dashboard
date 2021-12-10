@@ -315,7 +315,6 @@ function convertToSinglePage() {
         ) {
             continue;
         }
-        console.debug(a);
         a.addEventListener("click", async (event) => {
             if (event.which !== 1) return;  // Only left click
             event.preventDefault();
