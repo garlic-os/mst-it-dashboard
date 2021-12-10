@@ -157,7 +157,6 @@ async function setApp(app) {
             loadJsApp("./scripts/status/app.js");
             break;
     }
-    convertToSinglePage();  // Apply SPA functionality to the newly loaded page
 }
 
 
@@ -171,7 +170,7 @@ function loadJsApp(filePath) {
 
 async function replaceGrid(newgrid) {
     document.getElementById("grid-holder").setAttribute("it-include-html", newgrid);
-    await includeHTML();
+    await loadIncludes();
 }
 
 
@@ -185,10 +184,10 @@ function setPageName(name) {
 }
 
 
-async function includeHTML() {
-    // Loop all the elements on the page
-    for (const element of document.getElementsByTagName("*")) {
-        // Search for elements with a certain atrribute
+async function loadIncludes(parent=document) {
+    const operations = [];  // Array of promises
+    for (const element of parent.getElementsByTagName("*")) {
+        // Get URL for element's template
         const filePath = element.getAttribute("it-include-html");
         if (filePath) {
             // Make an HTTP request using the attribute value as the file name
@@ -201,10 +200,11 @@ async function includeHTML() {
                 element.innerHTML = "Page not found.";
             }
             element.removeAttribute("it-include-html");
-            await includeHTML();
-            break;
+            operations.push(loadIncludes(element));
         }
     }
+    await Promise.all(operations);
+    convertToSinglePage();  // Apply SPA functionality to the newly loaded page
 }
 
 
