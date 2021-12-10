@@ -157,6 +157,7 @@ async function setApp(app) {
             loadJsApp("./scripts/status/app.js");
             break;
     }
+    convertToSinglePage();  // Apply SPA functionality to the newly loaded page
 }
 
 
