@@ -91,7 +91,9 @@ svg {
 }
 
 .uk-card {
-	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	animation: fade-in 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
 	border-radius: 10px;
 	background-color: rgba(var(--CARD-COLOR-RGB), var(--CARD-OPACITY));
