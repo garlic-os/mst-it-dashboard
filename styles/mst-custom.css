@@ -34,7 +34,7 @@ a:not([href]), li.uk-active > a {
 	cursor: default;
 }
 
-svg {
+.uk-icon > svg {
 	vertical-align: unset;
 	max-width: unset;
 	height: unset;
