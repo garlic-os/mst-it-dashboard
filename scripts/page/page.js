@@ -6,12 +6,11 @@
  * Contains functions related to page generation
  */
 
-const rootFile = "";
 const versionNumber = "?72";
 
 // URL Parameters
 const urlParams = new URLSearchParams(window.location.search);
-const appParam = urlParams.get("app");
+const appParam = urlParams.get("app") ?? "dashboard";
 const typeParam = urlParams.get("type");
 const radarParam = urlParams.get("radar");
 const errorParam = urlParams.get("code");
@@ -21,24 +20,19 @@ const operationMode = Cookies.get("mode");
 
 document.addEventListener("DOMContentLoaded", async function () {
     const setupComplete = Cookies.get("setupComplete");
-    // Check if setup
-    if (setupComplete || !operationMode) {
-        // Check if app name exists in URL
-        if (appParam) {
-            // Load the requested app
-            setApp(appParam);
+    let appLoaded;
+    // Check if setup is complete and the operation mode is set
+    if (setupComplete && operationMode) {
+        // Load the requested app
+        appLoaded = setApp(appParam);
 
-            if (Cookies.get("theme") === "false") {
-                enableDarkMode();
-            }
+        if (Cookies.get("theme") === "false") {
+            enableDarkMode();
+        }
 
-            const backgroundURL = Cookies.get("backgroundURL");
-            if (backgroundURL) {
-                setCSSvar("--BACKGROUND-IMAGE", `url("${backgroundURL}")`);
-            }
-        } else {
-            // Redirect to dashboard
-            window.location.replace(`./${rootFile}?app=dashboard`);
+        const backgroundURL = Cookies.get("backgroundURL");
+        if (backgroundURL) {
+            setCSSvar("--BACKGROUND-IMAGE", `url("${backgroundURL}")`);
         }
     } else {
         // Set to Welcome
@@ -58,11 +52,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Check version and add update alert if needed
     checkVersion();
+
+    await appLoaded;
+    convertToSinglePage();
 });
+
 
 function setCSSvar(name, value) {
     document.documentElement.style.setProperty(name, value);
 }
+
 
 function checkVersion() {
     if (Cookies.get("version") !== versionNumber) {
@@ -71,12 +70,14 @@ function checkVersion() {
     }
 }
 
+
 function setAlert(message) {
     document.body.getElementById("alert-message").innerHTML = message;
 }
 
+
 function constructURL() {
-    let url = `./${rootFile}?app=${appParam}`;
+    let url = `./?app=${appParam}`;
     if (typeParam) {
         url += "&type=" + typeParam;
     }
@@ -85,6 +86,7 @@ function constructURL() {
     }
     return url;
 }
+
 
 function updateNav() {
     // Remove HD items if not HD modes
@@ -101,11 +103,13 @@ function updateNav() {
     }
 }
 
+
 async function setApp(app) {
     switch(app) {
         // We do not add 0: Welcome because page.js will auto detect if needed.
         case "dashboard":
-            // Set Display Mode
+        default:
+            // Set operation mode
             switch(operationMode) {
                 case "helpdesk":
                     await replaceGrid("./templates/dash/helpdesk.html");
@@ -117,9 +121,9 @@ async function setApp(app) {
                     await replaceGrid("./templates/dash/deploy.html");
                     break;
                 default:
-                    // Go to root
-                    window.location.replace(`./${rootFile}`);
-                    Cookies.set("mode", "helpdesk");
+                    // If operation mode is missing, require redo setup
+                    Cookies.set("setupComplete", null);
+                    window.location.reload();
                     break;
             }
             loadJsApp("./scripts/dashboard/app.js");
@@ -152,12 +156,9 @@ async function setApp(app) {
             await replaceGrid("/templates/dash/status.html");
             loadJsApp("./scripts/status/app.js");
             break;
-        default: // Nothing
-            // Go to root
-            window.location.replace(`./${rootFile}`);
-            break;
     }
 }
+
 
 function loadJsApp(filePath) {
     const script = document.createElement("script");
@@ -172,13 +173,16 @@ async function replaceGrid(newgrid) {
     await includeHTML();
 }
 
+
 function addAlert() {
     document.getElementById("alert-holder").setAttribute("it-include-html", "./templates/page/alert.html");
 }
 
+
 function setPageName(name) {
     document.getElementById("page-title").innerHTML = name;
 }
+
 
 async function includeHTML() {
     // Loop all the elements on the page
@@ -267,6 +271,7 @@ function loadYouTubeVideo(id) {
 	});
 }
 
+
 function updateBackground(url) {
 	if (url === "") {
 		document.body.style.backgroundImage = "none";
@@ -289,10 +294,38 @@ function updateBackground(url) {
 	}
 }
 
+
 function updateCardOpacity(opacity) {
 	root.style.setProperty("--CARD-OPACITY", opacity);
 }
 
+
 function updateCardBlur(blurRadius) {
 	root.style.setProperty("--CARD-BLUR-RADIUS", blurRadius);
+}
+
+
+let navigating = false;
+function convertToSinglePage() {
+    for (const a of document.querySelectorAll('a:not([href="#"]):not([spa])')) {
+        if (
+            !a.href.startsWith(window.location.origin + window.location.pathname) ||
+            !a.href.includes("?") ||
+            !a.href.includes("app=")
+        ) {
+            continue;
+        }
+        console.debug(a);
+        a.addEventListener("click", async (event) => {
+            if (event.which !== 1) return;  // Only left click
+            event.preventDefault();
+            if (navigating) return;  // Only respond once to double-clicks
+            navigating = true;
+            window.history.pushState("", "", a.href);
+            const urlParams = new URLSearchParams(window.location.search);
+            await setApp(urlParams.get("app"));
+            navigating = false;
+        });
+        a.setAttribute("spa", "");  // Mark this link as converted
+    }
 }
