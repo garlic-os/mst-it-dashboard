@@ -34,10 +34,14 @@ a:not([href]), li.uk-active > a {
 	cursor: default;
 }
 
-svg {
+.uk-icon > svg {
 	vertical-align: unset;
 	max-width: unset;
 	height: unset;
+}
+
+.uk-navbar .uk-icon > svg {
+	filter: drop-shadow(0 1px 4px #000);	
 }
 
 #iframeCard {
@@ -91,7 +95,9 @@ svg {
 }
 
 .uk-card {
-	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	animation: fade-in 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
 	border-radius: 10px;
 	background-color: rgba(var(--CARD-COLOR-RGB), var(--CARD-OPACITY));
@@ -108,7 +114,7 @@ svg {
 
 .uk-navbar {
 	padding: 0 1.25em;
-	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.34);
+	text-shadow: 0 1px 4px #000;
 }
 
 .uk-navbar-dropdown {
@@ -285,10 +291,6 @@ input:checked + .slider:before {
 	position: absolute;
 	top: 40px;
 	right: 40px;
-}
-
-.uk-navbar-nav {
-
 }
 
 .uk-navbar-right {
