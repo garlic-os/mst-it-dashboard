@@ -132,10 +132,6 @@ async function setApp(app) {
             await replaceGrid("./templates/dash/settings.html");
             loadJsApp("./scripts/settings/app.js");
             break;
-        case "forms":
-            await replaceGrid("./templates/form/general.html");
-            loadJsApp("./scripts/forms/app.js");
-            break;
         case "emails":
             await replaceGrid("./templates/email/general.html");
             loadJsApp("./scripts/email/app.js");
@@ -151,10 +147,6 @@ async function setApp(app) {
         case "help":
             await replaceGrid("./templates/page/help.html");
             loadJsApp("./scripts/page/help.js");
-            break;
-        case "status":
-            await replaceGrid("/templates/dash/status.html");
-            loadJsApp("./scripts/status/app.js");
             break;
     }
 }
