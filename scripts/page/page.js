@@ -184,9 +184,9 @@ function setPageName(name) {
 }
 
 
-async function loadIncludes(parent=document) {
+async function loadIncludes(parent=document.body) {
     const operations = [];  // Array of promises
-    for (const element of parent.getElementsByTagName("*")) {
+    for (const element of parent.children) {
         // Get URL for element's template
         const filePath = element.getAttribute("it-include-html");
         if (filePath) {
