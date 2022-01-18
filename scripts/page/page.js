@@ -169,18 +169,18 @@ function loadJsApp(filePath) {
 
 
 async function replaceGrid(newgrid) {
-    document.getElementById("grid-holder").setAttribute("it-include-html", newgrid);
+    document.querySelector("#grid-holder").setAttribute("it-include-html", newgrid);
     await loadIncludes();
 }
 
 
 function addAlert() {
-    document.getElementById("alert-holder").setAttribute("it-include-html", "./templates/page/alert.html");
+    document.querySelector("#alert-holder").setAttribute("it-include-html", "./templates/page/alert.html");
 }
 
 
 function setPageName(name) {
-    document.getElementById("page-title").innerHTML = name;
+    document.querySelector("#page-title").textContent = name;
 }
 
 
