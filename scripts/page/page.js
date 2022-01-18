@@ -274,7 +274,7 @@ function loadYouTubeVideo(id) {
 
 
 function updateBackground(url) {
-	if (url === "") {
+	if (!url) {
 		document.body.style.backgroundImage = "none";
 		document.querySelector("#bg-youtube").src = "";
 		document.querySelector("#bg-video").src = "";
