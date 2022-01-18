@@ -12,7 +12,6 @@ var tickOpen = true;
 var tickUpdateInfo = "";
 var tickUpdateInstText = "";
 
-setPageName("Email Generator");
 startEmail();
 
 function loadEmail() {

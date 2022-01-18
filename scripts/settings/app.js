@@ -8,8 +8,6 @@ let cardOpacity = null;
 let cardBlur = null;
 
 
-setPageName("Settings");
-
 // Load user settings from cookies
 document.getElementById("runMode").value = Cookies.get("mode") ?? "helpdesk";
 document.getElementById("theme").checked = Cookies.get("theme") === "false" ? false : true;
@@ -49,6 +47,7 @@ function saveSettings() {
 	Cookies.set("cardBlur", cardBlurInput.value, { expires: Infinity });
 
 	setApp("dashboard");
+	history.pushState(null, null, "./");  // Remove URL parameters
 }
 
 themeInput.addEventListener("change", function () {

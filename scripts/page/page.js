@@ -72,7 +72,7 @@ function checkVersion() {
 
 
 function setAlert(message) {
-    document.body.getElementById("alert-message").innerHTML = message;
+    document.body.querySelector("#alert-message").innerHTML = message;
 }
 
 
@@ -127,34 +127,32 @@ async function setApp(app) {
                     break;
             }
             loadJsApp("./scripts/dashboard/app.js");
+            setPageName("Dashboard");
             break;
         case "settings":
             await replaceGrid("./templates/dash/settings.html");
             loadJsApp("./scripts/settings/app.js");
-            break;
-        case "forms":
-            await replaceGrid("./templates/form/general.html");
-            loadJsApp("./scripts/forms/app.js");
+            setPageName("Settings");
             break;
         case "emails":
             await replaceGrid("./templates/email/general.html");
             loadJsApp("./scripts/email/app.js");
+            setPageName("Email Generator");
             break;
         case "loaners":
             await replaceGrid("./templates/loaner/general.html");
             loadJsApp("./scripts/loaner/app.js");
+            setPageName("Loaner Computers");
             break;
         case "error":
             await replaceGrid("./templates/page/error.html");
             loadJsApp("./scripts/page/error.js");
+            setPageName("Dashboard");
             break;
         case "help":
             await replaceGrid("./templates/page/help.html");
             loadJsApp("./scripts/page/help.js");
-            break;
-        case "status":
-            await replaceGrid("/templates/dash/status.html");
-            loadJsApp("./scripts/status/app.js");
+            setPageName("Help");
             break;
     }
 }
@@ -169,24 +167,24 @@ function loadJsApp(filePath) {
 
 
 async function replaceGrid(newgrid) {
-    document.getElementById("grid-holder").setAttribute("it-include-html", newgrid);
+    document.querySelector("#grid-holder").setAttribute("it-include-html", newgrid);
     await loadIncludes();
 }
 
 
 function addAlert() {
-    document.getElementById("alert-holder").setAttribute("it-include-html", "./templates/page/alert.html");
+    document.querySelector("#alert-holder").setAttribute("it-include-html", "./templates/page/alert.html");
 }
 
 
 function setPageName(name) {
-    document.getElementById("page-title").innerHTML = name;
+    document.querySelector("#page-title").textContent = name;
 }
 
 
-async function loadIncludes(parent=document) {
+async function loadIncludes(parent=document.body) {
     const operations = [];  // Array of promises
-    for (const element of parent.getElementsByTagName("*")) {
+    for (const element of parent.children) {
         // Get URL for element's template
         const filePath = element.getAttribute("it-include-html");
         if (filePath) {
@@ -194,12 +192,12 @@ async function loadIncludes(parent=document) {
             // and replace the element"s content with the response text
             try {
                 const response = await fetch(filePath);
-                const responseText = await response.text();
-                element.innerHTML = responseText;
+                element.innerHTML = await response.text();
             } catch {
-                element.innerHTML = "Page not found.";
+                element.innerHTML = "<div>Error loading module</div>";
             }
             element.removeAttribute("it-include-html");
+            // Load any includes inside this include
             operations.push(loadIncludes(element));
         }
     }
@@ -274,7 +272,7 @@ function loadYouTubeVideo(id) {
 
 
 function updateBackground(url) {
-	if (url === "") {
+	if (!url) {
 		document.body.style.backgroundImage = "none";
 		document.querySelector("#bg-youtube").src = "";
 		document.querySelector("#bg-video").src = "";
