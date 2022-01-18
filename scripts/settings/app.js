@@ -49,6 +49,7 @@ function saveSettings() {
 	Cookies.set("cardBlur", cardBlurInput.value, { expires: Infinity });
 
 	setApp("dashboard");
+	history.pushState(null, null, "./");  // Remove URL parameters
 }
 
 themeInput.addEventListener("change", function () {
