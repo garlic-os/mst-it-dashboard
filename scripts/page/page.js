@@ -72,7 +72,7 @@ function checkVersion() {
 
 
 function setAlert(message) {
-    document.body.getElementById("alert-message").innerHTML = message;
+    document.body.querySelector("#alert-message").innerHTML = message;
 }
 
 
