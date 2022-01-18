@@ -127,26 +127,32 @@ async function setApp(app) {
                     break;
             }
             loadJsApp("./scripts/dashboard/app.js");
+            setPageName("Dashboard");
             break;
         case "settings":
             await replaceGrid("./templates/dash/settings.html");
             loadJsApp("./scripts/settings/app.js");
+            setPageName("Settings");
             break;
         case "emails":
             await replaceGrid("./templates/email/general.html");
             loadJsApp("./scripts/email/app.js");
+            setPageName("Email Generator");
             break;
         case "loaners":
             await replaceGrid("./templates/loaner/general.html");
             loadJsApp("./scripts/loaner/app.js");
+            setPageName("Loaner Computers");
             break;
         case "error":
             await replaceGrid("./templates/page/error.html");
             loadJsApp("./scripts/page/error.js");
+            setPageName("Dashboard");
             break;
         case "help":
             await replaceGrid("./templates/page/help.html");
             loadJsApp("./scripts/page/help.js");
+            setPageName("Help");
             break;
     }
 }

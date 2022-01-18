@@ -1,4 +1,3 @@
-setPageName("Dashboard Error");
 loadError();
 
 function loadError() {
