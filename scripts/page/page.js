@@ -194,12 +194,12 @@ async function loadIncludes(parent=document.body) {
             // and replace the element"s content with the response text
             try {
                 const response = await fetch(filePath);
-                const responseText = await response.text();
-                element.innerHTML = responseText;
+                element.innerHTML = await response.text();
             } catch {
-                element.innerHTML = "Page not found.";
+                element.innerHTML = "<div>Error loading module</div>";
             }
             element.removeAttribute("it-include-html");
+            // Load any includes inside this include
             operations.push(loadIncludes(element));
         }
     }
