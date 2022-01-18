@@ -19,9 +19,11 @@ pause > nul
 goto :EOF
 
 :error
-echo .
+@echo off
+echo.
 echo An error occurred.
 echo Press any key to exit...
 pause > nul
+goto :EOF
 
 :EOF
