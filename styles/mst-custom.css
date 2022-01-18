@@ -114,10 +114,13 @@ a:not([href]), li.uk-active > a {
 
 .uk-navbar {
 	padding: 0 1.25em;
+}
+
+.uk-navbar-nav {
 	text-shadow: 0 1px 4px #000;
 }
 
-.uk-navbar > * {
+.uk-navbar-dropdown {
 	text-shadow: initial;
 }
 
