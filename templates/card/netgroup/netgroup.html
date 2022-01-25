@@ -15,25 +15,25 @@
         </datalist>
         <ul class="uk-switcher uk-margin">
             <li>
-                <form action="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl" method="post" target="iframe" autocomplete="off">
+                <form action="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl" method="post" target="iframe" autocomplete="off" onsubmit="this.submit(); handleNetgroups(this); return false;">
                     <div class="inputs">
                         <input name="add_mem" class="uk-input uk-form-width-medium uk-form-small" type="text" id="netgroupUserInput" placeholder="UserID(s)">
                         <input name="groups" class="uk-input uk-form-width-medium uk-form-small" type="text" id="netgroupNetGroupInput" list="netgroupList" placeholder="Netgroup">
                     </div>
                     <input type="hidden" name="mode" value="add_member" />
                     <br />
-                    <input type="submit" class="uk-button uk-button-default uk-button-small" onclick="handleForm()" />
+                    <input type="submit" class="uk-button uk-button-default uk-button-small" />
                 </form>
             </li>
             <li>
-                <form action="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl" method="post" target="iframe" autocomplete="off">
+                <form action="https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl" method="post" target="iframe" autocomplete="off" onsubmit="this.submit(); handleNetgroups(this); return false;">
                     <div class="inputs">
                         <input name="groups" class="uk-input uk-form-width-medium uk-form-small" type="text" id="netgroupViewInput" list="netgroupList" placeholder="Netgroup">
                     </div>
                     <input type="hidden" name="mode" value="query" />
                     <input type="hidden" name="option" value="show" />
                     <br />
-                    <input type="submit" class="uk-button uk-button-default uk-button-small" onclick="handleForm()" />
+                    <input type="submit" class="uk-button uk-button-default uk-button-small" />
                 </form>
             </li>
         </ul>

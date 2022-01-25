@@ -201,7 +201,8 @@ function handleNetDB(mode) {
 }
 
 
-function handleForm() {
+function handleNetgroups() {
+    // navigate("Netgroups", "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl");
     showPopup();
     clearInput("netgroupUserInput");
     clearInput("netgroupNetGroupInput");
