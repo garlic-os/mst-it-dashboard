@@ -4,6 +4,9 @@ Modified: 11/12/21 by Nate Kean
 
 Contains functions related to the dashboard app */
 
+const countryCodesPromise = loadJSON("./data/dashboard/countryCodes.json");
+const formatPhone = document.getElementById("formatPhone");
+
 (async function () {
     // Netgroups
     // Clear out JavaScript warning
@@ -58,6 +61,7 @@ function setEnter() {
     if (cardExists(portB))   createEnter(portB, "portButton");
     if (cardExists(portN))   createEnter(portN, "portButton");
     if (cardExists(turbo))   createEnter(turbo, "turboButton");
+    if (cardExists(formatPhone))   createEnter(formatPhone, "formatNumberButton");
 }
 
 function createEnter(elementName, buttonName) {
@@ -241,4 +245,20 @@ function handlePeople(mode) {
                 timeout: 5000
             });
     }
+}
+
+async function getCountryCode(phoneNumber) {
+    const countryCodes = await countryCodesPromise;
+    for (const code of countryCodes) {
+        if (phoneNumber.startsWith(code)) {
+            return code;
+        }
+    }
+    return "";
+}
+
+async function handleFormatNumber() {
+    let phoneNumber = formatPhone.value.replace(/\D/g, "");
+    const countryCode = await getCountryCode(phoneNumber);
+    formatPhone.value = "+" + countryCode + " " + phoneNumber.substring(countryCode.length);
 }
