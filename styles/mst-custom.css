@@ -321,6 +321,12 @@ input:checked + .slider:before {
 	border-radius: 500px;
 }
 
+.uk-card-header {
+	padding-top: 30px;
+	padding-bottom: 20px; 
+}
+
 .uk-card-body {
 	padding-top: 0;
+	padding-bottom: 30px;
 }
