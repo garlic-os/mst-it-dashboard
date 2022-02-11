@@ -166,15 +166,15 @@ a:not([href]), li.uk-active > a {
 	color: rgba(255, 255, 255, 0.8) !important;
 }
 
-.inputs > .uk-input[type="text"]:first-of-type {
+.inputs > .uk-input:first-of-type {
 	border-radius: 4px 4px 0 0;
 }
 
-.inputs > .uk-input[type="text"]:last-of-type {
+.inputs > .uk-input:last-of-type {
 	border-radius: 0 0 4px 4px;
 }
 
-.inputs > .uk-input[type="text"]:only-of-type {
+.inputs > .uk-input:only-of-type {
 	border-radius: 4px;
 }
 
