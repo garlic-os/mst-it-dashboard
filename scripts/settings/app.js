@@ -3,9 +3,6 @@ const backgroundURLInput = document.getElementById("bg-url");
 const cardOpacityInput = document.getElementById("cardOpat");
 const cardBlurInput = document.getElementById("cardBlur");
 const themeInput = document.getElementById("theme");
-let backgroundURL = null;
-let cardOpacity = null;
-let cardBlur = null;
 
 
 // Load user settings from cookies
@@ -15,25 +12,6 @@ backgroundURLInput.value = Cookies.get("backgroundURL") ?? "";
 cardOpacityInput.value = Cookies.get("cardOpacity") ?? 1;
 cardBlurInput.value = Cookies.get("cardBlur") ?? 0;
 
-// Live reload user settings
-requestAnimationFrame(pollSettingsChange);
-
-
-function pollSettingsChange() {
-	if (backgroundURLInput.value !== backgroundURL) {
-		backgroundURL = backgroundURLInput.value;
-		updateBackground(backgroundURL);
-	}
-	if (cardOpacityInput.value !== cardOpacity) {
-		cardOpacity = cardOpacityInput.value;
-		updateCardOpacity(cardOpacity);
-	}
-	if (cardBlurInput.value !== cardBlur) {
-		cardBlur = cardBlurInput.value;
-		updateCardBlur(cardBlur);
-	}
-	requestAnimationFrame(pollSettingsChange);
-}
 
 function saveSettings() {
 	// Clear setup hold
@@ -57,4 +35,3 @@ themeInput.addEventListener("change", function () {
 		enableDarkMode();
 	}
 });
-

@@ -4,7 +4,6 @@
             <h1 style="margin-top:1rem;">Settings</h1>
         </div>
         <div class="uk-card-body">
-            <h1 class="uk-align-center">Settings</h1>
             <div class="uk-margin">
                 <h4>Operation Mode</h4>
                 <select id="runMode" class="uk-select uk-form-width-medium uk-form-small" >
@@ -25,19 +24,19 @@
                 <label class="uk-form-label">May also be a link to a YouTube video or MP4 file.</label>
                 <br/>
                 <div id="bg-url-container" class="uk-inline">
-                    <input id="bg-url" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Image URL">
+                    <input id="bg-url" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Image URL" oninput="updateBackground(this.value)">
                 </div>
             </div>
             <hr/>            
             <div class="uk-margin">
                 <h4>Card Opacity</h4>
                 <label class="uk-form-label">Minumum is completely transparent. Maximum is completely opaque.</label>
-                <input id="cardOpat" class="uk-range" type="range" value="1" min="0" max="1.0" step="0.001">
+                <input id="cardOpat" class="uk-range" type="range" value="1" min="0" max="1.0" step="0.001" oninput="updateCardOpacity(this.value)">
             </div>
             <div class="uk-margin">
                 <h4>Card Background Blur</h4>
                 <label class="uk-form-label">Minimum is perfectly clear. Maximum is completely frosty.</label>
-                <input id="cardBlur" class="uk-range" type="range" value="0" min="0" max="40" step="0.001">
+                <input id="cardBlur" class="uk-range" type="range" value="0" min="0" max="40" step="0.001" oninput="updateCardBlur(this.value)">
             </div>
             <div class="uk-margin">
                 <button class="uk-button uk-button-default" onclick="saveSettings()" style="float: right">Apply changes</button>
