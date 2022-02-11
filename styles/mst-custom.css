@@ -320,3 +320,7 @@ input:checked + .slider:before {
     background-color: #fffffff2;
 	border-radius: 500px;
 }
+
+.uk-card-body {
+	padding-top: 0;
+}
