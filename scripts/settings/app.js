@@ -6,12 +6,20 @@ const themeInput = document.getElementById("theme");
 
 
 // Load user settings from cookies
-document.getElementById("runMode").value = Cookies.get("mode") ?? "helpdesk";
+document.getElementById("runMode").value = getRunMode();
 document.getElementById("theme").checked = Cookies.get("theme") === "false" ? false : true;
 backgroundURLInput.value = Cookies.get("backgroundURL") ?? "";
 cardOpacityInput.value = Cookies.get("cardOpacity") ?? 1;
 cardBlurInput.value = Cookies.get("cardBlur") ?? 0;
 
+function getRunMode() {
+	const mode = Cookies.get("mode");
+	if (["helpdesk", "pros", "deploy"].includes(mode)) {
+		return mode;
+	} else {
+		return "helpdesk";
+	}
+}
 
 function saveSettings() {
 	// Clear setup hold
