@@ -100,8 +100,6 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-}
-
 function navigate(title, url) {
     document.getElementById("iframeTitle").innerHTML = title;
     document.getElementById("iframeURL").src = url;
