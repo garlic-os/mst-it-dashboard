@@ -100,14 +100,12 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-function expandPopup() {
-	window.open(document.getElementById("iframeURL").src);
 }
 
 function navigate(title, url) {
     document.getElementById("iframeTitle").innerHTML = title;
-    document.getElementById("iframeURL").method = 'get';
     document.getElementById("iframeURL").src = url;
+    document.getElementById("expandButton").href = url;
     showPopup();
 }
 
