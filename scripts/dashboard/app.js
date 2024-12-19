@@ -115,7 +115,7 @@ function handleAnalyzeUser(mode) {
     var value = document.getElementById("analyzeUser").value;
     switch(mode) {
         case 0: // SSO or ID number
-            var url = /^\d+$/.test(value) ? "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=search_emplid&emplid="+value+"&which=all" :
+            var url = /^\d+$/.test(value) ? "https://analyzer.apps.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?" :
 										    "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=view&userid="+value+"&which=all";
             navigate("Analyze User", url);
             clearInput("analyzeUser");
