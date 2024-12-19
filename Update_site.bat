@@ -5,8 +5,11 @@ echo Updating IT Dashboard to the latest version...
 @echo on
 set PATH=%PATH%;C:\Program Files\Git\bin
 git checkout previous-version || goto :error
+pause
 git pull origin main || goto :error
+pause
 git checkout main || goto :error
+pause
 git pull origin develop || goto :error
 @echo off
 
