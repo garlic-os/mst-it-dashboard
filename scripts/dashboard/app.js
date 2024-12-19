@@ -115,17 +115,17 @@ function handleAnalyzeUser(mode) {
     var value = document.getElementById("analyzeUser").value;
     switch(mode) {
         case 0: // SSO or ID number
-            var url = /^\d+$/.test(value) ? "https://analyzer.apps.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?" :
-										    "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=view&userid="+value+"&which=all";
+	    var url = /^\d+$/.test(value) ? "https://analyzer.apps.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=search_emplid&emplid="+value+"&which=all" :
+                                "https://analyzer.apps.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=view&userid="+value+"&which=all";
             navigate("Analyze User", url);
             clearInput("analyzeUser");
             break;
         case 1: // Name (partial)
-            navigate("Analyze User - Name Search", "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=search_name&partial_name="+value+"&which=all");
+            navigate("Analyze User - Name Search", "https://analyzer.apps.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=search_name&partial_name="+value+"&which=all");
             clearInput("analyzeUser");
             break;
         case 2: // Email (partial)
-            navigate("Analyze User - Email", "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=search_email&email="+value+"&which=all");
+            navigate("Analyze User - Email", "https://analyzer.apps.mst.edu/auth-cgi-bin/cgiwrap/analyzer/analyze.pl?mode=search_email&email="+value+"&which=all");
 			clearInput("analyzeUser");
             break;
         default:
@@ -165,28 +165,28 @@ function handleNetDB(mode) {
 	switch(mode) {
 		case 0: // Host/MAC
 			value = value.replace(/\:/g, '');
-			var url = /^[0-9A-Fa-f]{6}[0-9A-Fa-f]*$/.test(value) ? "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byether&search=" + value :
-																   "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byname&search=" + value;
+			var url = /^[0-9A-Fa-f]{6}[0-9A-Fa-f]*$/.test(value) ? "https://netdb.apps.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byether&search=" + value :
+																   "https://netdb.apps.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byname&search=" + value;
 			navigate("NetDB Search - Host or MAC", url);
 			break;
 		case 1: // Location
-			navigate("NetDB Search - Location", "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byloc&search=" + value);
+			navigate("NetDB Search - Location", "https://netdb.apps.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byloc&search=" + value);
 			break;
 		case 2: // Owner
-			navigate("NetDB Search - Owner", "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byowner&search=" + value);
+			navigate("NetDB Search - Owner", "https://netdb.apps.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byowner&search=" + value);
             break;
         case 3: // Register Standard
-            navigate("NetDB Register Standard", "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netdb/register-desktop.pl?owner=" + regUser + "&ether=" + regMac);
+            navigate("NetDB Register Standard", "https://netdb.apps.mst.edu/auth-cgi-bin/cgiwrap/netdb/register-desktop.pl?owner=" + regUser + "&ether=" + regMac);
             break;
         case 4: // Register Traveling
-            navigate("NetDB Register Traveling", "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netdb/register-desktop.pl?owner=" + regUser + "&nametype=travelname&ether=" + regMac);
+            navigate("NetDB Register Traveling", "https://netdb.apps.mst.edu/auth-cgi-bin/cgiwrap/netdb/register-desktop.pl?owner=" + regUser + "&nametype=travelname&ether=" + regMac);
             break;
         case 5: // Description
             value = value.replace(' ', '+');
-            navigate("NetDB Search - Description", "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=bydesc&search=" + value);
+            navigate("NetDB Search - Description", "https://netdb.apps.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=bydesc&search=" + value);
             break;
         case 6: // IP
-            navigate("NetDB Search - IP", "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byip&search=" + value);
+            navigate("NetDB Search - IP", "https://netdb.apps.mst.edu/auth-cgi-bin/cgiwrap/netdb/search-hosts.pl?mode=byip&search=" + value);
         default:
             UIkit.notification({
                 message: 'Unknown error in NetDB! Please refresh and try again.',
@@ -202,7 +202,7 @@ function handleNetDB(mode) {
 
 
 function handleNetgroups() {
-    // navigate("Netgroups", "https://itweb.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl");
+    // navigate("Netgroups", "https://netgroups.apps.mst.edu/auth-cgi-bin/cgiwrap/netgroups/netmngt.pl");
     showPopup();
     clearInput("netgroupUserInput");
     clearInput("netgroupNetGroupInput");
@@ -217,7 +217,7 @@ function handlePorts() {
     if (shownBuilding != "") {
         building = document.querySelector("#buildingList option[value='" + shownBuilding + "']").dataset.value;
     }
-    navigate('Port Search', 'https://itweb.mst.edu/auth-cgi-bin/cgiwrap/swconf/user-port-search.pl?mode=search&location=' + building + '&jack=' + port);
+    navigate('Port Search', 'https://swconf.apps.mst.edu/auth-cgi-bin/cgiwrap/swconf/user-port-search.pl?mode=search&location=' + building + '&jack=' + port);
     clearInput("portBuilding");
     clearInput("portNumber");
 }
