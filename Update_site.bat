@@ -27,4 +27,8 @@ echo Press any key to exit...
 pause > nul
 goto :EOF
 
+<<<<<<< HEAD
 :EOF
+=======
+:EOF
+>>>>>>> 7aa7e094280496c43fced333ef12c840522da164
