@@ -10,7 +10,6 @@ git pull origin main || goto :error
 pause
 git checkout main || goto :error
 pause
-pause
 git pull origin develop || goto :error
 @echo off
 
