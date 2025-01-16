@@ -144,26 +144,10 @@ function handleAnalyzePhone() {
 	clearInput("analyzePhone");
 }
 
-function handleLaps(mode) {
-	var laps = document.getElementById("lapsPassword").value;
-	var bitlocker = document.getElementById("bitLockerPassword").value;
-	
-	switch(mode) {
-		case 0: // LAPS
-			navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + laps);
-			break;
-		case 1: // BitLocker
-			navigate("BitLocker", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + bitlocker);
-			break;
-		default:
-            UIkit.notification({
-                message: 'Unknown error in tool! Please refresh and try again.',
-                status: 'danger',
-                pos: 'top-center',
-                timeout: 5000
-            });
+function handleLaps() {
+	var value = document.getElementById("lapsPassword").value;
+	navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
 	clearInput("lapsPassword");
-	clearInput("bitLockerPassword");
 }
 
 function handleDell() {
