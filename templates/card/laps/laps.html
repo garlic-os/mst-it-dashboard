@@ -1,7 +1,7 @@
 <div class="uk-card uk-card-primary">
     <div class="uk-card-header">
         <h4 class="uk-card-title" uk-icon="lock">
-            <a target="_blank" href="https://laps.mst.edu">LAPS</a>
+            <a target="_blank" href="https://laps.mst.edu">LAPS</a>/<a target="_blank" href="https://bitlocker.mst.edu">BitLocker</a><br> (Coming Soon)
         </h4>
     </div>
     <div class="uk-card-body">
@@ -9,8 +9,11 @@
             <input id="lapsPassword" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Hostname" />
         </div>
         <br />
-        <button id="lapsButton" class="uk-button uk-button-default uk-button-small" onclick="handleLaps()">
-            Search
+        <button id="lapsButton" class="uk-button uk-button-default uk-button-small" onclick="handleLaps(0)">
+            LAPS
+        </button>
+		<button id="bitLockerButton" class="uk-button uk-button-default uk-button-small" onclick="handleLaps(1)">
+            BitLocker
         </button>
     </div>
 </div>

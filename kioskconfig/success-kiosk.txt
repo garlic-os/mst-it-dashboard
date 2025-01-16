@@ -1,0 +1,22 @@
+connection=wifi
+dhcp=yes
+wifi_encryption=wpa
+wpa_password=JoeMiner
+ssid_name=MST-PSK-N
+browser=firefox
+dpms_idle=15
+homepage=https://mst.starfishsolutions.com/starfish-ops/kiosk/index.html
+session_idle=45
+right_mouse_click=no
+wallpaper=https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Umr_stonehenge.jpg/204px-Umr_stonehenge.jpg
+whitelist=umsystem.edu shib-idp.umsystem.edu speedtest.mst.edu starfishsolutions.com
+https://login.microsoftonline.com
+additional_components=uefi.zip 
+kiosk_config=web.mst.edu/~ithelp/kioskconfig/success-kiosk.txt
+timezone=America/Chicago
+disable_zoom_controls=yes
+disable_address_bar=yes
+disable_navigation_bar=no
+onscreen_buttons=close
+shutdown_menu=reboot restart-session
+

@@ -1,0 +1,24 @@
+connection=wifi
+dhcp=yes
+wifi_encryption=wpa
+wpa_password=JoeMiner
+ssid_name=MST-PSK-N
+#connection=wired
+browser=firefox
+homepage=https://mst.starfishsolutions.com/starfish-ops/kiosk/index.html
+disable_navigation_bar=yes
+kiosk_config=https://web.mst.edu/ithelp/kioskconfig/advising-kiosk.txt
+#screensaver_idle=0
+#screensaver_archive_update=10
+#screensaver_archive=https://library.mst.edu/media/campussupport/library/images/logos/DisplayKioskZipFile.zip
+#slide_duration=10 
+wallpaper=https://en.wikipedia.org/wiki/File:Curtis_Laws_Wilson_Library_at_Missouri_S%26T_.jpg
+whitelist=umsystem.edu shib-idp.umsystem.edu speedtest.mst.edu starfishsolutions.com
+https://login.microsoftonline.com
+additional_components=uefi.zip
+timezone=America/Chicago
+disable_zoom_controls=yes
+disable_address_bar=yes
+disable_navigation_bar=no
+#onscreen_buttons=close
+shutdown_menu=reboot restart-session

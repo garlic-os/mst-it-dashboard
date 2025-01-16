@@ -1,0 +1,15 @@
+**TO-DO**
+
+Stage & Commit
+
+
+- Navigate to dir where batch is held
+- Open CMD there
+- Stage file
+git add scripts/dashboard/app.js
+
+- Commit changes
+git commit -m "Resolved merge conflict by keeping local changes in scripts/dashboard/app.js"
+
+- Push changes
+git push origin main

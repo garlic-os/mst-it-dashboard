@@ -1,0 +1,16 @@
+connection=wired
+dhcp=yes
+browser=firefox
+homepage=https://www.calendly.com/login|https://weather.com/weather/today/l/9162d45002dae39ffabd8ddc45508ee02916eb5aaecb8ee32b2842bbb97cf2db|https://status.mst.edu|https://www.ventusky.com/?p=38.0;-91.8;5&l=radar
+disable_navigation_bar=yes
+kiosk_config=https://web.mst.edu/ithelp/kioskconfig/cts-deploy-kiosk.txt
+#screensaver_idle=0
+#screensaver_archive_update=10
+#screensaver_archive=https://library.mst.edu/media/campussupport/library/images/logos/DisplayKioskZipFile.zip
+#slide_duration=10 
+wallpaper=https://en.wikipedia.org/wiki/File:Curtis_Laws_Wilson_Library_at_Missouri_S%26T_.jpg
+toggle_tabs=30
+refresh_webpage=300
+#whitelist=calendly.com mst.edu weather.com ventusky.com
+additional_components=uefi.zip
+timezone=America/Chicago

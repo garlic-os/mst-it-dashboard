@@ -1,0 +1,14 @@
+connection=wired
+dhcp=yes
+browser=firefox
+homepage=https://youtube.com
+disable_navigation_bar=no
+kiosk_config=https://web.mst.edu/ithelp/kioskconfig/stcafe-kiosk.txt
+#screensaver_idle=0
+#screensaver_archive_update=10
+#screensaver_archive=https://library.mst.edu/media/campussupport/library/images/logos/DisplayKioskZipFile.zip
+#slide_duration=10 
+wallpaper=https://en.wikipedia.org/wiki/File:Curtis_Laws_Wilson_Library_at_Missouri_S%26T_.jpg
+whitelist=library.mst.edu mst.edu youtube.com
+additional_components=uefi.zip
+timezone=America/Chicago
