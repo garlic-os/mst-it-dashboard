@@ -44,7 +44,6 @@ function setEnter() {
     const sccm = document.getElementById("sccm");
     const phone = document.getElementById("analyzePhone");
     const laps = document.getElementById("lapsPassword");
-	const bitLocker = document.getElementById("bitLockerPassword");
     const dell = document.getElementById("serviceTag");
     const ndbView = document.getElementById("netdb");
     const ndbReg = document.getElementById("netdbMac");
@@ -56,7 +55,6 @@ function setEnter() {
     if (cardExists(sccm))    createEnter(sccm, "sccmButton");
     if (cardExists(phone))   createEnter(phone, "phoneButton");
     if (cardExists(laps))    createEnter(laps, "lapsButton");
-	if (cardExists(laps))	 createEnter(bitLocker, "bitLockerButton");
     if (cardExists(dell))    createEnter(dell, "dellButton");
     if (cardExists(ndbView)) createEnter(ndbView, "ndbViewButton");
     if (cardExists(ndbReg))  createEnter(ndbReg, "ndbRegButton");
