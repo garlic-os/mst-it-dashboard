@@ -44,6 +44,7 @@ function setEnter() {
     const sccm = document.getElementById("sccm");
     const phone = document.getElementById("analyzePhone");
     const laps = document.getElementById("lapsPassword");
+	const bitlocker = document.getElementById("bitLockerPassword");
     const dell = document.getElementById("serviceTag");
     const ndbView = document.getElementById("netdb");
     const ndbReg = document.getElementById("netdbMac");
@@ -55,6 +56,7 @@ function setEnter() {
     if (cardExists(sccm))    createEnter(sccm, "sccmButton");
     if (cardExists(phone))   createEnter(phone, "phoneButton");
     if (cardExists(laps))    createEnter(laps, "lapsButton");
+	if (cardExists(laps))	 createEnter(bitlocker, "bitLockerButton");
     if (cardExists(dell))    createEnter(dell, "dellButton");
     if (cardExists(ndbView)) createEnter(ndbView, "ndbViewButton");
     if (cardExists(ndbReg))  createEnter(ndbReg, "ndbRegButton");
@@ -148,6 +150,12 @@ function handleLaps() {
 	var value = document.getElementById("lapsPassword").value;
 	navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
 	clearInput("lapsPassword");
+}
+
+function handleBitLocker() {
+	var value = document.getElementById("bitLockerPassword").value;
+	navigate("LAPS", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + value);
+	clearInput("bitLockerPassword");
 }
 
 function handleDell() {
