@@ -154,7 +154,7 @@ function handleLaps(mode) {
 			navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
 			break;
 		case 1: // BitLocker
-			navigate("BitLocker", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + bitLocker);
+			navigate("BitLocker", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + value);
 			break;
 	}
 	clearInput("bitLockerPassword");
