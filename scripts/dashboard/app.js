@@ -44,6 +44,7 @@ function setEnter() {
     const sccm = document.getElementById("sccm");
     const phone = document.getElementById("analyzePhone");
     const laps = document.getElementById("lapsPassword");
+	const bitLocker = document.getElementById("bitLockerPassword");
     const dell = document.getElementById("serviceTag");
     const ndbView = document.getElementById("netdb");
     const ndbReg = document.getElementById("netdbMac");
@@ -144,9 +145,16 @@ function handleAnalyzePhone() {
 	clearInput("analyzePhone");
 }
 
-function handleLaps() {
+function handleLaps(mode) {
 	var value = document.getElementById("lapsPassword").value;
-	navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
+	var bitLocker = document.getElementById("bitLockerPassword").value;
+		case 0: // LAPS
+			navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
+			break;
+		case 1: // BitLocker
+			navigate("BitLocker", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + bitLocker);
+			break;
+	clearInput("bitLockerPassword");
 	clearInput("lapsPassword");
 }
 
