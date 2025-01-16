@@ -154,7 +154,7 @@ function handleLaps() {
 
 function handleBitLocker() {
 	var value = document.getElementById("bitLockerPassword").value;
-	navigate("LAPS", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + value);
+	navigate("BitLocker", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + value);
 	clearInput("bitLockerPassword");
 }
 
