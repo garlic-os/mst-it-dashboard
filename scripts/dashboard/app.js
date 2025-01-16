@@ -155,7 +155,7 @@ function handleLaps(mode) {
 		case 1: // BitLocker
 			navigate("BitLocker", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + bitlocker);
 			break;
-	default:
+		default:
             UIkit.notification({
                 message: 'Unknown error in tool! Please refresh and try again.',
                 status: 'danger',
