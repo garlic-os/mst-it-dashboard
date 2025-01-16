@@ -149,7 +149,8 @@ function handleAnalyzePhone() {
 function handleLaps(mode) {
 	var value = document.getElementById("lapsPassword").value;
 	var bitLocker = document.getElementById("bitLockerPassword").value;
-	
+	console.log("LAPS:", value);
+	console.log("BL:", bitLocker);
 	switch (mode) {
 		case 0: // LAPS
 			navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
