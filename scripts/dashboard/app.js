@@ -159,6 +159,13 @@ function handleLaps(mode) {
 	clearInput("lapsPassword");
 }
 
+// Here's the OG LAPS handler
+// function handleLaps() {
+//	var value = document.getElementById("lapsPassword").value;
+//	navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
+//	clearInput("lapsPassword");
+//}
+
 function handleDell() {
 	var value = document.getElementById("serviceTag").value;
 	// Dell sets X-Frame-Options to deny, so we cannot display this in an iframe
