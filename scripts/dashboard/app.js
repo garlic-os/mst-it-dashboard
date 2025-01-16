@@ -148,12 +148,15 @@ function handleAnalyzePhone() {
 function handleLaps(mode) {
 	var value = document.getElementById("lapsPassword").value;
 	var bitLocker = document.getElementById("bitLockerPassword").value;
+	
+	switch (mode) {
 		case 0: // LAPS
 			navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
 			break;
 		case 1: // BitLocker
 			navigate("BitLocker", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + bitLocker);
 			break;
+	}
 	clearInput("bitLockerPassword");
 	clearInput("lapsPassword");
 }
