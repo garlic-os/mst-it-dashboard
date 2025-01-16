@@ -44,7 +44,6 @@ function setEnter() {
     const sccm = document.getElementById("sccm");
     const phone = document.getElementById("analyzePhone");
     const laps = document.getElementById("lapsPassword");
-	const bitlocker = document.getElementById("bitLockerPassword");
     const dell = document.getElementById("serviceTag");
     const ndbView = document.getElementById("netdb");
     const ndbReg = document.getElementById("netdbMac");
@@ -56,7 +55,6 @@ function setEnter() {
     if (cardExists(sccm))    createEnter(sccm, "sccmButton");
     if (cardExists(phone))   createEnter(phone, "phoneButton");
     if (cardExists(laps))    createEnter(laps, "lapsButton");
-	if (cardExists(laps))	 createEnter(bitlocker, "bitLockerButton");
     if (cardExists(dell))    createEnter(dell, "dellButton");
     if (cardExists(ndbView)) createEnter(ndbView, "ndbViewButton");
     if (cardExists(ndbReg))  createEnter(ndbReg, "ndbRegButton");
@@ -146,16 +144,25 @@ function handleAnalyzePhone() {
 	clearInput("analyzePhone");
 }
 
-function handleLaps() {
+function handleLaps(mode) {
 	var value = document.getElementById("lapsPassword").value;
-	navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
-	clearInput("lapsPassword");
-}
-
-function handleBitLocker() {
 	var value = document.getElementById("bitLockerPassword").value;
-	console.log("BitLocker Password: ", value); //Debug
-	navigate("BitLocker", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + value);
+	
+	switch(mode) {
+		case 0: // LAPS
+			navigate("LAPS", "https://laps.mst.edu/auth-cgi-bin/cgiwrap/mstlaps/search.pl?query=" + value);
+			break;
+		case 1: // BitLocker
+			navigate("BitLocker", "https://bitlocker.mst.edu/auth-cgi-bin/cgiwrap/mstbitlocker/search.pl?query=" + value);
+			break;
+	default:
+            UIkit.notification({
+                message: 'Unknown error in tool! Please refresh and try again.',
+                status: 'danger',
+                pos: 'top-center',
+                timeout: 5000
+            });
+	clearInput("lapsPassword");
 	clearInput("bitLockerPassword");
 }
 
